@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void Shoot(){
-        Debug.Log($"Bullet position: {Bullet.transform.position}");
         Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
     }
 
