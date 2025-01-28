@@ -25,9 +25,13 @@ public class HealthComponent : MonoBehaviour
     /// Apply damage to the object.
     /// </summary>
     /// <param name="damageAmount">Amount of damage to apply.</param>
-    public void TakeDamage(int damageAmount)
+    /// <param name="damageSource">Object that caused the damage.</param>
+    public void TakeDamage(int damageAmount, GameObject damageSource)
     {
         if (damageAmount <= 0 || currentHealth <= 0) return;
+
+        // Print to the console who did the damage and how much.
+        Debug.Log($"{damageSource.name} dealt {damageAmount} damage to {gameObject.name}");
 
         currentHealth -= damageAmount;
 
@@ -40,6 +44,7 @@ public class HealthComponent : MonoBehaviour
         // If health reaches zero, invoke the health-depleted event.
         if (currentHealth == 0)
         {
+            Debug.Log($"{gameObject.name} has been destroyed!");
             onHealthDepleted?.Invoke();
         }
     }

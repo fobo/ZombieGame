@@ -9,7 +9,11 @@ public class PlayerController : MonoBehaviour
 
     //movement
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] private float fireRate = 0.2f; // Time between shots
     
+    [SerializeField] float spread = 5f; // Adjust this value to control the spread
+    private float nextFireTime = 0f;
+
     public GameObject Bullet;
     public Transform bulletSpawnPoint;
 
@@ -31,9 +35,11 @@ public class PlayerController : MonoBehaviour
 
 
         
-        if(Input.GetMouseButtonDown(0)){
-            Shoot();
-        }
+    if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+    {
+        Shoot();
+        nextFireTime = Time.time + fireRate;
+    }
 
         RotateTowardsMouse();
     }
@@ -57,9 +63,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Shoot(){
-        Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-    }
+void Shoot()
+{
+
+    // Calculate a random spread angle
+    float randomAngle = Random.Range(-spread, spread);
+
+    // Apply the random spread to the bullet's rotation
+    Quaternion spreadRotation = Quaternion.Euler(0, 0, bulletSpawnPoint.rotation.eulerAngles.z + randomAngle);
+
+    // Instantiate the bullet with the modified rotation
+    Instantiate(Bullet, bulletSpawnPoint.position, spreadRotation);
+}
+
 
     void RotateTowardsMouse(){
     // Get the mouse position in world space
@@ -75,5 +91,13 @@ public class PlayerController : MonoBehaviour
     // Apply the rotation to the player
     transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
+    }
+
+
+
+    public void Die()
+    {
+        Debug.Log($"Enemy {gameObject.name} has been destroyed!");
+        Destroy(gameObject);
     }
 }

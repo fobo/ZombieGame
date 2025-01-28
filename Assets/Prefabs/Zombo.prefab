@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7981308970868670867}
   m_Layer: 0
   m_Name: Zombo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,8 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f32281ddad2a4cab7afbd1016c4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
-  target: {fileID: 0}
+  moveSpeed: 350
 --- !u!114 &245654822392153075
 MonoBehaviour:
   m_ObjectHideFlags: 0

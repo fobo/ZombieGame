@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
 {
 
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] private GameObject target;
+    private GameObject target;
     
     Rigidbody2D myRigidBody;
 
@@ -15,6 +15,15 @@ public class MovementController : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         
+
+        // Find the player object in the scene and assign it as the target
+        target = GameObject.FindGameObjectWithTag("Player");
+
+        // Check if the player object is found to avoid null reference errors
+        if (target == null)
+        {
+            Debug.LogError("Player object not found! Make sure your player has the 'Player' tag.");
+        }
     }
 
     // Update is called once per frame
