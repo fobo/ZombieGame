@@ -11,11 +11,11 @@ public class PlayerGunController : MonoBehaviour
         // Handle shooting input
         if (equippedGun.weaponData.fireType == FireType.Automatic && Input.GetButton("Fire1"))
         {
-            equippedGun.Shoot();
+            equippedGun.Shoot(); // automatic fire guns
         }
         else if (equippedGun.weaponData.fireType == FireType.SingleFire && Input.GetButtonDown("Fire1"))
         {
-            equippedGun.Shoot();
+            equippedGun.Shoot(); // single fire guns
         }
 
         // Handle reload input
