@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Environment
   - Enemy
+  - GunUI
   layers:
   - Default
   - TransparentFX

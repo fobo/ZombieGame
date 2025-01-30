@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     {
         currTime += Time.deltaTime;
         if(currTime >= intervalTime){
-            Debug.Log("Making thing");
+            //Debug.Log("Making thing");
             spawnGameObject();
             currTime -= intervalTime;//reset the time back down
         }
