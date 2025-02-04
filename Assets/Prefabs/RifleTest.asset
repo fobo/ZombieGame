@@ -17,7 +17,7 @@ MonoBehaviour:
   fireType: 0
   reloadType: 0
   maxAmmo: 30
-  reloadSpeed: 2
+  reloadSpeed: 3
   fireRate: 0.1
   spread: 0.1
   bulletsPerShot: 1

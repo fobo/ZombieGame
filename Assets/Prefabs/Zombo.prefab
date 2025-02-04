@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8305144475506016706}
   - component: {fileID: 245654822392153075}
   - component: {fileID: -7981308970868670867}
+  - component: {fileID: -8426650336404375130}
   m_Layer: 0
   m_Name: Zombo
   m_TagString: Enemy
@@ -78,9 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
-    type: 3}
-  m_Color: {r: 0, g: 0.038576126, b: 1, a: 1}
+  m_Sprite: {fileID: -440512309, guid: dcd0d434ca4b83049a64212b1972c771, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &905487947371441501
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f32281ddad2a4cab7afbd1016c4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 350
+  moveSpeed: 100
 --- !u!114 &245654822392153075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +208,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+--- !u!95 &-8426650336404375130
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128294471269308694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00f5e0a78ffe34d4fafef480c3706102, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

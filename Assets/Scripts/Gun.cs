@@ -5,7 +5,6 @@ public class Gun : MonoBehaviour
 {
     [Header("Weapon Data")]
     public WeaponData weaponData; // Reference to the weapon's data
-
     [Header("Bullet Settings")]
     public Transform bulletSpawnPoint; // The point where bullets spawn
     public GameObject bulletPrefab;    // The bullet prefab (if using physical bullets)
@@ -17,22 +16,30 @@ public class Gun : MonoBehaviour
     public Transform casingSpawnPoint; // where the casing will spawn (like a minigun will be more to the left, etc)
 
     public Animator gunAnimator;
-    public GunHUD gunHUD;
-
+    public Canvas HUD;
+    private int currentAmmo;
 
     [Header("Runtime Variables")]
-    private int currentAmmo;
     private bool isReloading;
     private bool canShoot = true;
+
 
     // BUILT IN METHODS
     private void Start()
     {
-        currentAmmo = weaponData.maxAmmo;
+
         if (gunAnimator == null)
         {
             gunAnimator = GetComponentInChildren<Animator>();
         }
+
+        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        currentAmmo = weaponData.maxAmmo; // Start full mag
+        //old ammo component code, not used for the player anymore.
+        // if (ammoComponent == null)
+        // {
+        //     ammoComponent = GetComponentInParent<AmmoComponent>(); // Auto-assign if not set in the Inspector
+        // }
     }
 
     void Update()
@@ -49,12 +56,10 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        // Ensure inventory system exists and we have ammo
         if (isReloading || !canShoot || currentAmmo <= 0) return;
 
         currentAmmo--;
-        
-
-
 
         if (weaponData.fireType == FireType.Shotgun)
         {
@@ -72,6 +77,10 @@ public class Gun : MonoBehaviour
         {
             StartCoroutine(FireRateCooldown());
         }
+
+        // Update the HUD with new ammo count
+        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        //gunHUD.UpdateAmmoUI(InventorySystem.Instance.GetItemCount("Ammo"), weaponData.maxAmmo);
     }
 
     private void PlayShootAnimation()
@@ -119,7 +128,7 @@ public class Gun : MonoBehaviour
             }
         }
         PlayShootAnimation(); // plays the shooting animation in the HUD
-        gunHUD.PlayShellEjectionAnimation(); // plays the shell ejection from the HUD
+        //gunHUD.PlayShellEjectionAnimation(); // plays the shell ejection from the HUD
         EjectShellCasing();
         //Debug.Log($"Bullet fired with spread in direction: {direction}");
     }
@@ -131,27 +140,37 @@ public class Gun : MonoBehaviour
         PlayReloadAnimation();
         Debug.Log($"Reloading {weaponData.reloadType}...");
 
+        //  Get how much ammo is missing in the magazine
+        int missingAmmo = weaponData.maxAmmo - currentAmmo;
+
+        //  Check how much is available in reserve
+        int ammoReserve = InventorySystem.Instance.GetItemCount("Ammo");
+
+        //  Take only what's needed
+        int ammoToReload = Mathf.Min(missingAmmo, ammoReserve);
+
         switch (weaponData.reloadType)
         {
             case ReloadType.Magazine:
-                yield return new WaitForSeconds(weaponData.reloadSpeed / 2); // RELOADS ARE SPLIT BETWEEN 2 ANIMATIONS, SO DROP THE MAG IN TIME WITH THE HUD ANIM
-                currentAmmo = weaponData.maxAmmo;
-                DropMagazine();
+                Invoke("DropMagazine", weaponData.reloadSpeed / 2);
+                yield return new WaitForSeconds(weaponData.reloadSpeed);
+                InventorySystem.Instance.RemoveItem("Ammo", ammoToReload);
+                currentAmmo += ammoToReload;
                 break;
 
             case ReloadType.SingleShot:
             case ReloadType.Tube:
-                while (currentAmmo < weaponData.maxAmmo)
+                while (ammoToReload > 0)
                 {
-                    yield return new WaitForSeconds(weaponData.reloadSpeed / weaponData.maxAmmo);
-                    currentAmmo++;
-                    Debug.Log($"Reloaded 1 bullet. Ammo: {currentAmmo}/{weaponData.maxAmmo}");
+                    // Implement this later
                 }
                 break;
         }
 
         isReloading = false;
         Debug.Log("Reload complete!");
+        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        //gunHUD.UpdateAmmoUI(InventorySystem.Instance.GetItemCount("Ammo"), weaponData.maxAmmo);
     }
 
     private IEnumerator FireRateCooldown()
@@ -294,5 +313,4 @@ public class Gun : MonoBehaviour
     }
 
 
-    public int GetCurrentAmmo() => currentAmmo;
 }

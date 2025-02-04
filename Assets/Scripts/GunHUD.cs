@@ -18,7 +18,7 @@ public void PlayShellEjectionAnimation()
         shellInstance.transform.localRotation = Quaternion.identity;
 
         //  Force the animation to play
-        shellInstance.Play("ShellEjectAnimation"); // Replace with your actual animation name
+        shellInstance.Play("AK_Shell_Casing"); // Replace with your actual animation name
 
         // Destroy the animation after it plays
         //Destroy(shellInstance.gameObject, 1f);

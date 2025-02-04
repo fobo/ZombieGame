@@ -19,6 +19,11 @@ public class HealthComponent : MonoBehaviour
     {
         // Initialize current health to the max health.
         currentHealth = maxHealth;
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        }
     }
 
     /// <summary>
@@ -47,6 +52,11 @@ public class HealthComponent : MonoBehaviour
             Debug.Log($"{gameObject.name} has been destroyed!");
             onHealthDepleted?.Invoke();
         }
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        }
     }
 
     /// <summary>
@@ -64,6 +74,13 @@ public class HealthComponent : MonoBehaviour
 
         // Notify listeners about the health change.
         onHealthChanged?.Invoke(currentHealth, maxHealth);
+        Debug.Log("Healed " + healAmount);
+        Debug.Log("Current HP: " + GetCurrentHealth());
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        }
     }
 
     /// <summary>
@@ -73,6 +90,11 @@ public class HealthComponent : MonoBehaviour
     {
         currentHealth = maxHealth;
         onHealthChanged?.Invoke(currentHealth, maxHealth);
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        }
     }
 
     /// <summary>
