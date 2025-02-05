@@ -71,11 +71,24 @@ public class Gun : MonoBehaviour
 
 
         StartCoroutine(FireRateCooldown()); // most guns need to re acquire target before shooting again.
-        
+
 
         // Update the HUD with new ammo count
         HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
         //gunHUD.UpdateAmmoUI(InventorySystem.Instance.GetItemCount("Ammo"), weaponData.maxAmmo);
+    }
+
+    /// <summary>
+    /// Switch to a new weapon.
+    /// </summary>
+    public void EquipWeapon(WeaponData newWeapon)
+    {
+        weaponData = newWeapon;
+        currentAmmo = weaponData.maxAmmo; // Reload new weapon
+        Debug.Log($"Equipped {weaponData.weaponName}");
+        //Link the gun hud to the gun script so we can call UpdateGunAnimationUI()
+        //UpdateHUD();
+        HUDController.Instance?.UpdateGunAnimationUI();
     }
 
     private void PlayShootAnimation()
@@ -129,39 +142,39 @@ public class Gun : MonoBehaviour
     }
 
     //call this fire with spread when using a shotgun. shots is the number of projectiles each shell contains.
-private void FireShellWithSpread()
-{
-    for (int i = 0; i < weaponData.bulletsPerShot; i++)
+    private void FireShellWithSpread()
     {
-        // Random spread angle in degrees
-        float spreadAngle = Random.Range(-weaponData.spread, weaponData.spread);
-
-        // Calculate the new bullet rotation based on the gun's current rotation
-        Quaternion spreadRotation = Quaternion.Euler(0, 0, spreadAngle);
-
-        // Determine the final firing direction
-        Vector2 finalDirection = spreadRotation * transform.right;
-
-        if (bulletPrefab != null && bulletSpawnPoint != null)
+        for (int i = 0; i < weaponData.bulletsPerShot; i++)
         {
-            // Instantiate the bullet and adjust its rotation
-            GameObject bullet = Instantiate(
-                bulletPrefab, 
-                bulletSpawnPoint.position, 
-                bulletSpawnPoint.rotation * spreadRotation // Apply spread rotation to bullet
-            );
+            // Random spread angle in degrees
+            float spreadAngle = Random.Range(-weaponData.spread, weaponData.spread);
 
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            // Calculate the new bullet rotation based on the gun's current rotation
+            Quaternion spreadRotation = Quaternion.Euler(0, 0, spreadAngle);
+
+            // Determine the final firing direction
+            Vector2 finalDirection = spreadRotation * transform.right;
+
+            if (bulletPrefab != null && bulletSpawnPoint != null)
             {
-                rb.velocity = finalDirection * 20f;
+                // Instantiate the bullet and adjust its rotation
+                GameObject bullet = Instantiate(
+                    bulletPrefab,
+                    bulletSpawnPoint.position,
+                    bulletSpawnPoint.rotation * spreadRotation // Apply spread rotation to bullet
+                );
+
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.velocity = finalDirection * 20f;
+                }
             }
         }
+
+        PlayShootAnimation(); // Play shooting animation
+        EjectShellCasing(); // Eject one shell per shotgun shot
     }
-    
-    PlayShootAnimation(); // Play shooting animation
-    EjectShellCasing(); // Eject one shell per shotgun shot
-}
 
 
 

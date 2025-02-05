@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     // Reference to the equipped gun
     [SerializeField] private Gun equippedGun;
 
+    private string[] weaponSlots = {"AK47", "Shotgun" }; // Customize as needed
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -38,6 +39,14 @@ public class PlayerController : MonoBehaviour
         {
             canShootSingleFire = true;
         }
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                SwitchWeapon(weaponSlots[i]);
+            }
+        }
+
 
         RotateTowardsMouse();
     }
@@ -58,6 +67,22 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVelocity = direction * moveSpeed * Time.deltaTime;
 
         myRigidBody.velocity = moveVelocity;
+    }
+
+    private void SwitchWeapon(string weaponName)
+    {
+        if (InventorySystem.Instance.HasWeapon(weaponName))
+        {
+            WeaponData newWeapon = InventorySystem.Instance.GetWeaponData(weaponName);
+            if (newWeapon != null)
+            {
+                equippedGun.EquipWeapon(newWeapon);
+            }
+        }
+        else
+        {
+            Debug.Log($"You don't have {weaponName} yet!");
+        }
     }
 
     void RotateTowardsMouse()

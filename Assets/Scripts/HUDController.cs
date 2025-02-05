@@ -60,8 +60,8 @@ public class HUDController : MonoBehaviour
                 //we need to check if the gun script has a weapon data assigned to it, and the weapon data has an animation connected
             if(gunScript.weaponData != null && gunScript.weaponData.weaponAnimation != null){
                 Debug.Log("Weapon animator set!");
-                
-                gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation;
+                UpdateGunAnimationUI();
+                //gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation;
             }
         }
     }

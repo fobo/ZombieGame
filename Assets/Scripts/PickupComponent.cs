@@ -5,13 +5,14 @@ public class Pickup : MonoBehaviour
     [Header("Pickup Settings")]
     public PickupType pickupType; // Determines what kind of item this is
     public int amount = 10; // Amount to add (ammo, health, etc.)
-
+    public WeaponData weaponData;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             ApplyPickup(other.gameObject);
             Destroy(gameObject); // Destroy the pickup after collection
+            InventorySystem.Instance.PrintInventory();
         }
     }
 
@@ -39,6 +40,14 @@ public class Pickup : MonoBehaviour
                 }
                 break;
 
+
+            case PickupType.Weapon:
+                if (InventorySystem.Instance != null && weaponData != null)
+                {
+                    InventorySystem.Instance.AddWeapon(weaponData);
+                }
+                break;
+
             case PickupType.Custom:
 
                 break;
@@ -51,5 +60,6 @@ public enum PickupType
 {
     Ammo,
     Health,
+    Weapon,
     Custom
 }

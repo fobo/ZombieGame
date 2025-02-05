@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponAnimation: {fileID: 9100000, guid: 4137fe5204bb77e43a6375652623656e, type: 2}
   weaponIdleFrame: {fileID: 713077796, guid: 77639f9a2510efb48a19d7907d759d8d, type: 3}
-  weaponName: Rifle Test
+  weaponName: AK47
   weaponSprite: {fileID: 21300000, guid: b45359ba8633b9247a444862841d2af4, type: 3}
   fireType: 0
   reloadType: 0
