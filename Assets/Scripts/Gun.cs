@@ -9,14 +9,12 @@ public class Gun : MonoBehaviour
     public Transform bulletSpawnPoint; // The point where bullets spawn
     public GameObject bulletPrefab;    // The bullet prefab (if using physical bullets)
 
-    public GameObject magazinePrefab; // Magazine prefab to drop
+
     public Transform magazineSpawnPoint; // Where the magazine spawns (e.g., under the gun)
 
-    public GameObject casingPrefab; // shell casing
     public Transform casingSpawnPoint; // where the casing will spawn (like a minigun will be more to the left, etc)
 
-    public Animator gunAnimator;
-    public Canvas HUD;
+    public Animator gunAnimator; // links up to the animation player
     private int currentAmmo;
 
     [Header("Runtime Variables")]
@@ -227,10 +225,10 @@ private void FireShellWithSpread()
 
     private void DropMagazine()
     {
-        if (magazinePrefab != null && magazineSpawnPoint != null)
+        if (magazineSpawnPoint != null)
         {
             // Instantiate the magazine at the spawn point
-            GameObject magazine = Instantiate(magazinePrefab, magazineSpawnPoint.position, Quaternion.identity);
+            GameObject magazine = Instantiate(weaponData.magazineType, magazineSpawnPoint.position, Quaternion.identity);
 
             // Start the scaling and spinning effect
             StartCoroutine(AnimateMagazineDrop(magazine));
@@ -239,7 +237,7 @@ private void FireShellWithSpread()
 
     private void EjectShellCasing()
     {
-        if (casingPrefab != null && casingSpawnPoint != null)
+        if (casingSpawnPoint != null)
         {
             // Instantiate the magazine at the spawn point
             GameObject casing = Instantiate(weaponData.casingType, casingSpawnPoint.position, Quaternion.identity);

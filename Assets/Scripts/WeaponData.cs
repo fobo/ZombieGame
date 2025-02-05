@@ -7,6 +7,7 @@ public class WeaponData : ScriptableObject
 {
     [Header("Animation Data")]
     public AnimatorController weaponAnimation; // The weapons animation controller goes here.
+    public Sprite weaponIdleFrame; // This is the weapons default idle frame used for animations.
     [Header("General Settings")]
     public string weaponName; // Weapon name (e.g., AK-47)
     public Sprite weaponSprite; // Visual representation of the weapon

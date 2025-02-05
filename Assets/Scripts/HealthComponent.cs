@@ -22,8 +22,11 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            
         }
+    }
+    private void Start() {
+        HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
     }
 
     /// <summary>
