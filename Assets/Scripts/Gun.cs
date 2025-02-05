@@ -33,8 +33,8 @@ public class Gun : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
         }
 
-        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
         currentAmmo = weaponData.maxAmmo; // Start full mag
+        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
         //old ammo component code, not used for the player anymore.
         // if (ammoComponent == null)
         // {
@@ -63,14 +63,12 @@ public class Gun : MonoBehaviour
 
         if (weaponData.fireType == FireType.Shotgun)
         {
-            for (int i = 0; i < weaponData.bulletsPerShot; i++)
-            {
-                FireBulletWithSpread();
-            }
+            Debug.Log("Firing shotgun");
+            FireShellWithSpread(); // fire shotgun
         }
         else
         {
-            FireBulletWithSpread();
+            FireBulletWithSpread(); //fire literally everything else (for now)
         }
 
         if (weaponData.fireType == FireType.Automatic)
@@ -133,6 +131,35 @@ public class Gun : MonoBehaviour
         //Debug.Log($"Bullet fired with spread in direction: {direction}");
     }
 
+    //call this fire with spread when using a shotgun. shots is the number of projectiles each shell contains.
+    private void FireShellWithSpread()
+    {
+        for (int i = 0; i < weaponData.bulletsPerShot; i++)
+        {
+            // Apply spread
+            float randomSpreadX = Random.Range(-weaponData.spread, weaponData.spread);
+            float randomSpreadY = Random.Range(-weaponData.spread, weaponData.spread);
+
+            Vector3 direction = transform.right + new Vector3(randomSpreadX, randomSpreadY, 0);
+
+            if (bulletPrefab != null && bulletSpawnPoint != null)
+            {
+                // Spawn the bullet at the bulletSpawnPoint
+                //Debug.Log("Bullet spawned at " + bulletSpawnPoint.position + " And rotation " + bulletSpawnPoint.rotation);
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.velocity = direction.normalized * 20f; // Adjust speed as needed
+                }
+            }
+        }
+        PlayShootAnimation(); // plays the shooting animation in the HUD
+        //gunHUD.PlayShellEjectionAnimation(); // plays the shell ejection from the HUD
+        EjectShellCasing(); // eject only one shell for the shotgun
+        //Debug.Log($"Bullet fired with spread in direction: {direction}");
+    }
+
     public IEnumerator Reload()
     {
         if (isReloading) yield break;
@@ -162,7 +189,15 @@ public class Gun : MonoBehaviour
             case ReloadType.Tube:
                 while (ammoToReload > 0)
                 {
+                    Debug.Log(ammoToReload);
+                    //shotgun loads one shell at a time, so reload speed should be pretty short.
+                    yield return new WaitForSeconds(weaponData.reloadSpeed);
                     // Implement this later
+                    Debug.Log("Loading Shells " + currentAmmo + "/" + weaponData.maxAmmo);// "Loading shells 3/8" etc
+                    InventorySystem.Instance.RemoveItem("Ammo", 1);
+                    currentAmmo++; // add a shell to the tube
+                    ammoToReload--; // remove a shell from the waiting reserve
+
                 }
                 break;
         }

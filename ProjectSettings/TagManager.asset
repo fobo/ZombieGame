@@ -7,6 +7,7 @@ TagManager:
   - Environment
   - Enemy
   - GunUI
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Walls
   - Doodads
   - Ground
-  - 
+  - Bullet
   - 
   - 
   - 

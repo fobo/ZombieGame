@@ -26,6 +26,7 @@ public class HUDController : MonoBehaviour
         {
             healthText.text = $"100 / 100";
         }
+
     }
     /// <summary>
     /// Updates the ammo count on the HUD.

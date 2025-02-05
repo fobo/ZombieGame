@@ -17,16 +17,31 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
+    private bool canShootSingleFire = true; // Prevents rapid single-fire shots
+
     void Update()
     {
-        // Handle shooting
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0)) //  Detects individual clicks
         {
-            equippedGun.Shoot(); // Delegate shooting to the Gun script
+            if ((equippedGun.weaponData.fireType == FireType.SingleFire || equippedGun.weaponData.fireType == FireType.Shotgun) && canShootSingleFire)
+            {
+                equippedGun.Shoot();
+                canShootSingleFire = false; // Prevents continuous shooting
+            }
+            else if (equippedGun.weaponData.fireType == FireType.Automatic)
+            {
+                equippedGun.Shoot();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0)) //  Allows shooting again when button is released
+        {
+            canShootSingleFire = true;
         }
 
         RotateTowardsMouse();
     }
+
 
     private void FixedUpdate()
     {
