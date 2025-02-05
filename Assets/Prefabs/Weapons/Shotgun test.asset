@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a23457bee5d9c548bb54360c0edbd3c, type: 3}
   m_Name: Shotgun test
   m_EditorClassIdentifier: 
+  weaponAnimation: {fileID: 9100000, guid: 1d2171ad7c0cfdb4e9db0156a511d19c, type: 2}
   weaponName: Shotgun
   weaponSprite: {fileID: 21300000, guid: b45359ba8633b9247a444862841d2af4, type: 3}
   fireType: 2
   reloadType: 2
+  casingType: {fileID: 8608023441638839669, guid: 87ee7319d92af0641b4b10c1dcfa158e,
+    type: 3}
+  magazineType: {fileID: 0}
   maxAmmo: 8
   reloadSpeed: 0.2
   fireRate: 1
-  spread: 1.2
-  bulletsPerShot: 10
+  spread: 15
+  bulletsPerShot: 8
   damage: 10
   description: Test for the shotgun item

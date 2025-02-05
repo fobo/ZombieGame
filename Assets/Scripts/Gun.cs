@@ -71,10 +71,9 @@ public class Gun : MonoBehaviour
             FireBulletWithSpread(); //fire literally everything else (for now)
         }
 
-        if (weaponData.fireType == FireType.Automatic)
-        {
-            StartCoroutine(FireRateCooldown());
-        }
+
+        StartCoroutine(FireRateCooldown()); // most guns need to re acquire target before shooting again.
+        
 
         // Update the HUD with new ammo count
         HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
@@ -132,33 +131,42 @@ public class Gun : MonoBehaviour
     }
 
     //call this fire with spread when using a shotgun. shots is the number of projectiles each shell contains.
-    private void FireShellWithSpread()
+private void FireShellWithSpread()
+{
+    for (int i = 0; i < weaponData.bulletsPerShot; i++)
     {
-        for (int i = 0; i < weaponData.bulletsPerShot; i++)
+        // Random spread angle in degrees
+        float spreadAngle = Random.Range(-weaponData.spread, weaponData.spread);
+
+        // Calculate the new bullet rotation based on the gun's current rotation
+        Quaternion spreadRotation = Quaternion.Euler(0, 0, spreadAngle);
+
+        // Determine the final firing direction
+        Vector2 finalDirection = spreadRotation * transform.right;
+
+        if (bulletPrefab != null && bulletSpawnPoint != null)
         {
-            // Apply spread
-            float randomSpreadX = Random.Range(-weaponData.spread, weaponData.spread);
-            float randomSpreadY = Random.Range(-weaponData.spread, weaponData.spread);
+            // Instantiate the bullet and adjust its rotation
+            GameObject bullet = Instantiate(
+                bulletPrefab, 
+                bulletSpawnPoint.position, 
+                bulletSpawnPoint.rotation * spreadRotation // Apply spread rotation to bullet
+            );
 
-            Vector3 direction = transform.right + new Vector3(randomSpreadX, randomSpreadY, 0);
-
-            if (bulletPrefab != null && bulletSpawnPoint != null)
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
             {
-                // Spawn the bullet at the bulletSpawnPoint
-                //Debug.Log("Bullet spawned at " + bulletSpawnPoint.position + " And rotation " + bulletSpawnPoint.rotation);
-                GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    rb.velocity = direction.normalized * 20f; // Adjust speed as needed
-                }
+                rb.velocity = finalDirection * 20f;
             }
         }
-        PlayShootAnimation(); // plays the shooting animation in the HUD
-        //gunHUD.PlayShellEjectionAnimation(); // plays the shell ejection from the HUD
-        EjectShellCasing(); // eject only one shell for the shotgun
-        //Debug.Log($"Bullet fired with spread in direction: {direction}");
     }
+    
+    PlayShootAnimation(); // Play shooting animation
+    EjectShellCasing(); // Eject one shell per shotgun shot
+}
+
+
+
 
     public IEnumerator Reload()
     {
@@ -197,6 +205,8 @@ public class Gun : MonoBehaviour
                     InventorySystem.Instance.RemoveItem("Ammo", 1);
                     currentAmmo++; // add a shell to the tube
                     ammoToReload--; // remove a shell from the waiting reserve
+                    HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo); // show the hud updating as we load in shells
+                    //we can add a feature to cancel reloading early just in case we want to shoot before the tube is full.
 
                 }
                 break;
@@ -232,7 +242,7 @@ public class Gun : MonoBehaviour
         if (casingPrefab != null && casingSpawnPoint != null)
         {
             // Instantiate the magazine at the spawn point
-            GameObject casing = Instantiate(casingPrefab, casingSpawnPoint.position, Quaternion.identity);
+            GameObject casing = Instantiate(weaponData.casingType, casingSpawnPoint.position, Quaternion.identity);
 
             // Start the scaling and spinning effect
             StartCoroutine(AnimateCasingEjection(casing));

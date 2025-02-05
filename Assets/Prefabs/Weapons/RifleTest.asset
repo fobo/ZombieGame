@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a23457bee5d9c548bb54360c0edbd3c, type: 3}
   m_Name: RifleTest
   m_EditorClassIdentifier: 
+  weaponAnimation: {fileID: 9100000, guid: 4137fe5204bb77e43a6375652623656e, type: 2}
   weaponName: Rifle Test
   weaponSprite: {fileID: 21300000, guid: b45359ba8633b9247a444862841d2af4, type: 3}
   fireType: 0
   reloadType: 0
+  casingType: {fileID: 0}
+  magazineType: {fileID: 0}
   maxAmmo: 30
   reloadSpeed: 3
   fireRate: 0.1
