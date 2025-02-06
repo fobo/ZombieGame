@@ -1714,6 +1714,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933b27b95eca50a45984bcb76b69f011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1148302245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148302247}
+  - component: {fileID: 1148302246}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1148302246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148302245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe568ba826800d043a23cabe1ea2ca4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolItems:
+  - poolKey: bulletCasing
+    prefab: {fileID: 8608023441638839669, guid: 0653086062258cc4c86c461b8b93b28b,
+      type: 3}
+    poolSize: 10
+  - poolKey: shellCasing
+    prefab: {fileID: 8608023441638839669, guid: 87ee7319d92af0641b4b10c1dcfa158e,
+      type: 3}
+    poolSize: 10
+  - poolKey: Bullet
+    prefab: {fileID: 1062132742866633006, guid: c5898951c853268409ee2c89e195e259,
+      type: 3}
+    poolSize: 25
+  - poolKey: AKMag
+    prefab: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
+      type: 3}
+    poolSize: 10
+  - poolKey: basicZombie
+    prefab: {fileID: 8128294471269308694, guid: 286c3efd0707ea14fb4dc9165daa6b42,
+      type: 3}
+    poolSize: 10
+--- !u!4 &1148302247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148302245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 699.58185, y: 114.98049, z: -0.0054682866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1184319152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1850127062539653730, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
@@ -5148,8 +5213,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1762053744750187170, guid: 839141af8be6d8a448def0e20e36f4cd,
         type: 3}
+      propertyPath: poolKey
+      value: basicZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762053744750187170, guid: 839141af8be6d8a448def0e20e36f4cd,
+        type: 3}
       propertyPath: intervalTime
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1830752151915107961, guid: 839141af8be6d8a448def0e20e36f4cd,
         type: 3}
@@ -5209,7 +5279,7 @@ PrefabInstance:
     - target: {fileID: 8038532454385697526, guid: 839141af8be6d8a448def0e20e36f4cd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5398,6 +5468,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1148302247}
+  - {fileID: 201579430}
   - {fileID: 519420032}
   - {fileID: 420532437}
   - {fileID: 1093587702}
@@ -5416,6 +5488,5 @@ SceneRoots:
   - {fileID: 1038564907}
   - {fileID: 1611258842}
   - {fileID: 801375407}
-  - {fileID: 201579430}
   - {fileID: 1652758612}
   - {fileID: 1470343492}

@@ -9,14 +9,21 @@ public class Bullet : MonoBehaviour
     void Start()
     {
 
-        // Destroy the bullet after a certain lifetime (2 seconds)
-        Destroy(gameObject, lifetime);
     }
     private void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
+    private void OnEnable()
+    {
+        Invoke(nameof(ReturnToPool), lifetime);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         HealthComponent health = other.GetComponent<HealthComponent>();
@@ -25,6 +32,11 @@ public class Bullet : MonoBehaviour
             health.TakeDamage(damage, gameObject);
         }
 
-        Destroy(gameObject); // Destroy the bullet after hitting something
+        ReturnToPool();
+    }
+
+    private void ReturnToPool()
+    {
+        GameController.Instance.ReturnToPool("Bullet", gameObject);
     }
 }

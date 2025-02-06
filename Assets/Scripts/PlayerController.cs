@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     // Reference to the equipped gun
     [SerializeField] private Gun equippedGun;
 
-    private string[] weaponSlots = {"AK47", "Shotgun" }; // Customize as needed
+    private string[] weaponSlots = { "AK47", "Shotgun" }; // Customize as needed
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -22,23 +22,34 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //  Detects individual clicks
+        //  Handle Single Fire & Shotgun (One shot per click)
+        if (Input.GetMouseButtonDown(0))
         {
             if ((equippedGun.weaponData.fireType == FireType.SingleFire || equippedGun.weaponData.fireType == FireType.Shotgun) && canShootSingleFire)
             {
+                //Debug.Log("Single fire shot");
                 equippedGun.Shoot();
-                canShootSingleFire = false; // Prevents continuous shooting
-            }
-            else if (equippedGun.weaponData.fireType == FireType.Automatic)
-            {
-                equippedGun.Shoot();
+                canShootSingleFire = false; // Prevents continuous shooting until released
             }
         }
 
-        if (Input.GetMouseButtonUp(0)) //  Allows shooting again when button is released
+        //  Handle Automatic Fire (Hold to shoot)
+        if (Input.GetMouseButton(0)) // Detects if the button is HELD
+        {
+            if (equippedGun.weaponData.fireType == FireType.Automatic)
+            {
+                //Debug.Log("Automatic fire shot");
+                equippedGun.Shoot(); // Fire the gun (FireRateCooldown inside Shoot() handles timing)
+            }
+        }
+
+        //  Reset Single-Fire on Button Release
+        if (Input.GetMouseButtonUp(0))
         {
             canShootSingleFire = true;
         }
+
+        //  Handle Weapon Switching
         for (int i = 0; i < weaponSlots.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
@@ -47,9 +58,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
         RotateTowardsMouse();
     }
+
+
 
 
     private void FixedUpdate()
