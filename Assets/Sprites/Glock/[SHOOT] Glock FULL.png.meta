@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48baa64be3d12eb4e91dc17519c369d0
+guid: c123da91f0c9d7041b1d6b05e9c98c0e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_0
+      name: '[SHOOT] Glock FULL_0'
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60e4385944282704a851dcde3a28dcef
-      internalID: -1322326069
+      spriteID: f833e061ae35a62409fa1551b61ce6e0
+      internalID: 1360845226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_1
+      name: '[SHOOT] Glock FULL_1'
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00330e26ce7df9644abe0b1adb07717e
-      internalID: 771090117
+      spriteID: f6c0c55ed76e9cb45abe31da590647d6
+      internalID: 1889064210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_2
+      name: '[SHOOT] Glock FULL_2'
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49a145ad237996b438d0baececb42b25
-      internalID: -2036974633
+      spriteID: d244e2a952e7cf441b21115a4229c705
+      internalID: -1111991475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_3
+      name: '[SHOOT] Glock FULL_3'
       rect:
         serializedVersion: 2
-        x: 480
+        x: 576
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3978b0cb5b1b3104fa4dc8f0d606735b
-      internalID: -1863666532
+      spriteID: d5b444705270d6f43bf6e3fffa3a2de3
+      internalID: 94344828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_4
+      name: '[SHOOT] Glock FULL_4'
       rect:
         serializedVersion: 2
-        x: 640
+        x: 768
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,41 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f999acf02f690ec40a35987375faa129
-      internalID: 1047656126
+      spriteID: 1258ba5ab60cc404c97349a9177d8e17
+      internalID: -1779711589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_5
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 160
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39ad12374ce799946be0a33cd82d64da
-      internalID: 1479564064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_6
+      name: '[SHOOT] Glock FULL_5'
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d4b8fa3302ae14cb245e3a7e9a496a
-      internalID: -2142630041
+      spriteID: e66affa8b0d926641952d67479632480
+      internalID: 981791327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_7
+      name: '[SHOOT] Glock FULL_6'
       rect:
         serializedVersion: 2
-        x: 1120
+        x: 1152
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4a3ddbd2190bd4bb625582b0df6f0f
-      internalID: -1076040890
+      spriteID: 8d33c8a989c689b439bfee993ea2457a
+      internalID: 2127124148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_8
+      name: '[SHOOT] Glock FULL_7'
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1344
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 267e4b705d4d3b644a98502cba33658b
-      internalID: -850808144
+      spriteID: 19126d63ed6bf3340a58fb4a37972ad3
+      internalID: 1806803368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_9
+      name: '[SHOOT] Glock FULL_8'
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 1536
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecdf9db9bd71d4d43a3d5d5d4864eb23
-      internalID: 927109222
+      spriteID: b31c8efc01251bb48bed24c6e8335e33
+      internalID: -766098479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_10
+      name: '[SHOOT] Glock FULL_9'
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1728
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,41 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aa9740af95f3664f92771bbd80191a9
-      internalID: -1547825359
+      spriteID: bd4bdd1bd8afff9428507a8e3cbadbc6
+      internalID: -320125557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_11
-      rect:
-        serializedVersion: 2
-        x: 1760
-        y: 0
-        width: 160
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 595846fc2825a8f4d9af45b582244889
-      internalID: 227149130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_12
+      name: '[SHOOT] Glock FULL_10'
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2360d828c28b1b489092a59dae72da4
-      internalID: -580016836
+      spriteID: aac11b92da789cd4fb36ccb69918d034
+      internalID: 482950997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_FIRE_FULL_13
+      name: '[SHOOT] Glock FULL_11'
       rect:
         serializedVersion: 2
-        x: 2080
+        x: 2112
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,8 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f796fd94955ba3747b12368f6101599e
-      internalID: 2103904903
+      spriteID: f8ac6063df9edd942aa368f1772b7dcd
+      internalID: 1012781763
       vertices: []
       indices: 
       edges: []
@@ -401,20 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SHOTGUN_FIRE_FULL_0: -1322326069
-      SHOTGUN_FIRE_FULL_1: 771090117
-      SHOTGUN_FIRE_FULL_10: -1547825359
-      SHOTGUN_FIRE_FULL_11: 227149130
-      SHOTGUN_FIRE_FULL_12: -580016836
-      SHOTGUN_FIRE_FULL_13: 2103904903
-      SHOTGUN_FIRE_FULL_2: -2036974633
-      SHOTGUN_FIRE_FULL_3: -1863666532
-      SHOTGUN_FIRE_FULL_4: 1047656126
-      SHOTGUN_FIRE_FULL_5: 1479564064
-      SHOTGUN_FIRE_FULL_6: -2142630041
-      SHOTGUN_FIRE_FULL_7: -1076040890
-      SHOTGUN_FIRE_FULL_8: -850808144
-      SHOTGUN_FIRE_FULL_9: 927109222
+      '[SHOOT] Glock FULL_0': 1360845226
+      '[SHOOT] Glock FULL_1': 1889064210
+      '[SHOOT] Glock FULL_10': 482950997
+      '[SHOOT] Glock FULL_11': 1012781763
+      '[SHOOT] Glock FULL_2': -1111991475
+      '[SHOOT] Glock FULL_3': 94344828
+      '[SHOOT] Glock FULL_4': -1779711589
+      '[SHOOT] Glock FULL_5': 981791327
+      '[SHOOT] Glock FULL_6': 2127124148
+      '[SHOOT] Glock FULL_7': 1806803368
+      '[SHOOT] Glock FULL_8': -766098479
+      '[SHOOT] Glock FULL_9': -320125557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

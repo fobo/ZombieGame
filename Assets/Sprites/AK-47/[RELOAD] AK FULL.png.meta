@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 127025931254be24ab5d3e96d6347973
+guid: b3e9a44178457cb4fbaa1b80d4c33c67
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_0'
+      name: '[RELOAD] AK FULL_0'
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,62 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f1ec0ca5371ff479e3b1a48df8f46f
-      internalID: -468568053
+      spriteID: 1d95510190af4644f8f4ec51624b831b
+      internalID: -1213118295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_1'
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 331aa10b6f97e324b96bf2387c0b5e94
-      internalID: 1132713273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_2'
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7caf8d3761a4b048b098212b2e2d57d
-      internalID: -677692288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_3'
+      name: '[RELOAD] AK FULL_1'
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,62 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 397a3002d09d0e44eb4f2dbad19f3d38
-      internalID: 329272705
+      spriteID: c2a159f47305ea642a617ad259321426
+      internalID: 1718952668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_4'
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44fcc549fe171b143900f7036bcefb70
-      internalID: -311984662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_5'
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ada889ba157315e4e9a6785a596a3e1e
-      internalID: 1151781168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_6'
+      name: '[RELOAD] AK FULL_2'
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,62 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 711fbefe46c76ff4ba978489cb4c4414
-      internalID: -1278178252
+      spriteID: d8a901840b76ea14d90f4f28865caf41
+      internalID: 1249217552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_7'
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2544fb94462a2e24c95d17c27cfcb685
-      internalID: -1034900571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_8'
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29f7d74060aefec439eb3e3ae110b89a
-      internalID: -232519747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_9'
+      name: '[RELOAD] AK FULL_3'
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,62 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9705225a1d7c1a7439b12951ef90775f
-      internalID: -2142636683
+      spriteID: cf2bd2d7f21809c43b4997a79cd5206e
+      internalID: -2054491667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_10'
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79f2cc708f43e554abca61df5f939a3c
-      internalID: 1900520284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_11'
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc054e8266bef6e46819eb6f890ef379
-      internalID: 1940051068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_12'
+      name: '[RELOAD] AK FULL_4'
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,62 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2cfbf05e0bcfc942b35de16f6d79911
-      internalID: 965801143
+      spriteID: 81bc159cfdfa96e4b98d348bad67f242
+      internalID: 892553210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_13'
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 420de1081d5c8b94f8156b6825ca8b16
-      internalID: -1596488540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_14'
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06db5da8015ac80429259ef9cbf8e100
-      internalID: -1658470778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_15'
+      name: '[RELOAD] AK FULL_5'
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,62 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cafa8e5411a64b42a03ee9cc9cdd8be
-      internalID: 1279433546
+      spriteID: 3754662c932667549905cf5dc13fb30f
+      internalID: 1609740639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_16'
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 842b2c2e1917760469b856d523b1ccd0
-      internalID: -2117739291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_17'
-      rect:
-        serializedVersion: 2
-        x: 1088
-        y: 0
-        width: 64
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 982921b0ff8cc234199206af427e768b
-      internalID: 95837139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_18'
+      name: '[RELOAD] AK FULL_6'
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b065e06b4561f664daabdb9750adc725
-      internalID: 2073044495
+      spriteID: cd74ce5badc32184d846b63b2819e817
+      internalID: -848986027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_19'
+      name: '[RELOAD] AK FULL_7'
       rect:
         serializedVersion: 2
-        x: 1216
+        x: 1344
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -510,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa3524ca5aedbfe4e8c8d211db36e08b
-      internalID: -496119188
+      spriteID: 73ad810b416905644a1c67f2c47234de
+      internalID: -1953793209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[RELOAD] Glock - P80-sheet_20'
+      name: '[RELOAD] AK FULL_8'
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1536
         y: 0
-        width: 64
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -531,8 +279,407 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d6208716d9378641a8d4abb26c90692
-      internalID: 1701977076
+      spriteID: 857338afa03e5da4d81712fb02034885
+      internalID: 600783675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_9'
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28825819027ff14a965c4658a115465
+      internalID: -2032461795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_10'
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1f8cfe97616884cbb6a2196cbeec69
+      internalID: -2098572193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_11'
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f4ea0dc144c6f43a2d305163be45fb
+      internalID: 1582480928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_12'
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665b7f303b2cb774eb6ecf26804fd741
+      internalID: 1880461971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_13'
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c50c58d24902441a9cce6e91a57999
+      internalID: -1009427140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_14'
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1664e21d789bb944b8cb999392f90a3
+      internalID: -1517928762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_15'
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2baa1e3973cd69a46890fed7a25eef6a
+      internalID: -858456007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_16'
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b45cf1e7550d348be17dcc81312b11
+      internalID: 1880120754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_17'
+      rect:
+        serializedVersion: 2
+        x: 3264
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85475cac9be345489932d6ae1296b53
+      internalID: 47044363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_18'
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdc674bc2f747e4e85545dcfd767714
+      internalID: 229367939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_19'
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b85611aabafe742821893473372253
+      internalID: 749194337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_20'
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52c44b7500e806478661b244cb215d6
+      internalID: 504911992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_21'
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f287ccc8821374288e670432a41dd5
+      internalID: -926193434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_22'
+      rect:
+        serializedVersion: 2
+        x: 4224
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac49f95bba837940a078f69e108b16a
+      internalID: 2000207842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_23'
+      rect:
+        serializedVersion: 2
+        x: 4416
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c43eafefbcda34bbf1d44d476eb800
+      internalID: 879465599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_24'
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893dbf4c40fe2464fb973527d5fdbe25
+      internalID: -1840832694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_25'
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84494002ca4e77148b478bcbe3e0ab71
+      internalID: -2130357214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_26'
+      rect:
+        serializedVersion: 2
+        x: 4992
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01628def8442af418c7868abcec0555
+      internalID: -498434721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] AK FULL_27'
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07476d7701500b042985463517db2078
+      internalID: -1070705285
       vertices: []
       indices: 
       edges: []
@@ -548,27 +695,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      '[RELOAD] Glock - P80-sheet_0': -468568053
-      '[RELOAD] Glock - P80-sheet_1': 1132713273
-      '[RELOAD] Glock - P80-sheet_10': 1900520284
-      '[RELOAD] Glock - P80-sheet_11': 1940051068
-      '[RELOAD] Glock - P80-sheet_12': 965801143
-      '[RELOAD] Glock - P80-sheet_13': -1596488540
-      '[RELOAD] Glock - P80-sheet_14': -1658470778
-      '[RELOAD] Glock - P80-sheet_15': 1279433546
-      '[RELOAD] Glock - P80-sheet_16': -2117739291
-      '[RELOAD] Glock - P80-sheet_17': 95837139
-      '[RELOAD] Glock - P80-sheet_18': 2073044495
-      '[RELOAD] Glock - P80-sheet_19': -496119188
-      '[RELOAD] Glock - P80-sheet_2': -677692288
-      '[RELOAD] Glock - P80-sheet_20': 1701977076
-      '[RELOAD] Glock - P80-sheet_3': 329272705
-      '[RELOAD] Glock - P80-sheet_4': -311984662
-      '[RELOAD] Glock - P80-sheet_5': 1151781168
-      '[RELOAD] Glock - P80-sheet_6': -1278178252
-      '[RELOAD] Glock - P80-sheet_7': -1034900571
-      '[RELOAD] Glock - P80-sheet_8': -232519747
-      '[RELOAD] Glock - P80-sheet_9': -2142636683
+      '[RELOAD] AK FULL_0': -1213118295
+      '[RELOAD] AK FULL_1': 1718952668
+      '[RELOAD] AK FULL_10': -2098572193
+      '[RELOAD] AK FULL_11': 1582480928
+      '[RELOAD] AK FULL_12': 1880461971
+      '[RELOAD] AK FULL_13': -1009427140
+      '[RELOAD] AK FULL_14': -1517928762
+      '[RELOAD] AK FULL_15': -858456007
+      '[RELOAD] AK FULL_16': 1880120754
+      '[RELOAD] AK FULL_17': 47044363
+      '[RELOAD] AK FULL_18': 229367939
+      '[RELOAD] AK FULL_19': 749194337
+      '[RELOAD] AK FULL_2': 1249217552
+      '[RELOAD] AK FULL_20': 504911992
+      '[RELOAD] AK FULL_21': -926193434
+      '[RELOAD] AK FULL_22': 2000207842
+      '[RELOAD] AK FULL_23': 879465599
+      '[RELOAD] AK FULL_24': -1840832694
+      '[RELOAD] AK FULL_25': -2130357214
+      '[RELOAD] AK FULL_26': -498434721
+      '[RELOAD] AK FULL_27': -1070705285
+      '[RELOAD] AK FULL_3': -2054491667
+      '[RELOAD] AK FULL_4': 892553210
+      '[RELOAD] AK FULL_5': 1609740639
+      '[RELOAD] AK FULL_6': -848986027
+      '[RELOAD] AK FULL_7': -1953793209
+      '[RELOAD] AK FULL_8': 600783675
+      '[RELOAD] AK FULL_9': -2032461795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

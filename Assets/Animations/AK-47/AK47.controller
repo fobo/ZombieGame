@@ -219,7 +219,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AK_Fire
-  m_Speed: 10
+  m_Speed: 2.14
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5842215033137839692}

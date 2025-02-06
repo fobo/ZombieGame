@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 84cebe2174da6de4b9ab620ba34dc4b9
+guid: 4b14e72a2bc449d469c247ac3e80bdf2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_0'
+      name: '[START] Shotgun FULL_0'
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bad13866c4815b4798a4cf9e037231e
-      internalID: 871466310
+      spriteID: d41e331bd77e4574cab525f75b6088d1
+      internalID: -1172636867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_1'
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da9efaff87ed981458c51cff611d3810
-      internalID: -1897028338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_2'
+      name: '[START] Shotgun FULL_1'
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,41 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71059234bc9553c48a562c2a4022e238
-      internalID: -512211796
+      spriteID: 7234095327db89640891e640bc58b796
+      internalID: 1614066362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_3'
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ba72c6a9c857c3479f72153ceb0ef5a
-      internalID: -1152431165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_4'
+      name: '[START] Shotgun FULL_2'
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,41 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe2b6ecdabbd71e49b278932b2da9513
-      internalID: 2005785191
+      spriteID: e73f8ee392ee8fd439ec98e864977798
+      internalID: 769134998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_5'
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4901da07cdc82c8448d79e073424911c
-      internalID: -593193841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_6'
+      name: '[START] Shotgun FULL_3'
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,41 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b43c82ed81a48ba4c941f896080631ee
-      internalID: -1889393909
+      spriteID: ed157c9474985dd4aaf732daed7bf9f8
+      internalID: 2090824101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_7'
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 435e0b3bb3bba2444952a521c77895a3
-      internalID: -2093513561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_8'
+      name: '[START] Shotgun FULL_4'
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,41 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6513f5371d69b747839f1afcb8b4b8f
-      internalID: -2014733374
+      spriteID: 105316479682e644f8bd40bd0312aad4
+      internalID: -1370402577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_9'
-      rect:
-        serializedVersion: 2
-        x: 864
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cca63f5bacf678b4f92daa8d622c1d94
-      internalID: -1776660821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_10'
+      name: '[START] Shotgun FULL_5'
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d94abf7deaf994e95da793a2d4902d
-      internalID: 2127690501
+      spriteID: 521f8413fc3de90409048ba8c195bdfc
+      internalID: -1340630126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[SHOOT WITH MUZZLE FLASH] AK 47_11'
+      name: '[START] Shotgun FULL_6'
       rect:
         serializedVersion: 2
-        x: 1056
+        x: 1152
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b799d5699be751468ffcbf3921723ce
-      internalID: -1620436834
+      spriteID: 74a8dc511d6e184418ae10d9a0a9440a
+      internalID: -1085186707
       vertices: []
       indices: 
       edges: []
@@ -359,18 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      '[SHOOT WITH MUZZLE FLASH] AK 47_0': 871466310
-      '[SHOOT WITH MUZZLE FLASH] AK 47_1': -1897028338
-      '[SHOOT WITH MUZZLE FLASH] AK 47_10': 2127690501
-      '[SHOOT WITH MUZZLE FLASH] AK 47_11': -1620436834
-      '[SHOOT WITH MUZZLE FLASH] AK 47_2': -512211796
-      '[SHOOT WITH MUZZLE FLASH] AK 47_3': -1152431165
-      '[SHOOT WITH MUZZLE FLASH] AK 47_4': 2005785191
-      '[SHOOT WITH MUZZLE FLASH] AK 47_5': -593193841
-      '[SHOOT WITH MUZZLE FLASH] AK 47_6': -1889393909
-      '[SHOOT WITH MUZZLE FLASH] AK 47_7': -2093513561
-      '[SHOOT WITH MUZZLE FLASH] AK 47_8': -2014733374
-      '[SHOOT WITH MUZZLE FLASH] AK 47_9': -1776660821
+      '[START] Shotgun FULL_0': -1172636867
+      '[START] Shotgun FULL_1': 1614066362
+      '[START] Shotgun FULL_2': 769134998
+      '[START] Shotgun FULL_3': 2090824101
+      '[START] Shotgun FULL_4': -1370402577
+      '[START] Shotgun FULL_5': -1340630126
+      '[START] Shotgun FULL_6': -1085186707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

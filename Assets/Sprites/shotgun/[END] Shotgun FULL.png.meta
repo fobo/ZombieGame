@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc27a098454bfad4fa3031e612a43afa
+guid: 06b1c139c548a5248973a7b73e3795d6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_0
+      name: '[END] Shotgun FULL_0'
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e19c1da555503ae47832f2066bf8d6d9
-      internalID: -386768570
+      spriteID: ad922eb2a919964498d737c28af41685
+      internalID: 1558483141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_1
+      name: '[END] Shotgun FULL_1'
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 679864119dbbc184f978efc8a0cfa5a0
-      internalID: 1897172126
+      spriteID: 03e803aa6bf9597489fe039c9051837d
+      internalID: -1729304425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_2
+      name: '[END] Shotgun FULL_2'
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5caba0f91f91ca4cb05d2bc310066cd
-      internalID: -1965301244
+      spriteID: 6b73a343ba2ae8047aec980ec27a73b0
+      internalID: 546263314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_3
+      name: '[END] Shotgun FULL_3'
       rect:
         serializedVersion: 2
-        x: 480
+        x: 576
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a9982f450c248c468354f010825710b
-      internalID: 956952108
+      spriteID: e70e95494a7dc8b4ba95b3ef81b2e0da
+      internalID: -320516315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_4
+      name: '[END] Shotgun FULL_4'
       rect:
         serializedVersion: 2
-        x: 640
+        x: 768
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,41 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd61c2de0384ba143b0b7e5a923ad21e
-      internalID: -1464828659
+      spriteID: fa89c21121f3d81469127f790825a7cb
+      internalID: -959814225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_5
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 160
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 674f3f63eaa2912479564559867c8546
-      internalID: 837189939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SHOTGUN_RELOAD-START-sheet_6
+      name: '[END] Shotgun FULL_5'
       rect:
         serializedVersion: 2
         x: 960
         y: 0
-        width: 160
-        height: 32
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,8 +216,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ccbe8fd5f37a9e4e8c441690149bfc3
-      internalID: 1180356978
+      spriteID: 9ec86d1634ec36846ba79909c1fc6710
+      internalID: -496837484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[END] Shotgun FULL_6'
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb9fda9b54e8224082e5b95bbcaa87a
+      internalID: -698807639
       vertices: []
       indices: 
       edges: []
@@ -254,13 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SHOTGUN_RELOAD-START-sheet_0: -386768570
-      SHOTGUN_RELOAD-START-sheet_1: 1897172126
-      SHOTGUN_RELOAD-START-sheet_2: -1965301244
-      SHOTGUN_RELOAD-START-sheet_3: 956952108
-      SHOTGUN_RELOAD-START-sheet_4: -1464828659
-      SHOTGUN_RELOAD-START-sheet_5: 837189939
-      SHOTGUN_RELOAD-START-sheet_6: 1180356978
+      '[END] Shotgun FULL_0': 1558483141
+      '[END] Shotgun FULL_1': -1729304425
+      '[END] Shotgun FULL_2': 546263314
+      '[END] Shotgun FULL_3': -320516315
+      '[END] Shotgun FULL_4': -959814225
+      '[END] Shotgun FULL_5': -496837484
+      '[END] Shotgun FULL_6': -698807639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

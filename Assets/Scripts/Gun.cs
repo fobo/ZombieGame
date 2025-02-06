@@ -31,8 +31,8 @@ public class Gun : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
         }
 
-        currentAmmo = weaponData.maxAmmo; // Start full mag
-        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        //currentAmmo = weaponData.maxAmmo; // Start full mag
+        //HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
         //old ammo component code, not used for the player anymore.
         // if (ammoComponent == null)
         // {

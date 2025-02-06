@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f16f699b49ab15c4bb3814c2a13466e8
+guid: b24262cb1a00c64419fd76e941db09f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: '[CASING] AK 47_0'
+      name: '[RELOAD] Shotgun FULL_0'
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90769de81dfa83244971fd5873e03855
-      internalID: 128223863
+      spriteID: 588a601377973c748a77c7a28e8fa17e
+      internalID: 1939806198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[CASING] AK 47_1'
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69f036ec1bdb40d4db66c0db874d798e
-      internalID: 461489598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[CASING] AK 47_2'
+      name: '[RELOAD] Shotgun FULL_1'
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,41 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 968ffc1f94dce67468124cc78f19c6c2
-      internalID: 1968491674
+      spriteID: b0d26b5cb3899b14cbb18854522f2707
+      internalID: -1462743011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[CASING] AK 47_3'
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a994aebc58c8cb4faf64d3afd6575c8
-      internalID: -178171595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[CASING] AK 47_4'
+      name: '[RELOAD] Shotgun FULL_2'
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,41 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 913432bdca3206546bda73deef1f72fe
-      internalID: -512058503
+      spriteID: 8be782f725437ef439bbd12cba4cef95
+      internalID: 1694450678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[CASING] AK 47_5'
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66d51b67aff5f144ca6733335b023d98
-      internalID: -1463480323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[CASING] AK 47_6'
+      name: '[RELOAD] Shotgun FULL_3'
       rect:
         serializedVersion: 2
         x: 576
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,41 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90ebc41ea15a5a54fb1c90eeeade2e9f
-      internalID: -1815468606
+      spriteID: 4a8ab4e8d67bd3e4290cac8ee3a04a5e
+      internalID: 1291033141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: '[CASING] AK 47_7'
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4de9d0b00908be1428b8427e320dad75
-      internalID: 1188321837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[CASING] AK 47_8'
+      name: '[RELOAD] Shotgun FULL_4'
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 96
-        height: 48
+        width: 192
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +195,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f6b8761dafb6d94793a522584b8baf1
-      internalID: 61766075
+      spriteID: daad22a0c48c68b47bf4bdbf90587d2c
+      internalID: -2075992585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_5'
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83271ffdc351ece45b2f17ede3feb773
+      internalID: 466942995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_6'
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d259bce891b6074ebb84d2c14e96150
+      internalID: 1311121323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_7'
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84c341481032964580fd3634e7818c9
+      internalID: 736553103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_8'
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5815e809f7c193439de066b07491fa8
+      internalID: -1237308630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_9'
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528311235e7dd6e428a9696072ce42db
+      internalID: -979533927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_10'
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ceb280b69f96d4a806bc2be7b1e715
+      internalID: -1313820301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_11'
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1008f3739d2929488686cfd245ddf89
+      internalID: 603971744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_12'
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86748decce7143e4987965b87282df22
+      internalID: 1877401758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[RELOAD] Shotgun FULL_13'
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5c719dca9de184e952417304cdbd46
+      internalID: -420188405
       vertices: []
       indices: 
       edges: []
@@ -296,15 +401,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      '[CASING] AK 47_0': 128223863
-      '[CASING] AK 47_1': 461489598
-      '[CASING] AK 47_2': 1968491674
-      '[CASING] AK 47_3': -178171595
-      '[CASING] AK 47_4': -512058503
-      '[CASING] AK 47_5': -1463480323
-      '[CASING] AK 47_6': -1815468606
-      '[CASING] AK 47_7': 1188321837
-      '[CASING] AK 47_8': 61766075
+      '[RELOAD] Shotgun FULL_0': 1939806198
+      '[RELOAD] Shotgun FULL_1': -1462743011
+      '[RELOAD] Shotgun FULL_10': -1313820301
+      '[RELOAD] Shotgun FULL_11': 603971744
+      '[RELOAD] Shotgun FULL_12': 1877401758
+      '[RELOAD] Shotgun FULL_13': -420188405
+      '[RELOAD] Shotgun FULL_2': 1694450678
+      '[RELOAD] Shotgun FULL_3': 1291033141
+      '[RELOAD] Shotgun FULL_4': -2075992585
+      '[RELOAD] Shotgun FULL_5': 466942995
+      '[RELOAD] Shotgun FULL_6': 1311121323
+      '[RELOAD] Shotgun FULL_7': 736553103
+      '[RELOAD] Shotgun FULL_8': -1237308630
+      '[RELOAD] Shotgun FULL_9': -979533927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
