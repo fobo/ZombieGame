@@ -88,7 +88,6 @@ public class HUDController : MonoBehaviour
     }
 
     public void UpdateGunAnimationUI(){
-        
         Gun gunScript = currentGun.GetComponent<Gun>(); // gets the Gun script
         gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation;
     }

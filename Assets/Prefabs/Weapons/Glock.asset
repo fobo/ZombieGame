@@ -16,16 +16,17 @@ MonoBehaviour:
   weaponIdleFrame: {fileID: 1360845226, guid: c123da91f0c9d7041b1d6b05e9c98c0e, type: 3}
   weaponName: Glock
   weaponSprite: {fileID: 1360845226, guid: c123da91f0c9d7041b1d6b05e9c98c0e, type: 3}
-  fireType: 0
+  fireType: 1
   reloadType: 0
   casingType: {fileID: 8608023441638839669, guid: 0653086062258cc4c86c461b8b93b28b,
     type: 3}
   magazineType: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
     type: 3}
-  maxAmmo: 30
+  maxAmmo: 19
   reloadSpeed: 2
   fireRate: 0.1
-  spread: 0.1
+  spread: 5
   bulletsPerShot: 1
   damage: 10
-  description: 
+  ammoType: 0
+  description: Glock 19

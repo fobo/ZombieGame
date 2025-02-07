@@ -28,4 +28,5 @@ MonoBehaviour:
   spread: 0.1
   bulletsPerShot: 1
   damage: 10
+  ammoType: 1
   description: This is a default test weapon.

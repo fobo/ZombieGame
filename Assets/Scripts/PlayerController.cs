@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRigidBody;
 
     // Reference to the equipped gun
-    [SerializeField] private Gun equippedGun;
+    [SerializeField] public Gun equippedGun;
 
-    private string[] weaponSlots = { "AK47", "Shotgun" }; // Customize as needed
+    [SerializeField] private WeaponData[] weaponSlots; // Customize as needed
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.I)){
+            InventorySystem.Instance?.PrintInventory();
+        }
         //  Handle Single Fire & Shotgun (One shot per click)
         if (Input.GetMouseButtonDown(0))
         {
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         //  Handle Automatic Fire (Hold to shoot)
         if (Input.GetMouseButton(0)) // Detects if the button is HELD
         {
+            
             if (equippedGun.weaponData.fireType == FireType.Automatic)
             {
                 //Debug.Log("Automatic fire shot");
@@ -81,21 +85,14 @@ public class PlayerController : MonoBehaviour
         myRigidBody.velocity = moveVelocity;
     }
 
-    private void SwitchWeapon(string weaponName)
+    void SwitchWeapon(WeaponData newWeapon)
     {
-        if (InventorySystem.Instance.HasWeapon(weaponName))
+        if (equippedGun != null)
         {
-            WeaponData newWeapon = InventorySystem.Instance.GetWeaponData(weaponName);
-            if (newWeapon != null)
-            {
-                equippedGun.EquipWeapon(newWeapon);
-            }
-        }
-        else
-        {
-            Debug.Log($"You don't have {weaponName} yet!");
+            equippedGun.EquipWeapon(newWeapon);
         }
     }
+
 
     void RotateTowardsMouse()
     {

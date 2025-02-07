@@ -6,7 +6,16 @@ public class Pickup : MonoBehaviour
     public PickupType pickupType; // Determines what kind of item this is
     public int amount = 10; // Amount to add (ammo, health, etc.)
     public WeaponData weaponData;
+
+    [Header("Ammo Settings")]
+    public AmmoType ammoType;
+
+
+
     private void OnTriggerEnter2D(Collider2D other)
+
+
+
     {
         if (other.CompareTag("Player"))
         {
@@ -31,8 +40,8 @@ public class Pickup : MonoBehaviour
             case PickupType.Ammo:
                 if (InventorySystem.Instance != null)
                 {
-                    InventorySystem.Instance.AddItem("Ammo", amount);
-                    Debug.Log($"Picked up {amount} Ammo. Total: {InventorySystem.Instance.GetItemCount("Ammo")}");
+                    InventorySystem.Instance.AddAmmo(ammoType, amount);
+                    Debug.Log($"Picked up {amount} {ammoType} ammo.");
                 }
                 else
                 {

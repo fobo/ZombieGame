@@ -27,4 +27,5 @@ MonoBehaviour:
   spread: 15
   bulletsPerShot: 8
   damage: 10
+  ammoType: 2
   description: Test for the shotgun item

@@ -23,6 +23,7 @@ public class WeaponData : ScriptableObject
     public float spread = 0.1f; // Bullet inaccuracy (0 = no spread)
     public int bulletsPerShot = 1; // Number of bullets fired per shot (e.g., for shotguns)
     public int damage = 10; // Damage per bullet
+    public AmmoType ammoType; // Choose the ammo type.... be careful, you can make the shotgun shoot rockets if you wanted it to.
 
     [TextArea]
     public string description; // Optional description for the weapon
