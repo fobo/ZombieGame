@@ -9,6 +9,7 @@ TagManager:
   - GunUI
   - Bullet
   - playerGun
+  - Spawner
   layers:
   - Default
   - TransparentFX

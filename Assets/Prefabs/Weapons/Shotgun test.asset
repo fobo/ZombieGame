@@ -22,10 +22,10 @@ MonoBehaviour:
     type: 3}
   magazineType: {fileID: 0}
   maxAmmo: 8
-  reloadSpeed: 0.2
+  reloadSpeed: 3
   fireRate: 1
   spread: 15
   bulletsPerShot: 8
-  damage: 10
+  damage: 30
   ammoType: 2
   description: Test for the shotgun item

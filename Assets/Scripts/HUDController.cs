@@ -1,5 +1,6 @@
 using UnityEngine;
-using TMPro; // Ensure you have TextMeshPro package installed
+using TMPro;
+using System; // Ensure you have TextMeshPro package installed
 
 public class HUDController : MonoBehaviour
 {
@@ -49,22 +50,32 @@ public class HUDController : MonoBehaviour
             if (currentGun == null)
             {
                 Debug.LogWarning("Gun object not found in the scene!");
-                
+
             }
 
             Gun gunScript = currentGun.GetComponent<Gun>(); // gets the Gun script
-            if(gunScript == null){
+            if (gunScript == null)
+            {
                 Debug.LogWarning("Could not find gun script.");
             }
 
-                //we need to check if the gun script has a weapon data assigned to it, and the weapon data has an animation connected
-            if(gunScript.weaponData != null && gunScript.weaponData.weaponAnimation != null){
+            //we need to check if the gun script has a weapon data assigned to it, and the weapon data has an animation connected
+            if (gunScript.weaponData != null && gunScript.weaponData.weaponAnimation != null)
+            {
                 Debug.Log("Weapon animator set!");
                 UpdateGunAnimationUI();
                 //gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation;
             }
         }
+
+        EventBus.Instance.OnAmmoUpdated += UpdateAmmoUI;
+        EventBus.Instance.OnHealthUpdated += UpdateHealthUI;
+        EventBus.Instance.OnEquipWeapon += UpdateGunAnimationUI;
+
     }
+
+
+
     /// <summary>
     /// Updates the ammo count on the HUD.
     /// </summary>
@@ -87,9 +98,46 @@ public class HUDController : MonoBehaviour
         }
     }
 
-    public void UpdateGunAnimationUI(){
-        Gun gunScript = currentGun.GetComponent<Gun>(); // gets the Gun script
-        gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation;
+    public void UpdateGunAnimationUI()
+    {
+        Debug.Log("Changing weapon display animations");
+        Gun gunScript = currentGun.GetComponent<Gun>(); // Get the Gun script
+        gunAnimator.runtimeAnimatorController = gunScript.weaponData.weaponAnimation; // Set correct animation controller
+
+        //  Get animation clips from the controller
+        AnimatorOverrideController overrideController = new AnimatorOverrideController(gunAnimator.runtimeAnimatorController);
+        gunAnimator.runtimeAnimatorController = overrideController;
+
+        AnimationClip reloadClip = GetAnimationClip(overrideController, "Reload");
+        AnimationClip fireClip = GetAnimationClip(overrideController, "Fire");
+
+        if (reloadClip != null)
+        {
+            float reloadSpeed = reloadClip.length / gunScript.weaponData.reloadSpeed; //  Normalize speed
+            gunAnimator.SetFloat("ReloadSpeed", reloadSpeed);
+            Debug.Log($"Reload Animation: {reloadClip.name}, Default Length: {reloadClip.length}s, Adjusted Speed: {reloadSpeed}");
+        }
+
+        if (fireClip != null)
+        {
+            float fireSpeed = fireClip.length / gunScript.weaponData.fireRate; //  Normalize speed
+            gunAnimator.SetFloat("FireSpeed", fireSpeed);
+            Debug.Log($"Fire Animation: {fireClip.name}, Default Length: {fireClip.length}s, Adjusted Speed: {fireSpeed}");
+        }
     }
 
+    /// <summary>
+    ///  Gets an animation clip by name from an AnimatorOverrideController.
+    /// </summary>
+    private AnimationClip GetAnimationClip(AnimatorOverrideController overrideController, string clipName)
+    {
+        foreach (var clipPair in overrideController.animationClips)
+        {
+            if (clipPair.name.Contains(clipName))
+            {
+                return clipPair;
+            }
+        }
+        return null;
+    }
 }

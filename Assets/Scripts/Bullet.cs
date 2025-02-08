@@ -3,7 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage = 10;
+    private int damage;
     public float lifetime = 3f;
 
     void Start()
@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+
+    public void setBulletDamage(int setDamage){
+        damage = setDamage;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

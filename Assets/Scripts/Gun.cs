@@ -66,8 +66,9 @@ public class Gun : MonoBehaviour
         currentAmmo = InventorySystem.Instance.GetSavedWeaponAmmo(weaponData.weaponName, weaponData.maxAmmo);
 
         //  Update the HUD with the correct ammo
-        HUDController.Instance?.UpdateGunAnimationUI();
-        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        Debug.Log("Updating from gun");
+        EventBus.Instance?.UpdateGunAnimationUI();
+        EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
 
 
@@ -92,7 +93,7 @@ public class Gun : MonoBehaviour
         StartCoroutine(FireRateCooldown());
 
         // Update HUD
-        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
 
 
@@ -135,11 +136,13 @@ public class Gun : MonoBehaviour
 
         if (bulletSpawnPoint != null)
         {
-            // 🔹 Get a bullet from the pool instead of Instantiating
+            //  Get a bullet from the pool instead of Instantiating
             GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
 
             if (bullet != null)
             {
+                Bullet bs = bullet.GetComponent<Bullet>(); // gain access to the bullet script
+                bs.setBulletDamage(weaponData.damage);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
@@ -194,17 +197,28 @@ public class Gun : MonoBehaviour
 
     public IEnumerator Reload()
     {
-        if (isReloading) yield break;
+        if (isReloading) yield break; // you cant reload if you are already reloading.
+
+        AmmoType ammoType = weaponData.ammoType;
+        int availableAmmo = InventorySystem.Instance.GetAmmoCount(ammoType);
+        int missingAmmo = weaponData.maxAmmo - currentAmmo;
+
+
+        if(missingAmmo == 0 || availableAmmo <=0){ // if the player has a full magazine, or has no ammo in the inventory, stop reload.
+            Debug.Log("Player does not need to reload, or magazine is full.");
+            yield break;
+        }
+
         isReloading = true;
         PlayReloadAnimation();
         Debug.Log($"Reloading {weaponData.weaponName}...");
 
         //  Get the correct ammo type for this weapon
-        AmmoType ammoType = weaponData.ammoType;
+        
 
         //  Calculate how much ammo we need to refill
-        int missingAmmo = weaponData.maxAmmo - currentAmmo;
-        int availableAmmo = InventorySystem.Instance.GetAmmoCount(ammoType);
+        
+        
 
         //  Determine how much we can actually reload
         int ammoToReload = Mathf.Min(missingAmmo, availableAmmo);
@@ -219,7 +233,8 @@ public class Gun : MonoBehaviour
                     yield return new WaitForSeconds(weaponData.reloadSpeed); // Simulate reload time
 
                     //  Take ammo from inventory and put into the magazine
-                    InventorySystem.Instance.UseAmmo(ammoType, ammoToReload);
+                    //InventorySystem.Instance.UseAmmo(ammoType, ammoToReload);
+                    EventBus.Instance.UseAmmo(ammoType, ammoToReload);
                     currentAmmo += ammoToReload;
                 }
                 else
@@ -230,20 +245,18 @@ public class Gun : MonoBehaviour
 
             case ReloadType.SingleShot:
             case ReloadType.Tube:
-                while (ammoToReload > 0)
+                if (ammoToReload > 0)
                 {
-                    Debug.Log($"Reloading... {ammoToReload} remaining.");
+                    yield return new WaitForSeconds(weaponData.reloadSpeed); // Simulate reload time
 
-                    //  Single-shot/tube reloads one shell at a time
-                    yield return new WaitForSeconds(weaponData.reloadSpeed);
-
-                    //  Deduct from inventory and add to magazine
-                    InventorySystem.Instance.UseAmmo(ammoType, 1);
-                    currentAmmo++;
-                    ammoToReload--;
-
-                    //  Update the HUD dynamically
-                    HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+                    //  Take ammo from inventory and put into the magazine
+                    //InventorySystem.Instance.UseAmmo(ammoType, ammoToReload);
+                    EventBus.Instance.UseAmmo(ammoType, ammoToReload);
+                    currentAmmo += ammoToReload;
+                }
+                else
+                {
+                    Debug.Log("No ammo available to reload!");
                 }
                 break;
         }
@@ -251,8 +264,9 @@ public class Gun : MonoBehaviour
         isReloading = false;
         Debug.Log("Reload complete!");
 
-        // ✅ Final HUD update after reloading
-        HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        //  Final HUD update after reloading
+        //HUDController.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
 
 

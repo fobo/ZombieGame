@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GLOCK_RELOAD
+  m_Name: Glock_Reload
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0

@@ -23,6 +23,10 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    public void setIntervalTime(float time){
+        intervalTime = time;
+    }
+
     /// <summary>
     /// Spawns an object from the pool and initializes it if needed.
     /// </summary>

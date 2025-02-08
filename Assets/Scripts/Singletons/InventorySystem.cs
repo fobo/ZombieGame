@@ -31,6 +31,16 @@ public class InventorySystem : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        // Subscribe to the event
+        EventBus.Instance.OnAmmoUsed += UseAmmo;
+        EventBus.Instance.OnAmmoAdded += AddAmmo;
+        EventBus.Instance.OnWeaponAdded += AddWeapon;
+        EventBus.Instance.OnMagazineSaved += SaveWeaponMagazineAmmo;
+        EventBus.Instance.OnPrintInventory += PrintInventory;
+    }
+
     //////////////////////ADD STUFF SECTION////////////////////////////////////
     /// <summary>
     /// Adds an item to the inventory. If it already exists, increase the count.
@@ -201,54 +211,53 @@ public class InventorySystem : MonoBehaviour
     /// <summary>
     /// Logs all items and weapons in the inventory.
     /// </summary>
-public void PrintInventory()
-{
-    Debug.Log("===== INVENTORY CONTENTS =====");
-
-    //  Print all consumable items (ammo, health, etc.)
-    if (inventory.Count > 0)
+    public void PrintInventory()
     {
-        Debug.Log("Items:");
-        foreach (var item in inventory)
+        Debug.Log("===== INVENTORY CONTENTS =====");
+
+        //  Print all consumable items (ammo, health, etc.)
+        if (inventory.Count > 0)
         {
-            Debug.Log($"- {item.Key}: {item.Value}");
+            Debug.Log("Items:");
+            foreach (var item in inventory)
+            {
+                Debug.Log($"- {item.Key}: {item.Value}");
+            }
         }
-    }
-    else
-    {
-        Debug.Log("No consumable items.");
-    }
-
-    //  Print all weapons
-    if (weapons.Count > 0)
-    {
-        Debug.Log("Weapons:");
-        foreach (var weapon in weapons)
+        else
         {
-            Debug.Log($"- {weapon}");
+            Debug.Log("No consumable items.");
         }
-    }
-    else
-    {
-        Debug.Log("No weapons.");
-    }
 
-    //  Print all ammo counts
-    if (ammoInventory.Count > 0)
-    {
-        Debug.Log("Ammo:");
-        foreach (var ammo in ammoInventory)
+        //  Print all weapons
+        if (weapons.Count > 0)
         {
-            Debug.Log($"- {ammo.Key}: {ammo.Value} rounds");
+            Debug.Log("Weapons:");
+            foreach (var weapon in weapons)
+            {
+                Debug.Log($"- {weapon}");
+            }
         }
-    }
-    else
-    {
-        Debug.Log("No ammo.");
-    }
+        else
+        {
+            Debug.Log("No weapons.");
+        }
 
-    Debug.Log("==============================");
-}
+        //  Print all ammo counts
+        if (ammoInventory.Count > 0)
+        {
+            Debug.Log("Ammo:");
+            foreach (var ammo in ammoInventory)
+            {
+                Debug.Log($"- {ammo.Key}: {ammo.Value} rounds");
+            }
+        }
+        else
+        {
+            Debug.Log("No ammo.");
+        }
 
+        Debug.Log("==============================");
+    }
 
 }
