@@ -210,6 +210,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   healthComponent: {fileID: 0}
+  itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
+    type: 3}
+  treasureClassLevel: 4
 --- !u!95 &-8426650336404375130
 Animator:
   serializedVersion: 5

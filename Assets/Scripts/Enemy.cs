@@ -5,6 +5,10 @@ public class Enemy : MonoBehaviour, ISpawnable
 {
     [SerializeField] public int damage = 10;
     [SerializeField] private HealthComponent healthComponent;
+    [SerializeField] private GameObject itemPrefab; // Assign in Inspector
+    [SerializeField] private int treasureClassLevel = 1; // Set the enemy's loot level
+
+
     private string poolKey;
 
     private void Awake()
@@ -42,6 +46,25 @@ public class Enemy : MonoBehaviour, ISpawnable
     public void Die()
     {
         Debug.Log($"Returning {gameObject.name} to pool: {poolKey}");
+
+        //  Spawn a mystery item at the enemy's position
+        if (itemPrefab != null)
+        {
+            GameObject mysteryItem = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+
+            //  Assign the treasure class level to the spawned item
+            PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
+            if (prefrabItemScript != null)
+            {
+                prefrabItemScript.SetTreasureClass(treasureClassLevel);
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Mystery item prefab is not assigned on {gameObject.name}!");
+        }
+
+        // ✅ Reset and return enemy to pool
         ResetEnemy();
 
         if (!string.IsNullOrEmpty(poolKey))
@@ -53,6 +76,7 @@ public class Enemy : MonoBehaviour, ISpawnable
             Debug.LogError($"Enemy {gameObject.name} has no poolKey assigned!");
         }
     }
+
 
     private void ResetEnemy()
     {
