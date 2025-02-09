@@ -29,4 +29,5 @@ MonoBehaviour:
   bulletsPerShot: 1
   damage: 25
   ammoType: 0
+  apValue: 10
   description: Glock 19

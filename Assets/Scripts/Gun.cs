@@ -76,10 +76,11 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (isReloading || !canShoot || currentAmmo <= 0 ) return;
+        if (isReloading || !canShoot || currentAmmo <= 0) return;
 
 
         currentAmmo--;
+
 
         if (weaponData.fireType == FireType.Shotgun)
         {
@@ -142,7 +143,7 @@ public class Gun : MonoBehaviour
             if (bullet != null)
             {
                 Bullet bs = bullet.GetComponent<Bullet>(); // gain access to the bullet script
-                bs.setBulletDamage(weaponData.damage);
+                bs.SetWeaponData(weaponData);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
@@ -179,6 +180,8 @@ public class Gun : MonoBehaviour
                 if (bullet != null)
                 {
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    Bullet bs = bullet.GetComponent<Bullet>();
+                    bs.SetWeaponData(weaponData);
                     if (rb != null)
                     {
                         rb.velocity = finalDirection * 20f; // Set bullet speed
@@ -204,7 +207,8 @@ public class Gun : MonoBehaviour
         int missingAmmo = weaponData.maxAmmo - currentAmmo;
 
 
-        if(missingAmmo == 0 || availableAmmo <=0){ // if the player has a full magazine, or has no ammo in the inventory, stop reload.
+        if (missingAmmo == 0 || availableAmmo <= 0)
+        { // if the player has a full magazine, or has no ammo in the inventory, stop reload.
             Debug.Log("Player does not need to reload, or magazine is full.");
             yield break;
         }
@@ -214,11 +218,11 @@ public class Gun : MonoBehaviour
         Debug.Log($"Reloading {weaponData.weaponName}...");
 
         //  Get the correct ammo type for this weapon
-        
+
 
         //  Calculate how much ammo we need to refill
-        
-        
+
+
 
         //  Determine how much we can actually reload
         int ammoToReload = Mathf.Min(missingAmmo, availableAmmo);

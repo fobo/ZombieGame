@@ -24,6 +24,7 @@ public class WeaponData : ScriptableObject
     public int bulletsPerShot = 1; // Number of bullets fired per shot (e.g., for shotguns)
     public int damage = 10; // Damage per bullet
     public AmmoType ammoType; // Choose the ammo type.... be careful, you can make the shotgun shoot rockets if you wanted it to.
+    public int apValue; // armor piercing value, i.e how good is it at piercing armor
 
     [TextArea]
     public string description; // Optional description for the weapon

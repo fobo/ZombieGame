@@ -28,4 +28,5 @@ MonoBehaviour:
   bulletsPerShot: 8
   damage: 30
   ammoType: 2
+  apValue: 1
   description: Test for the shotgun item

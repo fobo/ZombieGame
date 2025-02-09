@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  armor: 10
   onHealthDepleted:
     m_PersistentCalls:
       m_Calls:
