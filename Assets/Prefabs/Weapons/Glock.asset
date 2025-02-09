@@ -24,7 +24,7 @@ MonoBehaviour:
     type: 3}
   maxAmmo: 19
   reloadSpeed: 2
-  fireRate: 0.4
+  fireRate: 0.19
   spread: 5
   bulletsPerShot: 1
   damage: 25
