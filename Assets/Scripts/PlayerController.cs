@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     // Movement
     [SerializeField] private float moveSpeed = 1f;
     private Rigidbody2D myRigidBody;
+    [SerializeField] private SpriteRenderer playerSprite; // Assign in Inspector
+    private Animator playerAnimator;
 
     // Reference to the equipped gun
     [SerializeField] public Gun equippedGun;
@@ -16,14 +18,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private bool canShootSingleFire = true; // Prevents rapid single-fire shots
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I)){
-            InventorySystem.Instance?.PrintInventory();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            EventBus.Instance?.PrintInventory();
         }
         //  Handle Single Fire & Shotgun (One shot per click)
         if (Input.GetMouseButtonDown(0))
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour
         //  Handle Automatic Fire (Hold to shoot)
         if (Input.GetMouseButton(0)) // Detects if the button is HELD
         {
-            
+
             if (equippedGun.weaponData.fireType == FireType.Automatic)
             {
                 //Debug.Log("Automatic fire shot");
@@ -70,20 +74,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Movement logic is called from the Input System
+        //  Check if the player is moving
+        bool isMoving = myRigidBody.velocity.magnitude > 0.1f;
+
+        //  Set Animator parameter
+        playerAnimator.SetBool("isMoving", isMoving);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        Vector2 vector2 = context.ReadValue<Vector2>();
+        Vector2 inputVector = context.ReadValue<Vector2>();
 
-        // Move and slide logic
-        Vector3 direction = new Vector3(vector2.x, vector2.y, 0).normalized;
+        if (context.canceled)
+        {
+            myRigidBody.velocity = Vector2.zero; //  Stop movement when no input
+            return;
+        }
 
-        Vector3 moveVelocity = direction * moveSpeed * Time.deltaTime;
-
-        myRigidBody.velocity = moveVelocity;
+        //  Normal movement
+        Vector3 direction = new Vector3(inputVector.x, inputVector.y, 0).normalized;
+        myRigidBody.velocity = direction * moveSpeed;
     }
+
 
     void SwitchWeapon(WeaponData newWeapon)
     {
@@ -94,21 +106,18 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+
     void RotateTowardsMouse()
     {
-        // Get the mouse position in world space
+        // Get the mouse position
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Set z to 0 because we are in 2D
+        mousePosition.z = 0;
 
-        // Calculate the direction from the player to the mouse
-        Vector3 direction = mousePosition - transform.position;
-
-        // Calculate the angle in degrees
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the player
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        // Check if the mouse is left or right of the player
+        playerSprite.flipX = mousePosition.x < transform.position.x;
     }
+
 
     public void Die()
     {
