@@ -11,6 +11,7 @@ TagManager:
   - playerGun
   - Spawner
   - Structure
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - Walls
   - Doodads
-  - Ground
+  - 
   - Bullet
   - 
   - 
@@ -45,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 3189613573
+    locked: 0
   - name: Doodads
     uniqueID: 2663826399
     locked: 0
