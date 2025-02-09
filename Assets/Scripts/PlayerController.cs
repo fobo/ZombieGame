@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
     }
 
     private bool canShootSingleFire = true; // Prevents rapid single-fire shots
@@ -66,7 +67,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        RotateTowardsMouse();
+        FlipPlayer();
+        RotateGunAroundPlayer();
     }
 
 
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void RotateTowardsMouse()
+    void FlipPlayer()
     {
         // Get the mouse position
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -117,6 +119,32 @@ public class PlayerController : MonoBehaviour
         // Check if the mouse is left or right of the player
         playerSprite.flipX = mousePosition.x < transform.position.x;
     }
+
+    [SerializeField] private float gunDistance = 0.75f; // Adjust this in the Inspector
+
+    void RotateGunAroundPlayer()
+    {
+        if (equippedGun == null) return;
+
+        // Get mouse position in world space
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Ensure it's in 2D space
+
+        // Get direction from player to mouse
+        Vector3 direction = (mousePosition - transform.position).normalized;
+
+        //  Move gun further from player by increasing the distance
+        Vector3 gunPosition = transform.position + direction * gunDistance;
+
+        // Move gun to calculated position
+        equippedGun.transform.position = gunPosition;
+
+        // Rotate gun to face the mouse cursor
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        equippedGun.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+
 
 
     public void Die()
