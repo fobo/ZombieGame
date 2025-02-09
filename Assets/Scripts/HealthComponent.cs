@@ -9,10 +9,10 @@ public class HealthComponent : MonoBehaviour
     [SerializeField] private int maxHealth = 100; // Maximum health.
     private int currentHealth;
 
-    // Unity Event triggered when health reaches zero.
+    //  Event triggered when health reaches zero.
     public UnityEvent onHealthDepleted;
 
-    // Unity Event triggered whenever health changes (optional).
+    //  Event triggered whenever health changes.
     public UnityEvent<int, int> onHealthChanged;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class HealthComponent : MonoBehaviour
         }
     }
     private void Start() {
-        HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
     }
 
     /// <summary>
@@ -52,13 +52,13 @@ public class HealthComponent : MonoBehaviour
         // If health reaches zero, invoke the health-depleted event.
         if (currentHealth == 0)
         {
-            Debug.Log($"{gameObject.name} has been destroyed!");
+            Debug.Log($"{gameObject.name} has reached 0 hp");
             onHealthDepleted?.Invoke();
         }
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 
@@ -82,7 +82,7 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 
@@ -96,7 +96,7 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 

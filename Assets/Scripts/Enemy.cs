@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, ISpawnable
     private void Awake()
     {
         healthComponent = GetComponent<HealthComponent>();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour, ISpawnable
             Debug.LogWarning($"Mystery item prefab is not assigned on {gameObject.name}!");
         }
 
-        // ✅ Reset and return enemy to pool
+        //  Reset and return enemy to pool
         ResetEnemy();
 
         if (!string.IsNullOrEmpty(poolKey))

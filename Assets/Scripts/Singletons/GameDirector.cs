@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour
 
     private void Awake()
     {
-        // ✅ Ensure only ONE instance of GameDirector exists
+        //  Ensure only ONE instance of GameDirector exists
         if (Instance == null)
         {
             Instance = this;

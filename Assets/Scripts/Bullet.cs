@@ -30,6 +30,8 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //bullet should only collide with "Environment" or "Enemy"
+        if(!other.CompareTag("Environment") && !other.CompareTag("Enemy") && !other.CompareTag("Structure")){return;}
         HealthComponent health = other.GetComponent<HealthComponent>();
         if (health != null)
         {

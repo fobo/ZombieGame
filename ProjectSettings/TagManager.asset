@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - playerGun
   - Spawner
+  - Structure
   layers:
   - Default
   - TransparentFX
