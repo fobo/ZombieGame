@@ -98,10 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af721825ad4f0a4284063d695756ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupType: 0
-  amount: 10
-  weaponData: {fileID: 0}
-  ammoType: 2
+  pickupData: {fileID: 11400000, guid: d22d09136eed9c047b7f62d0f91a6f14, type: 2}
 --- !u!58 &3668867267017436756
 CircleCollider2D:
   m_ObjectHideFlags: 0

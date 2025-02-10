@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            EventBus.Instance?.PrintInventory();
+            //EventBus.Instance?.PrintInventory();
         }
         //  Handle Single Fire & Shotgun (One shot per click)
-        if (Input.GetMouseButtonDown(0))
+        if (equippedGun.weaponData != null && Input.GetMouseButtonDown(0))
         {
             if ((equippedGun.weaponData.fireType == FireType.SingleFire || equippedGun.weaponData.fireType == FireType.Shotgun) && canShootSingleFire)
             {
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //  Handle Automatic Fire (Hold to shoot)
-        if (Input.GetMouseButton(0)) // Detects if the button is HELD
+        if (equippedGun.weaponData != null && Input.GetMouseButton(0)) // Detects if the button is HELD
         {
 
             if (equippedGun.weaponData.fireType == FireType.Automatic)
@@ -63,7 +63,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-                SwitchWeapon(weaponSlots[i]);
+                if (InventorySystem.Instance.HasWeapon(weaponSlots[i].weaponName)) //  Check if player owns weapon
+                {
+                    SwitchWeapon(weaponSlots[i]);
+                }
+                else
+                {
+                    Debug.LogWarning($"You do not own {weaponSlots[i].weaponName}!");
+                }
             }
         }
 

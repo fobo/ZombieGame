@@ -9,6 +9,8 @@ public class InventorySystem : MonoBehaviour
     private Dictionary<string, WeaponData> weapons = new Dictionary<string, WeaponData>(); // keeps track of collected weapons
     private Dictionary<string, int> weaponMagazineAmmo = new Dictionary<string, int>();
     private Dictionary<AmmoType, int> ammoInventory = new Dictionary<AmmoType, int>();
+
+
     private void Awake()
     {
         // Ensure only one instance exists
