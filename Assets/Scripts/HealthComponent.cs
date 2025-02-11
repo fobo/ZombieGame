@@ -26,11 +26,15 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            
+
         }
     }
-    private void Start() {
-        EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+    private void Start()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+        }
     }
 
     /// <summary>
@@ -38,7 +42,7 @@ public class HealthComponent : MonoBehaviour
     /// </summary>
     /// <param name="damageAmount">Amount of damage to apply.</param>
     /// <param name="damageSource">Object that caused the damage.</param>
-    public void TakeDamage(int damageAmount,GameObject damageSource)
+    public void TakeDamage(int damageAmount, GameObject damageSource)
     {
         if (damageAmount <= 0 || currentHealth <= 0) return;
 
@@ -49,7 +53,7 @@ public class HealthComponent : MonoBehaviour
         currentHealth -= damageAmount;
 
         // Clamp health to ensure it doesn't drop below 0.
-        currentHealth = Mathf.Max(currentHealth, 0); 
+        currentHealth = Mathf.Max(currentHealth, 0);
 
         // Notify listeners about the health change.
         onHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -63,7 +67,7 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 
@@ -87,7 +91,7 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 
@@ -97,11 +101,13 @@ public class HealthComponent : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        onHealthChanged?.Invoke(currentHealth, maxHealth);
+
         if (gameObject.CompareTag("Player"))
         {
+            Debug.Log("Reseting health?");
+            onHealthChanged?.Invoke(currentHealth, maxHealth);
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
-            EventBus.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+            HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
 

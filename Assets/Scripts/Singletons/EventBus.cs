@@ -29,7 +29,6 @@ public class EventBus : MonoBehaviour
 
     //Events for HUD updates
     public event Action<int, int> OnAmmoUpdated;  // (currentAmmo, maxAmmo)
-    public event Action<int, int> OnHealthUpdated; // (currentHealth, maxHealth)
     public event Action OnEquipWeapon; 
 
 
@@ -85,13 +84,6 @@ public class EventBus : MonoBehaviour
         OnAmmoUpdated?.Invoke(currentAmmo, maxAmmo);
     }
 
-    /// <summary>
-    ///  Fire event when health changes
-    /// </summary>
-    public void UpdateHealthUI(int currentHealth, int maxHealth)
-    {
-        OnHealthUpdated?.Invoke(currentHealth, maxHealth);
-    }
 
     /// <summary>
     ///  Fire event when a new weapon is equipped

@@ -69,7 +69,6 @@ public class HUDController : MonoBehaviour
         }
 
         EventBus.Instance.OnAmmoUpdated += UpdateAmmoUI;
-        EventBus.Instance.OnHealthUpdated += UpdateHealthUI;
         EventBus.Instance.OnEquipWeapon += UpdateGunAnimationUI;
 
     }
@@ -92,6 +91,7 @@ public class HUDController : MonoBehaviour
     /// </summary>
     public void UpdateHealthUI(int currentHealth, int maxHealth)
     {
+        Debug.Log("Healthed");
         if (healthText != null)
         {
             healthText.text = $"{currentHealth} / {maxHealth}";
