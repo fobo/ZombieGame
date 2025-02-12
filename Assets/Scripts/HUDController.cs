@@ -89,7 +89,7 @@ public class HUDController : MonoBehaviour
     /// <summary>
     /// Updates the player's health on the HUD.
     /// </summary>
-    public void UpdateHealthUI(int currentHealth, int maxHealth)
+    public void UpdateHealthUI(float currentHealth, float maxHealth)
     {
         Debug.Log("Healthed");
         if (healthText != null)

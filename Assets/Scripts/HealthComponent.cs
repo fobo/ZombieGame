@@ -6,18 +6,18 @@ using UnityEngine.Events;
 public class HealthComponent : MonoBehaviour
 {
     [Header("Health Settings")]
-    [SerializeField] private int maxHealth = 100; // Maximum health.
-    private int currentHealth;
+    [SerializeField] private float maxHealth = 100; // Maximum health.
+    private float currentHealth;
 
 
     [Header("Armor Settings")]
-    [SerializeField] private int armor = 0; //armor value
+    [SerializeField] private float armor = 0; //armor value
 
     //  Event triggered when health reaches zero.
     public UnityEvent onHealthDepleted;
 
     //  Event triggered whenever health changes.
-    public UnityEvent<int, int> onHealthChanged;
+    public UnityEvent<float, float> onHealthChanged;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class HealthComponent : MonoBehaviour
     /// </summary>
     /// <param name="damageAmount">Amount of damage to apply.</param>
     /// <param name="damageSource">Object that caused the damage.</param>
-    public void TakeDamage(int damageAmount, GameObject damageSource)
+    public void TakeDamage(float damageAmount, GameObject damageSource)
     {
         if (damageAmount <= 0 || currentHealth <= 0) return;
 
@@ -75,7 +75,7 @@ public class HealthComponent : MonoBehaviour
     /// Heal the object.
     /// </summary>
     /// <param name="healAmount">Amount of health to restore.</param>
-    public void Heal(int healAmount)
+    public void Heal(float healAmount)
     {
         if (healAmount <= 0 || currentHealth <= 0) return;
 
@@ -114,12 +114,12 @@ public class HealthComponent : MonoBehaviour
     /// <summary>
     /// Get the current health value.
     /// </summary>
-    public int GetCurrentHealth() => currentHealth;
+    public float GetCurrentHealth() => currentHealth;
 
     /// <summary>
     /// Get the maximum health value.
     /// </summary>
-    public int GetMaxHealth() => maxHealth;
+    public float GetMaxHealth() => maxHealth;
 
-    public int GetArmorValue() => armor;
+    public float GetArmorValue() => armor;
 }

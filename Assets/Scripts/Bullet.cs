@@ -4,10 +4,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    private int damage;
+    private float damage;
     public float lifetime = 3f;
     private WeaponData weaponData;
-    private int bulletapValue = 0;
+    private float bulletapValue = 0;
     //AP Value for bullets. It should be assigned when it spawns and reset when it dies.
     private Gun gunScript;
 
@@ -25,8 +25,8 @@ public class Bullet : MonoBehaviour
     {
         weaponData = data;
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
-        damage = weaponData.damage;
-    }
+        damage = weaponData.damage * MomentoSystem.Instance.GetDamageMultiplier();
+    } 
 
     private void OnEnable()
     {

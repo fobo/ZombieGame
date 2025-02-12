@@ -25,6 +25,8 @@ public class InventoryManager : MonoBehaviour
         if (menuActivated)
         {
             FindObjectOfType<WeaponUIManager>()?.UpdateWeaponUI();
+            FindObjectOfType<ConsumablesUIManager>()?.UpdateConsumablesUI(); // Update ammo
+
             Time.timeScale = 0; //  Pause the game
         }
         else
