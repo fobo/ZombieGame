@@ -49,12 +49,18 @@ TagManager:
   - name: Ground
     uniqueID: 3189613573
     locked: 0
-  - name: Doodads
-    uniqueID: 2663826399
+  - name: Props
+    uniqueID: 3114861151
+    locked: 0
+  - name: Player
+    uniqueID: 3048923813
+    locked: 0
+  - name: Enemies
+    uniqueID: 819778067
+    locked: 0
+  - name: Foreground
+    uniqueID: 1928505463
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Walls
-    uniqueID: 3759480701
     locked: 0
