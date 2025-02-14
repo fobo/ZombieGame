@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MovementController : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class MovementController : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D myRigidBody;
 
+    NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
         // Find the player object in the scene and assign it as the target
         target = GameObject.FindGameObjectWithTag("Player");
 
@@ -34,8 +39,8 @@ public class MovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 targetDirection = (target.transform.position - myRigidBody.transform.position).normalized;
-        myRigidBody.velocity = targetDirection * moveSpeed * Time.deltaTime;
+        agent.SetDestination(target.transform.position);
+
         if (gameObject.CompareTag("Enemy"))
         {
             FlipEnemySprite();
@@ -64,4 +69,7 @@ public class MovementController : MonoBehaviour
         // Check if the mouse is left or right of the player
 
     }
+
+
+
 }
