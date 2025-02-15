@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour, ISpawnable
     [SerializeField] private int treasureClassLevel = 1; // Set the enemy's loot level
 
 
+
     private string poolKey;
 
     private void Awake()

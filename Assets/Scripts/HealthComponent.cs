@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,8 @@ public class HealthComponent : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100; // Maximum health.
     private float currentHealth;
-
+    public GameObject damageTextNumber; // reference to the damage text number prefab.
+    public Transform damageNumberSpawnPoint;
 
     [Header("Armor Settings")]
     [SerializeField] private float armor = 0; //armor value
@@ -31,6 +33,10 @@ public class HealthComponent : MonoBehaviour
     }
     private void Start()
     {
+        if (gameObject.CompareTag("Enemy"))
+        {
+            damageNumberSpawnPoint = transform.Find("damageNumberSpawnPoint");
+        }
         if (gameObject.CompareTag("Player"))
         {
             HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
@@ -61,8 +67,12 @@ public class HealthComponent : MonoBehaviour
         // If health reaches zero, invoke the health-depleted event.
         if (currentHealth == 0)
         {
-            Debug.Log($"{gameObject.name} has reached 0 hp");
+            //Debug.Log($"{gameObject.name} has reached 0 hp");
             onHealthDepleted?.Invoke();
+        }
+        if (gameObject.CompareTag("Enemy"))
+        {
+            SpawnDamageNumber(damageAmount);
         }
         if (gameObject.CompareTag("Player"))
         {
@@ -70,6 +80,27 @@ public class HealthComponent : MonoBehaviour
             HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }
+
+    public void SpawnDamageNumber(float damageAmount)
+    {
+        if (damageTextNumber == null || damageNumberSpawnPoint == null) return; // Ensure prefab and spawn point are assigned
+
+        Vector3 spawnPos = damageNumberSpawnPoint.position; // Use the child object's position
+
+        // Instantiate the damage number at the spawn point
+        GameObject damageNumberInstance = Instantiate(damageTextNumber, spawnPos, Quaternion.identity);
+
+        // Set the damage text value
+        PopupDamage popupDamage = damageNumberInstance.GetComponent<PopupDamage>();
+
+        if (popupDamage != null && popupDamage.textMeshProUGUI != null)
+        {
+            popupDamage.textMeshProUGUI.SetText(Mathf.Round(damageAmount).ToString());
+        }
+
+        Destroy(damageNumberInstance, 5f);
+    }
+
 
     /// <summary>
     /// Heal the object.

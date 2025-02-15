@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Weapon data is null in Bullet!");
+            //Debug.LogWarning("Weapon data is null in Bullet!");
         }
 
         Invoke(nameof(ReturnToPool), lifetime);
@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log("BEFORE ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
+        //Debug.Log("BEFORE ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
         //  Ensure the bullet only interacts with valid objects
         if (!other.CompareTag("Environment") && !other.CompareTag("Enemy") && !other.CompareTag("Structure"))
         {
@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
         {
             ReturnToPool();
         }
-        Debug.Log("AFTER ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
+        //Debug.Log("AFTER ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
     }
 
 

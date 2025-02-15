@@ -7,9 +7,13 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject InventoryMenu; // this is the reference to the GUI that controls the inventory.
     private bool menuActivated; // keeps track of if the inventory is open or not.
-    // Start is called before the first frame update
+                                // Start is called before the first frame update
+
+
     void Start()
     {
+
+
         InventoryMenu.SetActive(false); // Ensure menu starts hidden
     }
 
