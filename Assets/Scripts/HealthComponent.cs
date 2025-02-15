@@ -48,15 +48,12 @@ public class HealthComponent : MonoBehaviour
     /// </summary>
     /// <param name="damageAmount">Amount of damage to apply.</param>
     /// <param name="damageSource">Object that caused the damage.</param>
-    public void TakeDamage(float damageAmount, GameObject damageSource)
+    public void TakeDamage(Damage damageAmount)
     {
-        if (damageAmount <= 0 || currentHealth <= 0) return;
+        if (damageAmount.damage <= 0 || currentHealth <= 0) return;
 
 
-        // Print to the console who did the damage and how much.
-        Debug.Log($"{damageSource.name} dealt {damageAmount} damage to {gameObject.name}");
-
-        currentHealth -= damageAmount;
+        currentHealth -= damageAmount.damage;
 
         // Clamp health to ensure it doesn't drop below 0.
         currentHealth = Mathf.Max(currentHealth, 0);
@@ -81,7 +78,7 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
-    public void SpawnDamageNumber(float damageAmount)
+    public void SpawnDamageNumber(Damage damageAmount)
     {
         if (damageTextNumber == null || damageNumberSpawnPoint == null) return; // Ensure prefab and spawn point are assigned
 
@@ -90,12 +87,19 @@ public class HealthComponent : MonoBehaviour
         // Instantiate the damage number at the spawn point
         GameObject damageNumberInstance = Instantiate(damageTextNumber, spawnPos, Quaternion.identity);
 
+
+
         // Set the damage text value
         PopupDamage popupDamage = damageNumberInstance.GetComponent<PopupDamage>();
 
+        //if critical hit, 
+        if (damageAmount.isCritical)
+        {
+            popupDamage.textMeshProUGUI.color = Color.blue;
+        }
         if (popupDamage != null && popupDamage.textMeshProUGUI != null)
         {
-            popupDamage.textMeshProUGUI.SetText(Mathf.Round(damageAmount).ToString());
+            popupDamage.textMeshProUGUI.SetText(Mathf.Round(damageAmount.damage).ToString());
         }
 
         Destroy(damageNumberInstance, 5f);

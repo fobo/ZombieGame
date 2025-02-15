@@ -15,6 +15,8 @@ public abstract class Momento : MonoBehaviour
     public virtual float GetSpreadMultiplier() => 1f;
     public virtual float GetMoveSpeedMultiplier() => 1f;
     public virtual float GetTreasureClassMultiplier() => 1f;
+    public virtual float GetLuckMultiplier() => 1f;
+    public virtual float GetCriticalChanceMultiplier() => 1f;
 
     /// <summary>
     /// This method is used for special effects that don't fit into normal stat adjustments.

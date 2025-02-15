@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private float bulletapValue = 0;
     //AP Value for bullets. It should be assigned when it spawns and reset when it dies.
     private Gun gunScript;
+    public bool isCritical = false;
 
     void Start()
     {
@@ -26,6 +27,11 @@ public class Bullet : MonoBehaviour
         weaponData = data;
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
         damage = weaponData.damage * MomentoSystem.Instance.GetDamageMultiplier();
+
+        if(isCritical){
+            damage *= 2; // doubles the damage
+        }
+
     } 
 
     private void OnEnable()
@@ -46,6 +52,7 @@ public class Bullet : MonoBehaviour
     private void OnDisable()
     {
         bulletapValue = 0; // reset the ap value to nothing by default.
+        isCritical = false; // sets the critical value to false on return to the object pool
         CancelInvoke();
     }
 
@@ -63,7 +70,10 @@ public class Bullet : MonoBehaviour
 
         if (health != null) //  Only apply damage if the object has health
         {
-            health.TakeDamage(damage, gameObject);
+            Damage damageC = new Damage(damage, isCritical);
+            health.TakeDamage(damageC);
+            Debug.Log(damage);
+            Debug.Log(damageC.damage);
             bulletapValue -= health.GetArmorValue(); //  Only subtract armor if health exists
         }
 
@@ -76,6 +86,11 @@ public class Bullet : MonoBehaviour
     }
 
 
+    public void setCritical(){
+        isCritical = true;
+    }
+
+    public bool GetCritical() => isCritical;
     private void ReturnToPool()
     {
         GameController.Instance.ReturnToPool("Bullet", gameObject);

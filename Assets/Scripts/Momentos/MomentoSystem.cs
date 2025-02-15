@@ -16,6 +16,8 @@ public class MomentoSystem : MonoBehaviour
     private float spreadMultiplier = 1f;
     private float moveSpeedMultiplier = 1f;
     private float treasureClassMultiplier = 1f;
+    private float luckMultiplier = 1f;
+    private float criticalChanceMultiplier = 1f;
 
     private void Awake()
     {
@@ -49,6 +51,8 @@ public class MomentoSystem : MonoBehaviour
             spreadMultiplier *= newMomento.GetSpreadMultiplier();
             moveSpeedMultiplier *= newMomento.GetMoveSpeedMultiplier();
             treasureClassMultiplier *= newMomento.GetTreasureClassMultiplier();
+            luckMultiplier *= newMomento.GetLuckMultiplier();
+            criticalChanceMultiplier *= newMomento.GetCriticalChanceMultiplier();
 
             // Apply special effect (if any)
             newMomento.ApplyEffect();
@@ -67,4 +71,6 @@ public class MomentoSystem : MonoBehaviour
     public float GetSpreadMultiplier() => spreadMultiplier;
     public float GetMoveSpeedMultiplier() => moveSpeedMultiplier;
     public float GetTreasureClassMultiplier() => treasureClassMultiplier;
+    public float GetLuckMultiplier() => luckMultiplier;
+    public float GetCriticalChanceMultiplier() => criticalChanceMultiplier;
 }

@@ -20,6 +20,8 @@ public class Gun : MonoBehaviour
     [Header("Runtime Variables")]
     private bool isReloading;
     private bool canShoot = true;
+    private bool isCritical = false;
+
 
 
     // BUILT IN METHODS
@@ -130,19 +132,29 @@ public class Gun : MonoBehaviour
 
         if (bulletSpawnPoint != null)
         {
+            float randChance = Random.Range(0f, 1f);//return a number between 0 and 1
+
+            if (GameDirector.Instance.GetCriticalChance() > randChance)
+            {
+                Debug.Log("Critical!!!!");
+                isCritical = true; //next bullet generated is a critical hit!
+            }
             //  Get a bullet from the pool instead of Instantiating
             GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
 
             if (bullet != null)
             {
                 Bullet bs = bullet.GetComponent<Bullet>(); // gain access to the bullet script
+                if(isCritical){bs.setCritical();}// sets the bullet to be critical
                 bs.SetWeaponData(weaponData);
+
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
                     rb.velocity = finalDirection * 20f; // Set bullet speed
                 }
             }
+            isCritical = false; // turn off crits after every shot
         }
 
         PlayShootAnimation(); // plays the shooting animation in the HUD
@@ -167,6 +179,12 @@ public class Gun : MonoBehaviour
 
             if (bulletSpawnPoint != null)
             {
+                float randChance = Random.Range(0f, 1f);//return a number between 0 and 1
+                
+                if (GameDirector.Instance.GetCriticalChance() > randChance)
+                {
+                    isCritical = true; //next bullet generated is a critical hit!
+                }
                 //  Get a bullet from the pool instead of Instantiating
                 GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
 
@@ -174,12 +192,14 @@ public class Gun : MonoBehaviour
                 {
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     Bullet bs = bullet.GetComponent<Bullet>();
+                    if(isCritical){bs.setCritical();}
                     bs.SetWeaponData(weaponData);
                     if (rb != null)
                     {
                         rb.velocity = finalDirection * 20f; // Set bullet speed
                     }
                 }
+                isCritical = false;
             }
         }
 

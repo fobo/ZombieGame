@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite; // Assign in Inspector
     private Animator playerAnimator;
 
+
     // Reference to the equipped gun
     [SerializeField] public Gun equippedGun;
 

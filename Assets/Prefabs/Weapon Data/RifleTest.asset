@@ -22,12 +22,12 @@ MonoBehaviour:
     type: 3}
   magazineType: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
     type: 3}
-  maxAmmo: 30
+  maxAmmo: 300
   reloadSpeed: 3
   fireRate: 0.1
   spread: 0.1
   bulletsPerShot: 1
-  damage: 55
+  damage: 1
   ammoType: 1
   apValue: 15
   description: This is a default test weapon.

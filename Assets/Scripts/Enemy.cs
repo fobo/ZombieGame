@@ -20,12 +20,14 @@ public class Enemy : MonoBehaviour, ISpawnable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //static variables are stored in the BOOLS
         if (collision.gameObject.CompareTag("Player"))
         {
+            Damage damageC = new Damage(damage, false);
             HealthComponent playerHealth = collision.gameObject.GetComponent<HealthComponent>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage, gameObject);
+                playerHealth.TakeDamage(damageC);
             }
             else
             {

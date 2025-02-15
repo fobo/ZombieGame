@@ -5,6 +5,8 @@ public class GameDirector : MonoBehaviour
 {
     public static GameDirector Instance { get; private set; }
 
+    private float criticalChance = 0.05f; //default is set to 5%
+
     [Header("Spawner Settings")]
     public float globalSpawnInterval = 5f; //  Single reference for all spawners
 
@@ -71,4 +73,6 @@ public class GameDirector : MonoBehaviour
         ApplyGlobalSpawnInterval();
         Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval} seconds.");
     }
+
+    public float GetCriticalChance() => criticalChance; // returns crit chance
 }
