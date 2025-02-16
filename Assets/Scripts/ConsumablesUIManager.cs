@@ -32,6 +32,16 @@ public class ConsumablesUIManager : MonoBehaviour
         };
     }
 
+    private void Awake()
+    {
+        if (ammoIcons == null)
+        {
+            ammoIcons = new Dictionary<AmmoType, Sprite>();
+            Debug.LogWarning("ammoIcons dictionary was null and has been initialized!");
+        }
+    }
+
+
     private void OnEnable() // When inventory UI opens, update it
     {
         UpdateConsumablesUI();
@@ -64,6 +74,19 @@ public class ConsumablesUIManager : MonoBehaviour
 
     private Sprite GetAmmoIcon(AmmoType ammoType)
     {
-        return ammoIcons.ContainsKey(ammoType) ? ammoIcons[ammoType] : null;
+        if (ammoIcons == null)
+        {
+            Debug.LogError("GetAmmoIcon() - ammoIcons dictionary is null!");
+            return null;
+        }
+
+        if (!ammoIcons.ContainsKey(ammoType))
+        {
+            Debug.LogWarning($"GetAmmoIcon() - AmmoType '{ammoType}' not found in dictionary!");
+            return null;
+        }
+
+        return ammoIcons[ammoType];
     }
+
 }

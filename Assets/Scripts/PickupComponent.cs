@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour
         {
             ApplyPickup(other.gameObject);
             Destroy(gameObject); // Destroy the pickup after collection
-            InventorySystem.Instance.PrintInventory();
+
         }
     }
 
@@ -24,6 +24,8 @@ public class Pickup : MonoBehaviour
 
         switch (pickupData.pickupType)
         {
+
+            //add a method we can call to display a pickup text on the scene for the player
             case PickupType.Health:
                 HealthComponent playerHealth = player.GetComponent<HealthComponent>();
                 if (playerHealth != null)
@@ -36,6 +38,8 @@ public class Pickup : MonoBehaviour
                 if (InventorySystem.Instance != null)
                 {
                     InventorySystem.Instance.AddAmmo(pickupData.ammoType, pickupData.amount);
+
+                    
                     Debug.Log($"Picked up {pickupData.amount} {pickupData.ammoType} ammo.");
                 }
                 break;

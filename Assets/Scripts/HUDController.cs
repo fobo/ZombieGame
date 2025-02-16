@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System; // Ensure you have TextMeshPro package installed
-
+using UnityEngine.SceneManagement;
 public class HUDController : MonoBehaviour
 {
     public static HUDController Instance { get; private set; } // Singleton for easy access
@@ -19,11 +19,28 @@ public class HUDController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Persist across scenes
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AssignReferences(); // Reassign gun reference on scene load
     }
     private void Start()
     {
@@ -73,7 +90,37 @@ public class HUDController : MonoBehaviour
 
     }
 
+    private void AssignReferences()
+    {
+        if (gunHUD != null)
+        {
+            gunAnimator = gunHUD.GetComponent<Animator>();
 
+            if (gunAnimator != null)
+                Debug.Log("Animator found on GunHUD!");
+            else
+                Debug.LogWarning("No Animator component found on GunHUD!");
+        }
+
+        currentGun = GameObject.FindWithTag("playerGun");
+
+        if (currentGun == null)
+        {
+            Debug.LogWarning("Gun object not found in the scene!");
+        }
+        else
+        {
+            Gun gunScript = currentGun.GetComponent<Gun>();
+            if (gunScript == null)
+                Debug.LogWarning("Could not find Gun script.");
+
+            if (gunScript?.weaponData?.weaponAnimation != null)
+            {
+                Debug.Log("Weapon animator set!");
+                UpdateGunAnimationUI();
+            }
+        }
+    }
 
     /// <summary>
     /// Updates the ammo count on the HUD.

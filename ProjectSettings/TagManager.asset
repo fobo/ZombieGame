@@ -12,6 +12,7 @@ TagManager:
   - Spawner
   - Structure
   - Ground
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

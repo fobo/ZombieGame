@@ -43,8 +43,10 @@ public class GameController : MonoBehaviour
                 {
                     GameObject obj = Instantiate(item.prefab);
                     obj.SetActive(false);
+                    DontDestroyOnLoad(obj);  // Keep pooled objects across scenes
                     objectPools[item.poolKey].Enqueue(obj);
                 }
+
             }
         }
     }

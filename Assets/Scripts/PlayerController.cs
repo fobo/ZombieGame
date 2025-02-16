@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,11 +17,54 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Gun equippedGun;
 
     [SerializeField] private WeaponData[] weaponSlots; // Customize as needed
+
+    private void Awake()
+    {
+        // Ensure only one player exists
+        if (FindObjectsOfType<PlayerController>().Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject); // Keep player across levels
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        MoveToSpawnPoint();
+    }
+
+    private void MoveToSpawnPoint()
+    {
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.transform.position; // Move player
+        }
+        else
+        {
+            Debug.LogWarning("No SpawnPoint found in the scene!");
+        }
+    }
+
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
+
     }
 
     private bool canShootSingleFire = true; // Prevents rapid single-fire shots
