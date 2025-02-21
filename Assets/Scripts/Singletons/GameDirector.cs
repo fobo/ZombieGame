@@ -5,23 +5,27 @@ public class GameDirector : MonoBehaviour
 {
     public static GameDirector Instance { get; private set; }
 
-    private float criticalChance = 0.05f; //default is set to 5%
 
+    private float criticalChance = 0.05f; //default is set to 5%
     [Header("Spawner Settings")]
     public float globalSpawnInterval = 5f;
-    public float minDistanceToPlayer = 10f;  // Too close -> disable spawner
-    public float maxDistanceToPlayer = 50f;  // Too far -> disable spawner
-    public float spawnerCheckInterval = 1f;  // How often to check spawner distances
+    public float minDistanceToPlayer = 10f;
+    public float maxDistanceToPlayer = 50f;
+    public float spawnerCheckInterval = 1f;
+
+    [Header("Difficulty Scaling")]
+    [SerializeField] public float timeToMaxDifficulty = 300f; // 5 minutes to reach max difficulty
+    [SerializeField] public float minSpawnInterval = 1f;      // Minimum allowed interval between spawns
+    [SerializeField] public int baseEnemiesPerSpawn = 1;      // Enemies spawned at the start
+    [SerializeField] public int maxEnemiesPerSpawn = 5;       // Max enemies spawned at once
 
     private List<Spawner> spawners = new List<Spawner>();
-    private GameObject player;               // Player reference
-    private float spawnerCheckTimer = 0f;    // Timer for checking spawners
-
-
+    private GameObject player;
+    private float spawnerCheckTimer = 0f;
+    private float gameTimer = 0f;
 
     private void Awake()
     {
-        //  Ensure only ONE instance of GameDirector exists
         if (Instance == null)
         {
             Instance = this;
@@ -40,20 +44,40 @@ public class GameDirector : MonoBehaviour
         if (player == null) Debug.LogError("Player not found!");
 
         FindAllSpawners();
-        ApplyGlobalSpawnInterval();
+        ApplyGlobalSpawnSettings();
     }
-
 
     private void Update()
     {
+        gameTimer += Time.deltaTime;
         spawnerCheckTimer += Time.deltaTime;
+
         if (spawnerCheckTimer >= spawnerCheckInterval)
         {
             UpdateSpawnerStates();
             spawnerCheckTimer = 0f;
         }
+
+        UpdateDifficultyOverTime();
     }
 
+    public float GetCriticalChance() => criticalChance; // returns crit chance
+    private void UpdateDifficultyOverTime()
+    {
+        // Calculate difficulty percentage based on elapsed time
+        float difficultyPercent = Mathf.Clamp01(gameTimer / timeToMaxDifficulty);
+
+        // Adjust spawn interval (higher difficulty = faster spawns)
+        float newInterval = Mathf.Lerp(globalSpawnInterval, minSpawnInterval, difficultyPercent);
+        SetGlobalSpawnInterval(newInterval);
+
+        // Adjust the number of enemies per spawn
+        int newEnemiesPerSpawn = Mathf.RoundToInt(Mathf.Lerp(baseEnemiesPerSpawn, maxEnemiesPerSpawn, difficultyPercent));
+        foreach (Spawner spawner in spawners)
+        {
+            spawner.SetEnemiesPerSpawn(newEnemiesPerSpawn);
+        }
+    }
 
     private void UpdateSpawnerStates()
     {
@@ -73,9 +97,7 @@ public class GameDirector : MonoBehaviour
             }
         }
     }
-    /// <summary>
-    ///  Finds all Spawners in the scene.
-    /// </summary>
+
     private void FindAllSpawners()
     {
         spawners.Clear();
@@ -84,75 +106,50 @@ public class GameDirector : MonoBehaviour
         foreach (GameObject obj in spawnerObjects)
         {
             Spawner spawner = obj.GetComponent<Spawner>();
-            if (spawner != null)
-            {
-                spawners.Add(spawner);
-            }
+            if (spawner != null) spawners.Add(spawner);
         }
 
-        Debug.Log($"GameDirector: Found {spawners.Count} spawners in the scene.");
+        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
     }
 
-    /// <summary>
-    ///  Applies the global spawn interval to all spawners.
-    /// </summary>
-    private void ApplyGlobalSpawnInterval()
+    private void ApplyGlobalSpawnSettings()
     {
         foreach (Spawner spawner in spawners)
         {
             spawner.setIntervalTime(globalSpawnInterval);
+            spawner.SetEnemiesPerSpawn(baseEnemiesPerSpawn);
         }
     }
 
-    /// <summary>
-    ///  Call this method if you want to change the spawn interval dynamically.
-    /// </summary>
     public void SetGlobalSpawnInterval(float newInterval)
     {
         globalSpawnInterval = newInterval;
-        ApplyGlobalSpawnInterval();
-        Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval} seconds.");
+        foreach (Spawner spawner in spawners)
+        {
+            spawner.setIntervalTime(globalSpawnInterval);
+        }
+
+        Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval:F2} seconds.");
     }
-
-    public float GetCriticalChance() => criticalChance; // returns crit chance
-
-
-
-
-
-    /////////gizmos
-    ///
-
 
     private void OnDrawGizmos()
     {
-        // Find the player if not cached
         if (player == null) player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null){
+        if (player == null) return;
 
-            
-            Debug.Log("Player not found");
-            return;
-        } 
-
-
-        if (spawners == null || spawners.Count == 0) return; // Ensure spawners list is populated
+        if (spawners == null || spawners.Count == 0) return;
 
         foreach (Spawner spawner in spawners)
         {
             if (spawner == null) continue;
 
             float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
-
-            // Set gizmo color based on distance
             Gizmos.color = (distance >= minDistanceToPlayer && distance <= maxDistanceToPlayer) ? Color.green : Color.red;
 
-            // Draw line and spawner sphere
             Gizmos.DrawLine(spawner.transform.position, player.transform.position);
             Gizmos.DrawSphere(spawner.transform.position, 0.2f);
         }
 
-        // Draw player sphere
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(player.transform.position, 0.15f);
     }
