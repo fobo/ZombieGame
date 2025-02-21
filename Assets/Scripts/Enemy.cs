@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour, ISpawnable
         }
     }
 
-
+    
     private void ResetEnemy()
     {
         if (healthComponent != null)

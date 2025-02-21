@@ -43,11 +43,12 @@ GameObject:
   - component: {fileID: 3429782339052497873}
   - component: {fileID: 3082787839506174517}
   - component: {fileID: 905487947371441501}
-  - component: {fileID: -4432481780023522235}
-  - component: {fileID: -7981308970868670867}
   - component: {fileID: -8426650336404375130}
   - component: {fileID: 7504556751628290812}
   - component: {fileID: 5446665259010575211}
+  - component: {fileID: 5780582906627067366}
+  - component: {fileID: 7691562356777959953}
+  - component: {fileID: 2600581223346231969}
   m_Layer: 0
   m_Name: Zombo
   m_TagString: Enemy
@@ -165,7 +166,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -185,58 +186,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.17}
   serializedVersion: 2
   m_Radius: 0.15318365
---- !u!114 &-4432481780023522235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8128294471269308694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d681c50b5ffb74a96be6ac376a5be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
-    type: 3}
-  damageNumberSpawnPoint: {fileID: 0}
-  armor: 10
-  onHealthDepleted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -7981308970868670867}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &-7981308970868670867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8128294471269308694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  healthComponent: {fileID: 0}
-  itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
-    type: 3}
-  treasureClassLevel: 4
 --- !u!95 &-8426650336404375130
 Animator:
   serializedVersion: 5
@@ -293,3 +242,90 @@ NavMeshAgent:
   m_BaseOffset: 0.48437497
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5780582906627067366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128294471269308694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  healthComponent: {fileID: 0}
+  itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
+    type: 3}
+  treasureClassLevel: 4
+--- !u!114 &7691562356777959953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128294471269308694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d681c50b5ffb74a96be6ac376a5be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
+    type: 3}
+  damageNumberSpawnPoint: {fileID: 0}
+  armor: 10
+  onHealthDepleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5780582906627067366}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!70 &2600581223346231969
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128294471269308694}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10654438, y: 0}
+  m_Size: {x: 0.28691176, y: 0.96875}
+  m_Direction: 0

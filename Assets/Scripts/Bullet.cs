@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        Debug.Log("Hitting this: " + other);
         //Debug.Log("BEFORE ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
         //  Ensure the bullet only interacts with valid objects
         if (!other.CompareTag("Environment") && !other.CompareTag("Enemy") && !other.CompareTag("Structure"))
@@ -72,8 +72,8 @@ public class Bullet : MonoBehaviour
         {
             Damage damageC = new Damage(damage, isCritical);
             health.TakeDamage(damageC);
-            Debug.Log(damage);
-            Debug.Log(damageC.damage);
+            //Debug.Log(damage);
+            //Debug.Log(damageC.damage);
             bulletapValue -= health.GetArmorValue(); //  Only subtract armor if health exists
         }
 
