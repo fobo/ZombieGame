@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D myRigidBody;
 
+
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class MovementController : MonoBehaviour
         {
             Debug.LogError("Player object not found! Make sure your player has the 'Player' tag.");
         }
+
+        
     }
 
     // Update is called once per frame
@@ -49,11 +52,11 @@ public class MovementController : MonoBehaviour
 
     private void FlipEnemySprite()
     {
-        if (myRigidBody.velocity.x > 0)
+        if (agent.velocity.x > 0)
         {
             sr.flipX = false; // Facing right
         }
-        else if (myRigidBody.velocity.x < 0)
+        else if (agent.velocity.x < 0)
         {
             sr.flipX = true; // Facing left
         }
