@@ -19064,6 +19064,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalSpawnInterval: 2
+  minDistanceToPlayer: 10
+  maxDistanceToPlayer: 50
+  spawnerCheckInterval: 1
 --- !u!4 &464409796
 Transform:
   m_ObjectHideFlags: 0
@@ -31469,7 +31472,7 @@ PrefabInstance:
     - target: {fileID: 8038532454385697526, guid: 839141af8be6d8a448def0e20e36f4cd,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
