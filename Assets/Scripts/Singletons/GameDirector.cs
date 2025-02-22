@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class GameDirector : MonoBehaviour
 {
     public static GameDirector Instance { get; private set; }
@@ -61,7 +61,7 @@ public class GameDirector : MonoBehaviour
         UpdateDifficultyOverTime();
     }
 
-    public float GetCriticalChance() => criticalChance; // returns crit chance
+    public float GetCriticalChance() => criticalChance * MomentoSystem.Instance.GetCriticalChanceMultiplier(); // returns crit chance
     private void UpdateDifficultyOverTime()
     {
         // Calculate difficulty percentage based on elapsed time
@@ -129,7 +129,7 @@ public class GameDirector : MonoBehaviour
             spawner.setIntervalTime(globalSpawnInterval);
         }
 
-        Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval:F2} seconds.");
+        //Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval:F2} seconds.");
     }
 
     private void OnDrawGizmos()
@@ -146,8 +146,13 @@ public class GameDirector : MonoBehaviour
             float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
             Gizmos.color = (distance >= minDistanceToPlayer && distance <= maxDistanceToPlayer) ? Color.green : Color.red;
 
+            Vector3 midPoint = (spawner.transform.position + player.transform.position) / 2;
+
             Gizmos.DrawLine(spawner.transform.position, player.transform.position);
             Gizmos.DrawSphere(spawner.transform.position, 0.2f);
+
+            // Draw the distance label at the midpoint of the line
+            Handles.Label(midPoint, distance.ToString("F2") + "m");
         }
 
         Gizmos.color = Color.yellow;

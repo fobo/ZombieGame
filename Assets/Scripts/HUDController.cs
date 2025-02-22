@@ -138,7 +138,7 @@ public class HUDController : MonoBehaviour
     /// </summary>
     public void UpdateHealthUI(float currentHealth, float maxHealth)
     {
-        Debug.Log("Healthed");
+        //Debug.Log("Healthed");
         if (healthText != null)
         {
             healthText.text = $"{currentHealth} / {maxHealth}";
