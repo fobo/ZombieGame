@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -10,20 +9,27 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject levelSelectMenu;
 
+    private bool hasEnded = false; // Prevent multiple calls to EndNightCycle
+
     private void Start()
     {
         currentTime = totalTime;
         levelSelectMenu.SetActive(false); // Hide menu initially
+        UpdateTimerUI(); // Ensure UI shows full time at start
     }
 
     private void Update()
     {
+        if (hasEnded) return;
+
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
+            currentTime = Mathf.Max(currentTime, 0); // Clamp to prevent negatives
             UpdateTimerUI();
         }
-        else
+
+        if (currentTime <= 0 && !hasEnded)
         {
             EndNightCycle();
         }
@@ -38,20 +44,37 @@ public class GameTimer : MonoBehaviour
 
     private void EndNightCycle()
     {
+        if (hasEnded) return;
+
+        hasEnded = true;
         currentTime = 0;
-        Time.timeScale = 0; // Pause the game
-        levelSelectMenu.SetActive(true); // Show level select menu
+        UpdateTimerUI();
+
+        Debug.Log("Pausing the game for Level Select");
+        GameStateManager.Instance.SetState(GameState.LevelSelect);
+        levelSelectMenu.SetActive(true);
     }
+
+
+    // Button Methods
     public void RevisitLevel()
     {
-        Time.timeScale = 1; // Resume time
+        ResetTimer();
         LevelManager.Instance.RevisitLevel();
     }
 
     public void NextLevel()
     {
-        Time.timeScale = 1; // Resume time
+        ResetTimer();
         LevelManager.Instance.LoadNextLevel();
     }
 
+    private void ResetTimer()
+    {
+        currentTime = totalTime;
+        hasEnded = false;
+        Time.timeScale = 1; // Resume time
+        levelSelectMenu.SetActive(false); // Hide menu
+        UpdateTimerUI(); // Reset UI
+    }
 }

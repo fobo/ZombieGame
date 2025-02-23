@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         MoveToSpawnPoint();
     }
 
-    private void MoveToSpawnPoint()
+    public void MoveToSpawnPoint()
     {
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         if (spawnPoint != null)

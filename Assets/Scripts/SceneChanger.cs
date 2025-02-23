@@ -19,20 +19,20 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("Collided");
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     Debug.Log("Collided");
 
-        if (other.CompareTag("Player"))
-        {
-            // Return all active pooled objects before loading the new scene
-            ReturnAllPooledObjects();
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         // Return all active pooled objects before loading the new scene
+    //         ReturnAllPooledObjects();
 
-            LoadNextScene();
-        }
-    }
+    //         LoadNextScene();
+    //     }
+    // }
 
-    private void ReturnAllPooledObjects()
+    public void ReturnAllPooledObjects()
     {
         if (GameController.Instance == null)
         {
