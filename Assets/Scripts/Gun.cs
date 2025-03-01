@@ -76,15 +76,10 @@ public class Gun : MonoBehaviour
 
         currentAmmo--;
 
+        int bulletsPerShot = (weaponData.fireType == FireType.Shotgun) ? weaponData.bulletsPerShot : 1;
 
-        if (weaponData.fireType == FireType.Shotgun)
-        {
-            FireShellWithSpread();
-        }
-        else
-        {
-            FireBulletWithSpread();
-        }
+        FireWeapon(bulletsPerShot); 
+
 
         StartCoroutine(FireRateCooldown());
 
@@ -119,54 +114,12 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void FireBulletWithSpread()
+    
+
+
+    private void FireWeapon(int bulletsPerShot)
     {
-        // Random spread angle in degrees
-        float spreadAngle = Random.Range(-weaponData.spread, weaponData.spread);
-
-        // Calculate the new bullet rotation based on the gun's current rotation
-        Quaternion spreadRotation = Quaternion.Euler(0, 0, spreadAngle);
-
-        // Determine the final firing direction
-        Vector2 finalDirection = spreadRotation * transform.right;
-
-        if (bulletSpawnPoint != null)
-        {
-            float randChance = Random.Range(0f, 1f);//return a number between 0 and 1
-
-            if (GameDirector.Instance.GetCriticalChance() > randChance)
-            {
-                Debug.Log("Critical!!!!");
-                isCritical = true; //next bullet generated is a critical hit!
-            }
-            //  Get a bullet from the pool instead of Instantiating
-            GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
-
-            if (bullet != null)
-            {
-                Bullet bs = bullet.GetComponent<Bullet>(); // gain access to the bullet script
-                if(isCritical){bs.setCritical();}// sets the bullet to be critical
-                bs.SetWeaponData(weaponData);
-
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    rb.velocity = finalDirection * 20f; // Set bullet speed
-                }
-            }
-            isCritical = false; // turn off crits after every shot
-        }
-
-        PlayShootAnimation(); // plays the shooting animation in the HUD
-        EjectShellCasing();
-    }
-
-
-
-    //call this fire with spread when using a shotgun. shots is the number of projectiles each shell contains.
-    private void FireShellWithSpread()
-    {
-        for (int i = 0; i < weaponData.bulletsPerShot; i++)
+        for (int i = 0; i < bulletsPerShot; i++)
         {
             // Random spread angle in degrees
             float spreadAngle = Random.Range(-weaponData.spread, weaponData.spread);
@@ -179,32 +132,33 @@ public class Gun : MonoBehaviour
 
             if (bulletSpawnPoint != null)
             {
-                float randChance = Random.Range(0f, 1f);//return a number between 0 and 1
-                
-                if (GameDirector.Instance.GetCriticalChance() > randChance)
+                // Check for critical hit
+                if (Util.RollChance(GameDirector.Instance.GetCriticalChance()))
                 {
-                    isCritical = true; //next bullet generated is a critical hit!
+                    isCritical = true; // Next bullet generated is a critical hit!
                 }
-                //  Get a bullet from the pool instead of Instantiating
+
+                // Get a bullet from the pool instead of Instantiating
                 GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
 
                 if (bullet != null)
                 {
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     Bullet bs = bullet.GetComponent<Bullet>();
-                    if(isCritical){bs.setCritical();}
+                    if (isCritical) { bs.setCritical(); } // Set the bullet to be critical
                     bs.SetWeaponData(weaponData);
+
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     if (rb != null)
                     {
                         rb.velocity = finalDirection * 20f; // Set bullet speed
                     }
                 }
-                isCritical = false;
+                isCritical = false; // Reset critical after each shot
             }
         }
 
-        PlayShootAnimation(); // Play shooting animation
-        EjectShellCasing(); // Shotgun should eject ONE shell per shot
+        PlayShootAnimation(); // Play shooting animation in the HUD
+        EjectShellCasing(); // Eject shell casing (only one per shot)
     }
 
 

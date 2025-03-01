@@ -8,6 +8,7 @@ public class HealthComponent : MonoBehaviour
 {
 
     private DamageFlashController damageFlashController;
+    private bool isDead;
 
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100; // Maximum health.
@@ -29,6 +30,7 @@ public class HealthComponent : MonoBehaviour
         // Initialize current health to the max health.
         damageFlashController = GetComponent<DamageFlashController>();
         currentHealth = maxHealth;
+        isDead = false;
         if (gameObject.CompareTag("Player"))
         {
             Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
@@ -70,8 +72,12 @@ public class HealthComponent : MonoBehaviour
         // If health reaches zero, invoke the health-depleted event.
         if (currentHealth == 0)
         {
-            //Debug.Log($"{gameObject.name} has reached 0 hp");
-            onHealthDepleted?.Invoke();
+            if (!isDead)
+            {   
+                isDead = true; // if its dead, make sure we don't kill it again for some reason.
+                //thing is dead
+                onHealthDepleted?.Invoke();
+            }
         }
         if (gameObject.CompareTag("Enemy"))
         {

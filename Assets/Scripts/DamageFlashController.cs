@@ -24,9 +24,19 @@ public class DamageFlashController : MonoBehaviour
         if (spriteRenderer != null && flashMaterial != null)
         {
             StopAllCoroutines(); // Prevent multiple flashes from stacking.
-            StartCoroutine(FlashCoroutine());
+
+            // Check if the gameObject is active before starting the coroutine
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(FlashCoroutine());
+            }
+            else
+            {
+                Debug.LogWarning($"{gameObject.name} is inactive, cannot start FlashCoroutine.");
+            }
         }
     }
+
 
     private IEnumerator FlashCoroutine()
     {
