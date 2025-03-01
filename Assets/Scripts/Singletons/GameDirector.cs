@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UIElements;
 public class GameDirector : MonoBehaviour
 {
     public static GameDirector Instance { get; private set; }
@@ -85,6 +86,7 @@ public class GameDirector : MonoBehaviour
 
         foreach (Spawner spawner in spawners)
         {
+            if(spawner == null) return; // null check on potentially destroyed spawners
             float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
 
             if (distance < minDistanceToPlayer || distance > maxDistanceToPlayer)

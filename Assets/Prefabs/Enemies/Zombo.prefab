@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 5780582906627067366}
   - component: {fileID: 7691562356777959953}
   - component: {fileID: 2600581223346231969}
+  - component: {fileID: -1198864973289153240}
   m_Layer: 0
   m_Name: Zombo
   m_TagString: Enemy
@@ -329,3 +330,17 @@ CapsuleCollider2D:
   m_Offset: {x: -0.10654438, y: 0}
   m_Size: {x: 0.28691176, y: 0.96875}
   m_Direction: 0
+--- !u!114 &-1198864973289153240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128294471269308694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6760b708baf4fcb4dafa558ad3c8e243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 46d1094d2e7b921478ab36fd7bfa767f, type: 2}
+  flashDuration: 0.1

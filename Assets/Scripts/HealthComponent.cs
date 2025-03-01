@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 public class HealthComponent : MonoBehaviour
 {
+
+    private DamageFlashController damageFlashController;
+
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100; // Maximum health.
     private float currentHealth;
@@ -24,6 +27,7 @@ public class HealthComponent : MonoBehaviour
     private void Awake()
     {
         // Initialize current health to the max health.
+        damageFlashController = GetComponent<DamageFlashController>();
         currentHealth = maxHealth;
         if (gameObject.CompareTag("Player"))
         {
@@ -61,6 +65,8 @@ public class HealthComponent : MonoBehaviour
         // Notify listeners about the health change.
         onHealthChanged?.Invoke(currentHealth, maxHealth);
 
+        // Trigger damage flash
+        damageFlashController?.TriggerFlash();
         // If health reaches zero, invoke the health-depleted event.
         if (currentHealth == 0)
         {
