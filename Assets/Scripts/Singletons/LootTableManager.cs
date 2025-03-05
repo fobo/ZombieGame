@@ -31,12 +31,16 @@ public class LootTableManager : MonoBehaviour
         }
     }
 
-    public GameObject GetRandomItemFromClass(int treasureClassLevel)
+    public GameObject GetRandomItemFromClass(int minTreasureClass, int maxTreasureClass)
     {
         List<GameObject> combinedLootPool = new List<GameObject>();
 
-        //collect all items from TC 0 up to the requested level
-        for (int i = 0; i <= treasureClassLevel; i++)
+        // Ensure min is at least 0 and max does not exceed available classes
+        minTreasureClass = Mathf.Max(minTreasureClass, 0);
+        maxTreasureClass = Mathf.Min(maxTreasureClass, treasureClasses.Count - 1);
+
+        // Collect loot only within the given range
+        for (int i = minTreasureClass; i <= maxTreasureClass; i++)
         {
             if (lootTable.ContainsKey(i))
             {
@@ -50,7 +54,7 @@ public class LootTableManager : MonoBehaviour
             return combinedLootPool[randomIndex];
         }
 
-        Debug.LogWarning($"No items found for Treasure Class {treasureClassLevel} or below!");
+        Debug.LogWarning($"No items found for Treasure Classes {minTreasureClass}-{maxTreasureClass}!");
         return null;
     }
 }

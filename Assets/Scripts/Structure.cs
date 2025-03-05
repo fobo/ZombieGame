@@ -11,8 +11,8 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
 
-
-    [SerializeField] private int treasureClassLevel = 1;
+    [SerializeField] private int minTC = 0; // Set the loot level of the chest
+    [SerializeField] private int maxTC = 4;
     [SerializeField] private HealthComponent healthComponent;
     [SerializeField] private GameObject itemPrefab; // Assign in Inspector
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Structure : MonoBehaviour
             PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
             if (prefrabItemScript != null)
             {
-                prefrabItemScript.SetTreasureClass(treasureClassLevel);
+                prefrabItemScript.SetTreasureClass(minTC, maxTC);
             }
         }
         else

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6646625341090989101}
   - component: {fileID: 5774065115792060125}
   - component: {fileID: 6357715444663723077}
-  - component: {fileID: 8791692448239431784}
+  - component: {fileID: 2938839387277827576}
   m_Layer: 0
   m_Name: 762 Ammo Pickup
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.900113, y: -38.8108, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupData: {fileID: 11400000, guid: d435e087fc430e64796551e11f5e4026, type: 2}
---- !u!58 &8791692448239431784
-CircleCollider2D:
+--- !u!60 &2938839387277827576
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,5 +132,23 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 1.25}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.546875, y: 0.45703125}
+      - {x: -0.5546875, y: 0.44921875}
+      - {x: -0.5546875, y: -0.46875}
+      - {x: -0.546875, y: -0.4765625}
+      - {x: 0.5703125, y: -0.4765625}
+      - {x: 0.57421875, y: -0.46875}
+      - {x: 0.57421875, y: 0.421875}
+      - {x: 0.5546875, y: 0.45703125}
+  m_UseDelaunayMesh: 0

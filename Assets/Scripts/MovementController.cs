@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MovementController : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 1f;
+    //[SerializeField] float moveSpeed = 1f;
     private GameObject target;
     SpriteRenderer sr;
     Rigidbody2D myRigidBody;

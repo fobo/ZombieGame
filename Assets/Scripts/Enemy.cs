@@ -81,7 +81,7 @@
 //         }
 //     }
 
-    
+
 //     private void ResetEnemy()
 //     {
 //         if (healthComponent != null)
@@ -107,7 +107,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int damage = 10;
     [SerializeField] private HealthComponent healthComponent;
     [SerializeField] private GameObject itemPrefab; // Assign in Inspector
-    [SerializeField] private int treasureClassLevel = 1; // Set the enemy's loot level
+    [SerializeField] private int minTC = 0; // Set the loot level of the chest
+    [SerializeField] private int maxTC = 4;
 
     private void Awake()
     {
@@ -147,7 +148,7 @@ public class Enemy : MonoBehaviour
             PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
             if (prefrabItemScript != null)
             {
-                prefrabItemScript.SetTreasureClass(treasureClassLevel);
+                prefrabItemScript.SetTreasureClass(minTC, maxTC);
             }
         }
         else
