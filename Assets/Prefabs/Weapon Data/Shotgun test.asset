@@ -26,7 +26,7 @@ MonoBehaviour:
   fireRate: 1
   spread: 15
   bulletsPerShot: 8
-  damage: 30
+  damage: 15
   ammoType: 2
   apValue: 35
   description: Test for the shotgun item

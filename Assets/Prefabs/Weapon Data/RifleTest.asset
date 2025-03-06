@@ -27,7 +27,7 @@ MonoBehaviour:
   fireRate: 0.1
   spread: 0.1
   bulletsPerShot: 1
-  damage: 5
+  damage: 20
   ammoType: 1
   apValue: 15
   description: This is a default test weapon.

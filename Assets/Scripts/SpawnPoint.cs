@@ -1,8 +1,12 @@
 using UnityEngine;
-using UnityEditor; // Needed for Handles.Label()
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class SpawnPointGizmo : MonoBehaviour
 {
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green; // Set Gizmo color
@@ -16,4 +20,5 @@ public class SpawnPointGizmo : MonoBehaviour
 
         Handles.Label(transform.position + Vector3.up * 0.75f, "Spawn Point", style);
     }
+    #endif
 }

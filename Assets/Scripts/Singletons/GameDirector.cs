@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
@@ -65,22 +68,32 @@ public class GameDirector : MonoBehaviour
     }
 
     public float GetCriticalChance() => criticalChance * MomentoSystem.Instance.GetCriticalChanceMultiplier(); // returns crit chance
+
+    //THIS METHOD DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!
     private void UpdateDifficultyOverTime()
     {
-        // Calculate difficulty percentage based on elapsed time
+        // Linear difficulty scaling
         float difficultyPercent = Mathf.Clamp01(gameTimer / timeToMaxDifficulty);
 
-        // Adjust spawn interval (higher difficulty = faster spawns)
+        // Calculate new interval but don't modify the base globalSpawnInterval
         float newInterval = Mathf.Lerp(globalSpawnInterval, minSpawnInterval, difficultyPercent);
+
+        // Apply the new interval WITHOUT changing the base value
         SetGlobalSpawnInterval(newInterval);
 
-        // Adjust the number of enemies per spawn
+        // Adjust enemies per spawn
         int newEnemiesPerSpawn = Mathf.RoundToInt(Mathf.Lerp(baseEnemiesPerSpawn, maxEnemiesPerSpawn, difficultyPercent));
         foreach (Spawner spawner in spawners)
         {
             spawner.SetEnemiesPerSpawn(newEnemiesPerSpawn);
         }
+
+        //Debug.Log($"[GameDirector] Time: {gameTimer:F1}s, Difficulty: {difficultyPercent:P2}, Spawn Interval: {newInterval:F2}s, Enemies Per Spawn: {newEnemiesPerSpawn}");
     }
+
+
+
+
 
     private void UpdateSpawnerStates()
     {
@@ -88,7 +101,7 @@ public class GameDirector : MonoBehaviour
 
         foreach (Spawner spawner in spawners)
         {
-            if(spawner == null) return; // null check on potentially destroyed spawners
+            if (spawner == null) return; // null check on potentially destroyed spawners
             float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
 
             if (distance < minDistanceToPlayer || distance > maxDistanceToPlayer)
@@ -135,7 +148,7 @@ public class GameDirector : MonoBehaviour
 
         //Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval:F2} seconds.");
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (player == null) player = GameObject.FindGameObjectWithTag("Player");
@@ -162,4 +175,5 @@ public class GameDirector : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(player.transform.position, 0.15f);
     }
+#endif
 }
