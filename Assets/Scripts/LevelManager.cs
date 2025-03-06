@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     private void Awake()
     {
+
+
         if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
         else { Destroy(gameObject); }
     }
@@ -39,6 +41,10 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
+    }
+
+    public void ReturnToMainMenu(){
+        SceneManager.LoadScene(0); // this should refer to the main menu usually.
     }
 
     private void IncreaseDifficulty()

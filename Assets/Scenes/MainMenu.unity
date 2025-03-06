@@ -275,7 +275,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 453378430}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -333,10 +333,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 453378425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b59f53979f1330d43b891fdb2dc1ec2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e73d9c183534c54b93ba83891d1e493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &578761943
 GameObject:
   m_ObjectHideFlags: 0

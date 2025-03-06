@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRigidBody;
     [SerializeField] private SpriteRenderer playerSprite; // Assign in Inspector
     private Animator playerAnimator;
+    public GameObject deathMenu;
 
 
     // Reference to the equipped gun
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+
         // Ensure only one player exists
         if (FindObjectsOfType<PlayerController>().Length > 1)
         {
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
-
+        deathMenu.SetActive(false); // make the death menu not appear yet
     }
 
     private bool canShootSingleFire = true; // Prevents rapid single-fire shots
@@ -201,6 +203,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        deathMenu.SetActive(true);
         Debug.Log($"Player {gameObject.name} has been destroyed!");
         Destroy(gameObject);
     }

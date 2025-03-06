@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MomentoSystem : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class MomentoSystem : MonoBehaviour
 
     private void Awake()
     {
+
+        // If we're in the main menu, don't persist this object
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Destroy(gameObject);
+            return;
+        }
         if (Instance == null)
         {
             Instance = this;

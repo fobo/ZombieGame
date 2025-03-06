@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -16,6 +17,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance != null && Instance != this)
             Destroy(gameObject);
         else

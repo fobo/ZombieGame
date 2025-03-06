@@ -25,11 +25,7 @@ public class MovementController : MonoBehaviour
         // Find the player object in the scene and assign it as the target
         target = GameObject.FindGameObjectWithTag("Player");
 
-        // Check if the player object is found to avoid null reference errors
-        if (target == null)
-        {
-            Debug.LogError("Player object not found! Make sure your player has the 'Player' tag.");
-        }
+
 
         
     }
@@ -42,6 +38,7 @@ public class MovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(target == null){return;}
         agent.SetDestination(target.transform.position);
 
         if (gameObject.CompareTag("Enemy"))

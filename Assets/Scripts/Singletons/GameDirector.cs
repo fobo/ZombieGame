@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     public static GameDirector Instance { get; private set; }
@@ -27,6 +28,7 @@ public class GameDirector : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;

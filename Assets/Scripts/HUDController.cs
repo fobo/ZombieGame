@@ -15,6 +15,8 @@ public class HUDController : MonoBehaviour
 
     private void Awake()
     {
+
+
         // Ensure only one instance exists
         if (Instance == null)
         {
