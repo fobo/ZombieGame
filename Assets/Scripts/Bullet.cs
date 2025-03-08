@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float lifetime = 3f;
     private WeaponData weaponData;
     private float bulletapValue = 0;
+    private float stoppingPower = 0;
     //AP Value for bullets. It should be assigned when it spawns and reset when it dies.
     private Gun gunScript;
     public bool isCritical = false;
@@ -27,7 +29,7 @@ public class Bullet : MonoBehaviour
         weaponData = data;
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
         damage = weaponData.damage * MomentoSystem.Instance.GetDamageMultiplier();
-
+        stoppingPower = weaponData.stoppingPower * MomentoSystem.Instance.GetStoppingPowerMultiplier();
         if(isCritical){
             damage *= 2; // doubles the damage
         }
@@ -67,13 +69,16 @@ public class Bullet : MonoBehaviour
         }
 
         HealthComponent health = other.GetComponent<HealthComponent>();
-
+        MovementController movement = other.GetComponent<MovementController>();
+        if(movement != null){
+            //reduce the move speed based on weapondata.stoppingPower
+            movement.ApplyStoppingPower(weaponData.stoppingPower);
+            
+        }
         if (health != null) //  Only apply damage if the object has health
         {
-            Damage damageC = new Damage(damage, isCritical);
+            Damage damageC = new Damage(damage, isCritical, stoppingPower);
             health.TakeDamage(damageC);
-            //Debug.Log(damage);
-            //Debug.Log(damageC.damage);
             bulletapValue -= health.GetArmorValue(); //  Only subtract armor if health exists
         }
 
@@ -82,7 +87,6 @@ public class Bullet : MonoBehaviour
         {
             ReturnToPool();
         }
-        //Debug.Log("AFTER ap value " + bulletapValue + " for the weapon of type + " + weaponData.weaponName);
     }
 
 

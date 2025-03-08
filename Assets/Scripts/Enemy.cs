@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Damage damageC = new Damage(damage, false);
+            Damage damageC = new Damage(damage, false, 0f);
             HealthComponent playerHealth = collision.gameObject.GetComponent<HealthComponent>();
             if (playerHealth != null)
             {

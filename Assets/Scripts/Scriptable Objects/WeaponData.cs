@@ -24,6 +24,7 @@ public class WeaponData : ScriptableObject
     public float damage = 10; // Damage per bullet
     public AmmoType ammoType; // Choose the ammo type.... be careful, you can make the shotgun shoot rockets if you wanted it to.
     public float apValue; // armor piercing value, i.e how good is it at piercing armor
+    public float stoppingPower = 0.05f; //stopping power will provide a slowing effect to the enemy for 1 seconds. The higher the power, the more the effect is.
 
     [TextArea]
     public string description; // Optional description for the weapon
