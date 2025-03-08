@@ -37,14 +37,18 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        // Check if the player presses "R" and the gun is not already reloading
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        // Check if the player presses "R" and the gun is not already reloading, and if the player has a weapon equipped.
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && weaponData != null)
         {
             StartCoroutine(Reload());
         }
     }
 
-    ///////////////
+    /////////////// events
+    public delegate void ReloadAction(float reloadTime);
+    public event ReloadAction OnReloadStart;
+    //
+
 
     public void EquipWeapon(WeaponData newWeaponData)
     {
@@ -78,7 +82,7 @@ public class Gun : MonoBehaviour
 
         int bulletsPerShot = (weaponData.fireType == FireType.Shotgun) ? weaponData.bulletsPerShot : 1;
 
-        FireWeapon(bulletsPerShot); 
+        FireWeapon(bulletsPerShot);
 
 
         StartCoroutine(FireRateCooldown());
@@ -114,7 +118,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    
+
 
 
     private void FireWeapon(int bulletsPerShot)
@@ -183,7 +187,7 @@ public class Gun : MonoBehaviour
         isReloading = true;
         PlayReloadAnimation();
         Debug.Log($"Reloading {weaponData.weaponName}...");
-
+        OnReloadStart?.Invoke(weaponData.reloadSpeed);
         //  Get the correct ammo type for this weapon
 
 
@@ -380,5 +384,11 @@ public class Gun : MonoBehaviour
         //magazine.transform.rotation = Quaternion.identity; // Reset to no rotation
     }
 
+
+    //getters setters
+    public float GetReloadTime()
+    {
+        return weaponData != null ? weaponData.reloadSpeed : 1f; // Default to 1s if no weapon data
+    }
 
 }
