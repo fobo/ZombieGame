@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite; // Assign in Inspector
     private Animator playerAnimator;
     public GameObject deathMenu;
+    public GameObject popupTextField; // used for pickups, reload status, etc
+    public Transform textSpawnPoint; // position where text spawns from the player.
 
 
     // Reference to the equipped gun
@@ -198,6 +202,27 @@ public class PlayerController : MonoBehaviour
         equippedGun.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
+
+    public void SpawnTextPopup(Text text)
+    {
+        if(popupTextField == null){return;} //null check
+        Vector3 spawnPos = textSpawnPoint.position;
+        GameObject popupTextInstance = Instantiate(popupTextField, spawnPos, Quaternion.identity);
+
+        //get the script component, "PopupText"
+        PopupText popupTextScript = popupTextInstance.GetComponent<PopupText>();
+        //if it is not null, assign the textMeshProGUI to "text"
+        if (popupTextScript != null)
+        {
+            popupTextScript.textMeshProUGUI.SetText(text.text);
+            popupTextScript.textMeshProUGUI.color = text.color;
+        }
+        else
+        {
+            Debug.LogWarning("PopupText component not found on instantiated object!");
+        }
+
+    }
 
 
 

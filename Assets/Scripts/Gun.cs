@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
 
     public Animator gunAnimator; // links up to the animation player
     private int currentAmmo;
+    private PlayerController player;
 
     [Header("Runtime Variables")]
     private bool isReloading;
@@ -32,6 +33,8 @@ public class Gun : MonoBehaviour
         {
             gunAnimator = GetComponentInChildren<Animator>();
         }
+
+        player = FindObjectOfType<PlayerController>();
 
     }
 
@@ -75,6 +78,10 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if(currentAmmo == 0 && !isReloading && canShoot && Input.GetKeyDown(KeyCode.Mouse0)){
+            Text text = new Text("Reload!", Color.red);
+            player.SpawnTextPopup(text);
+        }
         if (isReloading || !canShoot || currentAmmo <= 0) return;
 
 
