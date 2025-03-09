@@ -61,7 +61,8 @@ public class Gun : MonoBehaviour
         }
 
         //  Assign the new weapon data
-        weaponData = newWeaponData;
+        weaponData = Util.updateWeaponData(newWeaponData);
+
 
         //  Retrieve the saved ammo count (or use max ammo if new weapon)
         currentAmmo = InventorySystem.Instance.GetSavedWeaponAmmo(weaponData.weaponName, weaponData.maxAmmo);
@@ -248,7 +249,7 @@ public class Gun : MonoBehaviour
     private IEnumerator FireRateCooldown()
     {
         canShoot = false;
-        yield return new WaitForSeconds(weaponData.fireRate);
+        yield return new WaitForSeconds(weaponData.fireRate * MomentoSystem.Instance.GetFireRateMultiplier()); // increases "fire rate"
         canShoot = true;
     }
 

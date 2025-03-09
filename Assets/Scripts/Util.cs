@@ -29,4 +29,24 @@ public static class Util
         return false; // Failure after all attempts
     }
 
+    public static WeaponData updateWeaponData(WeaponData weaponData)
+    {
+
+
+        //On weapon equip, update all of the weapon data to be accurate based on the current values of the momento system.
+        //Also please call this method whenever the player picks up a momento.
+        weaponData.apValue *= MomentoSystem.Instance.GetAPMultiplier();
+        weaponData.damage *= MomentoSystem.Instance.GetDamageMultiplier();
+        weaponData.fireRate *= MomentoSystem.Instance.GetFireRateMultiplier();
+        weaponData.reloadSpeed *= MomentoSystem.Instance.GetReloadSpeedMultiplier();
+        weaponData.spread *= MomentoSystem.Instance.GetSpreadMultiplier();
+        weaponData.criticalChance *= MomentoSystem.Instance.GetCriticalChanceMultiplier();
+        weaponData.stoppingPower *= MomentoSystem.Instance.GetStoppingPowerMultiplier();
+
+
+
+
+        return weaponData;
+    }
+
 }
