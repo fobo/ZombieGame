@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public PickupData pickupData; // Now uses a ScriptableObject
-
+    public PickupData pickupData; // scriptable object
+    public SpriteRenderer sr; // reference to the sprite renderer component
 
     void Awake()
     {
         //apply shaders to the pickups
         if (GetComponent<PickupShaderApplier>() == null)
         {
-            gameObject.AddComponent<PickupShaderApplier>();
+            //gameObject.AddComponent<PickupShaderApplier>();
         }
+    }
+
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = pickupData.pickupIcon;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,7 +36,9 @@ public class Pickup : MonoBehaviour
             Debug.LogError("PickupData is NULL! Assign a PickupData asset in the Inspector.");
             return;
         }
-
+        PlayerController pc = player.GetComponent<PlayerController>();
+        Text text = new Text(pickupData.pickupName, Color.green);
+        pc.SpawnTextPopup(text);
         switch (pickupData.pickupType)
         {
 

@@ -27,9 +27,16 @@ MonoBehaviour:
   fireRate: 0.1
   spread: 0.1
   bulletsPerShot: 1
-  damage: 15
+  damage: 20
   ammoType: 1
   apValue: 15
   stoppingPower: 0.05
   criticalChance: 0.1
   description: This is a default test weapon.
+  baseReloadSpeed: 3
+  baseFireRate: 0.1
+  baseSpread: 0.1
+  baseDamage: 20
+  baseAPValue: 15
+  baseStoppingPower: 0.05
+  baseCriticalChance: 0.1

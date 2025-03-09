@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8695306651719908079}
   - component: {fileID: 6134589707312054290}
   - component: {fileID: 4390127186687136858}
-  - component: {fileID: -3529101789782648299}
+  - component: {fileID: -8283677105088889606}
   m_Layer: 0
-  m_Name: Momentotest
+  m_Name: TCMultiplierTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,9 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa,
-    type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1602620443, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af721825ad4f0a4284063d695756ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupData: {fileID: 11400000, guid: fa82d8383ae3ed24a8faa1454eb04cd6, type: 2}
+  pickupData: {fileID: 11400000, guid: dd437fac9c582b840a15eb73eea8a95b, type: 2}
+  sr: {fileID: 0}
 --- !u!58 &4390127186687136858
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-3529101789782648299
+--- !u!114 &-8283677105088889606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 954849381679672832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d436669a306ba2643a15808021a51e4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e0f9c7a47583c547a42f653a0d1d738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  momentoName: damageboosttest
-  description: boost damage 50%
-  momentoIcon: {fileID: 21300000, guid: 0e6e68746f49e204abc90cbe8afd46fd, type: 3}
+  momentoName: tc mult dev
+  description: tc mult dev
+  momentoIcon: {fileID: 0}

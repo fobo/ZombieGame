@@ -31,4 +31,12 @@ MonoBehaviour:
   ammoType: 0
   apValue: 10
   stoppingPower: 0.5
+  criticalChance: 0.05
   description: Glock 19
+  baseReloadSpeed: 2
+  baseFireRate: 0.19
+  baseSpread: 5
+  baseDamage: 25
+  baseAPValue: 10
+  baseStoppingPower: 0.5
+  baseCriticalChance: 0.05

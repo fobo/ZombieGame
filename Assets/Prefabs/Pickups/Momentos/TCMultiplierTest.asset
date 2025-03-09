@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 394655d2532945445ae7abe89195be73, type: 3}
-  m_Name: critchancetest
+  m_Name: TCMultiplierTest
   m_EditorClassIdentifier: 
-  pickupName: Crit chance
-  pickupIcon: {fileID: -148007709, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
+  pickupName: TC Multiplier Test
+  pickupIcon: {fileID: -2014283818, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
   pickupType: 3
   amount: 0
   ammoType: 0
