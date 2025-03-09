@@ -31,7 +31,7 @@ public class EventBus : MonoBehaviour
 
     //Events for HUD updates
     public event Action<int, int> OnAmmoUpdated;  // (currentAmmo, maxAmmo)
-    public event Action OnEquipWeapon; 
+    public event Action OnEquipWeapon;
 
 
     public Delegate GetOnEquipWeaponDelegate()
@@ -96,4 +96,14 @@ public class EventBus : MonoBehaviour
         OnEquipWeapon?.Invoke();
     }
 
+
+    public event Action OnMomentoPickedUp;
+
+    /// <summary>
+    /// Fire event when a Momento is picked up
+    /// </summary>
+    public void MomentoPickedUp()
+    {
+        OnMomentoPickedUp?.Invoke();
+    }
 }

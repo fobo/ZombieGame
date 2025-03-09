@@ -46,6 +46,17 @@ public class Gun : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        EventBus.Instance.OnMomentoPickedUp += UpdateWeaponStats;
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Instance.OnMomentoPickedUp -= UpdateWeaponStats;
+    }
+
+
     /////////////// events
     public delegate void ReloadAction(float reloadTime);
     public event ReloadAction OnReloadStart;
@@ -420,6 +431,22 @@ public class Gun : MonoBehaviour
         weaponData.spread *= MomentoSystem.Instance.GetSpreadMultiplier();
         weaponData.criticalChance *= MomentoSystem.Instance.GetCriticalChanceMultiplier();
         weaponData.stoppingPower *= MomentoSystem.Instance.GetStoppingPowerMultiplier();
+    }
+
+    public void UpdateWeaponStats()
+    {
+        if (weaponData == null) return;
+
+        // Reset weapon stats before applying new multipliers
+        ResetWeaponStats(weaponData);
+
+        // Apply the new momento multipliers
+        ApplyMomentoMultipliers(weaponData);
+
+        // Update UI if needed
+        Debug.Log("Weapon stats updated due to momento pickup.");
+        EventBus.Instance?.UpdateGunAnimationUI();
+        EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
 
 

@@ -65,6 +65,7 @@ public class Pickup : MonoBehaviour
                 {
                     //InventorySystem.Instance.AddMomento(momento);
                     MomentoSystem.Instance.AddMomento(momento);
+                    EventBus.Instance?.MomentoPickedUp();
                     Debug.Log($"Picked up Momento: {momento.momentoName}");
                 }
                 else
