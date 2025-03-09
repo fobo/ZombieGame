@@ -16,12 +16,18 @@ public class PlayerController : MonoBehaviour
     public GameObject deathMenu;
     public GameObject popupTextField; // used for pickups, reload status, etc
     public Transform textSpawnPoint; // position where text spawns from the player.
+    public HealthComponent hc; // reference to the health component
 
 
     // Reference to the equipped gun
     [SerializeField] public Gun equippedGun;
 
     [SerializeField] private WeaponData[] weaponSlots; // Customize as needed
+
+
+
+    //events
+
 
     private void Awake()
     {
@@ -36,16 +42,52 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Keep player across levels
     }
 
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        if (EventBus.Instance != null)
+        {
+            EventBus.Instance.OnMomentoPickedUp += UpdatePlayerStats;
+        }
+        else
+        {
+            //Debug.LogError("EventBus is not initialized yet! Delaying subscription.");
+            StartCoroutine(WaitForEventBus());
+        }
+    }
+
+    private IEnumerator WaitForEventBus()
+    {
+        while (EventBus.Instance == null)
+        {
+            yield return null; // Wait until EventBus is initialized
+        }
+
+        // Now that EventBus exists, subscribe to the event
+        EventBus.Instance.OnMomentoPickedUp += UpdatePlayerStats;
+        Debug.Log("Successfully subscribed to OnMomentoPickedUp.");
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        if (EventBus.Instance != null)
+        {
+            EventBus.Instance.OnMomentoPickedUp -= UpdatePlayerStats;
+        }
     }
 
+
+
+    private void UpdatePlayerStats()
+    {
+        hc.SetMaxHealth(hc.GetOriginalMaxHealth() * MomentoSystem.Instance.GetHealthMultiplier());
+        hc.UpdateUI();
+        Debug.Log("Current max health: " + hc.GetMaxHealth());
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         MoveToSpawnPoint();
@@ -70,6 +112,7 @@ public class PlayerController : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
+        hc = GetComponent<HealthComponent>();
         deathMenu.SetActive(false); // make the death menu not appear yet
     }
 
@@ -205,7 +248,7 @@ public class PlayerController : MonoBehaviour
 
     public void SpawnTextPopup(Text text)
     {
-        if(popupTextField == null){return;} //null check
+        if (popupTextField == null) { return; } //null check
         Vector3 spawnPos = textSpawnPoint.position;
         GameObject popupTextInstance = Instantiate(popupTextField, spawnPos, Quaternion.identity);
 

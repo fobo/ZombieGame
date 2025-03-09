@@ -12,6 +12,7 @@ public class HealthComponent : MonoBehaviour
 
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100; // Maximum health.
+    private float originalMaxHealth;
     private float currentHealth;
     public GameObject damageTextNumber; // reference to the damage text number prefab.
     public Transform damageNumberSpawnPoint;
@@ -30,6 +31,7 @@ public class HealthComponent : MonoBehaviour
         // Initialize current health to the max health.
         damageFlashController = GetComponent<DamageFlashController>();
         currentHealth = maxHealth;
+        originalMaxHealth = maxHealth;
         isDead = false;
         if (gameObject.CompareTag("Player"))
         {
@@ -158,6 +160,11 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
+    public void UpdateUI(){
+
+        HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
+    }
+
     /// <summary>
     /// Get the current health value.
     /// </summary>
@@ -169,4 +176,10 @@ public class HealthComponent : MonoBehaviour
     public float GetMaxHealth() => maxHealth;
 
     public float GetArmorValue() => armor;
+
+    public float GetOriginalMaxHealth() => originalMaxHealth;
+
+    public void SetMaxHealth(float healthValue){
+        maxHealth = healthValue;
+    }
 }

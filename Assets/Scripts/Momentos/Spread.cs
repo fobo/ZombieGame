@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Spread : Momento
 {
-    public override float GetSpreadMultiplier() => 5f; // multiplies spread by 5x
+    public override float GetSpreadMultiplier() => .2f; // multiplies spread by 5x
 
 }

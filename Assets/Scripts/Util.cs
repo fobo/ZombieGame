@@ -18,8 +18,10 @@ public static class Util
         }
 
         // Attempt the roll up to luckFactor + 1 times (original attempt + retries)
+
         for (int i = 0; i <= luckFactor; i++)
         {
+            
             if (Random.value <= targetSuccess)
             {
                 return true; // Success
