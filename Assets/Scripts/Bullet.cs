@@ -28,9 +28,9 @@ public class Bullet : MonoBehaviour
     {
         weaponData = data;
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
-        damage = weaponData.damage * MomentoSystem.Instance.GetDamageMultiplier();
-        stoppingPower = weaponData.stoppingPower * MomentoSystem.Instance.GetStoppingPowerMultiplier();
-        if(Util.RollChance(weaponData.criticalChance * MomentoSystem.Instance.GetCriticalChanceMultiplier())){
+        damage = weaponData.damage;
+        stoppingPower = weaponData.stoppingPower;
+        if(Util.RollChance(weaponData.criticalChance)){
             Debug.Log("Critical!");
             damage *= 2 * MomentoSystem.Instance.GetCriticalDamageMultiplier(); // doubles the damage and adds crit damage mult
             isCritical = true;
@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
     {
         if (weaponData != null)
         {
-            bulletapValue = weaponData.apValue * MomentoSystem.Instance.GetAPMultiplier(); // sets AP value
+            bulletapValue = weaponData.apValue;// sets AP value
 
         }
         else

@@ -29,4 +29,27 @@ public class WeaponData : ScriptableObject
 
     [TextArea]
     public string description; // Optional description for the weapon
+
+
+
+
+    [HideInInspector] public float baseReloadSpeed;
+    [HideInInspector] public float baseFireRate;
+    [HideInInspector] public float baseSpread;
+    [HideInInspector] public float baseDamage;
+    [HideInInspector] public float baseAPValue;
+    [HideInInspector] public float baseStoppingPower;
+    [HideInInspector] public float baseCriticalChance;
+
+    private void OnEnable()
+    {
+        // Store base values (only once)
+        baseReloadSpeed = reloadSpeed;
+        baseFireRate = fireRate;
+        baseSpread = spread;
+        baseDamage = damage;
+        baseAPValue = apValue;
+        baseStoppingPower = stoppingPower;
+        baseCriticalChance = criticalChance;
+    }
 }

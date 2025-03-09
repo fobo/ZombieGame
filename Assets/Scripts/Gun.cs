@@ -54,21 +54,26 @@ public class Gun : MonoBehaviour
 
     public void EquipWeapon(WeaponData newWeaponData)
     {
-        //  Save current weapon's magazine ammo before switching
+        // Save current weapon's magazine ammo before switching
         if (weaponData != null)
         {
             InventorySystem.Instance.SaveWeaponMagazineAmmo(weaponData.weaponName, currentAmmo);
         }
+        Debug.LogWarning("base bullet damage " + newWeaponData.baseDamage);
+        Debug.LogWarning("bullet damage " + newWeaponData.damage);
+        // Instantiate a fresh copy of the weapon data
+        weaponData = ScriptableObject.Instantiate(newWeaponData);
 
-        //  Assign the new weapon data
-        weaponData = Util.updateWeaponData(newWeaponData);
+        // Reset stats before applying multipliers (Prevents stacking!)
+        ResetWeaponStats(weaponData);
 
+        // Apply multipliers
+        ApplyMomentoMultipliers(weaponData);
 
-        //  Retrieve the saved ammo count (or use max ammo if new weapon)
+        // Retrieve the saved ammo count (or use max ammo if new weapon)
         currentAmmo = InventorySystem.Instance.GetSavedWeaponAmmo(weaponData.weaponName, weaponData.maxAmmo);
 
-        //  Update the HUD with the correct ammo
-        Debug.Log("Updating from gun");
+        // Update the HUD with the correct ammo
         EventBus.Instance?.UpdateGunAnimationUI();
         EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
@@ -76,9 +81,11 @@ public class Gun : MonoBehaviour
 
 
 
+
     public void Shoot()
     {
-        if(currentAmmo == 0 && !isReloading && canShoot && Input.GetKeyDown(KeyCode.Mouse0)){
+        if (currentAmmo == 0 && !isReloading && canShoot && Input.GetKeyDown(KeyCode.Mouse0))
+        {
             Text text = new Text("Reload!", Color.red);
             player.SpawnTextPopup(text);
         }
@@ -391,5 +398,29 @@ public class Gun : MonoBehaviour
     {
         return weaponData != null ? weaponData.reloadSpeed : 1f; // Default to 1s if no weapon data
     }
+
+
+    private void ResetWeaponStats(WeaponData weaponData)
+    {
+        weaponData.reloadSpeed = weaponData.baseReloadSpeed;
+        weaponData.fireRate = weaponData.baseFireRate;
+        weaponData.spread = weaponData.baseSpread;
+        weaponData.damage = weaponData.baseDamage;
+        weaponData.apValue = weaponData.baseAPValue;
+        weaponData.stoppingPower = weaponData.baseStoppingPower;
+        weaponData.criticalChance = weaponData.baseCriticalChance;
+    }
+
+    private void ApplyMomentoMultipliers(WeaponData weaponData)
+    {
+        weaponData.apValue *= MomentoSystem.Instance.GetAPMultiplier();
+        weaponData.damage *= MomentoSystem.Instance.GetDamageMultiplier();
+        weaponData.fireRate *= MomentoSystem.Instance.GetFireRateMultiplier();
+        weaponData.reloadSpeed *= MomentoSystem.Instance.GetReloadSpeedMultiplier();
+        weaponData.spread *= MomentoSystem.Instance.GetSpreadMultiplier();
+        weaponData.criticalChance *= MomentoSystem.Instance.GetCriticalChanceMultiplier();
+        weaponData.stoppingPower *= MomentoSystem.Instance.GetStoppingPowerMultiplier();
+    }
+
 
 }

@@ -35,6 +35,9 @@ public static class Util
 
         //On weapon equip, update all of the weapon data to be accurate based on the current values of the momento system.
         //Also please call this method whenever the player picks up a momento.
+
+
+        // Apply multipliers from MomentoSystem
         weaponData.apValue *= MomentoSystem.Instance.GetAPMultiplier();
         weaponData.damage *= MomentoSystem.Instance.GetDamageMultiplier();
         weaponData.fireRate *= MomentoSystem.Instance.GetFireRateMultiplier();
@@ -42,9 +45,6 @@ public static class Util
         weaponData.spread *= MomentoSystem.Instance.GetSpreadMultiplier();
         weaponData.criticalChance *= MomentoSystem.Instance.GetCriticalChanceMultiplier();
         weaponData.stoppingPower *= MomentoSystem.Instance.GetStoppingPowerMultiplier();
-
-
-
 
         return weaponData;
     }
