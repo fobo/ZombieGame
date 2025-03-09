@@ -11,7 +11,7 @@ public class GameDirector : MonoBehaviour
     public static GameDirector Instance { get; private set; }
 
 
-    private float criticalChance = 0.05f; //default is set to 5%
+    
     [Header("Spawner Settings")]
     public float globalSpawnInterval = 5f;
     public float minDistanceToPlayer = 10f;
@@ -67,7 +67,6 @@ public class GameDirector : MonoBehaviour
         UpdateDifficultyOverTime();
     }
 
-    public float GetCriticalChance() => criticalChance * MomentoSystem.Instance.GetCriticalChanceMultiplier(); // returns crit chance
 
     //THIS METHOD DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!
     private void UpdateDifficultyOverTime()

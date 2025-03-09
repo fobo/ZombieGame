@@ -21,7 +21,6 @@ public class Gun : MonoBehaviour
     [Header("Runtime Variables")]
     private bool isReloading;
     private bool canShoot = true;
-    private bool isCritical = false;
 
 
 
@@ -143,11 +142,7 @@ public class Gun : MonoBehaviour
 
             if (bulletSpawnPoint != null)
             {
-                // Check for critical hit
-                if (Util.RollChance(GameDirector.Instance.GetCriticalChance()))
-                {
-                    isCritical = true; // Next bullet generated is a critical hit!
-                }
+
 
                 // Get a bullet from the pool instead of Instantiating
                 GameObject bullet = GameController.Instance.GetPooledObject("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
@@ -155,8 +150,7 @@ public class Gun : MonoBehaviour
                 if (bullet != null)
                 {
                     Bullet bs = bullet.GetComponent<Bullet>();
-                    if (isCritical) { bs.setCritical(); } // Set the bullet to be critical
-                    bs.SetWeaponData(weaponData);
+                    bs.SetWeaponData(weaponData); // apply the current weapon data to the bullet
 
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     if (rb != null)
@@ -164,7 +158,6 @@ public class Gun : MonoBehaviour
                         rb.velocity = finalDirection * 20f; // Set bullet speed
                     }
                 }
-                isCritical = false; // Reset critical after each shot
             }
         }
 

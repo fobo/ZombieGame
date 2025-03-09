@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class critboostmm : Momento
 {
-    public override float GetCriticalChanceMultiplier() => 5f; //  Boost crit change by 5x
+    public override float GetCriticalChanceMultiplier() => 5f; //  Boost crit chance by 5x
 }

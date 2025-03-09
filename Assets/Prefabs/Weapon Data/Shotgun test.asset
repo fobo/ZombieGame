@@ -29,4 +29,5 @@ MonoBehaviour:
   damage: 15
   ammoType: 2
   apValue: 35
+  stoppingPower: 1
   description: Test for the shotgun item

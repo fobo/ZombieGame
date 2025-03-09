@@ -30,8 +30,10 @@ public class Bullet : MonoBehaviour
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
         damage = weaponData.damage * MomentoSystem.Instance.GetDamageMultiplier();
         stoppingPower = weaponData.stoppingPower * MomentoSystem.Instance.GetStoppingPowerMultiplier();
-        if(isCritical){
+        if(Util.RollChance(weaponData.criticalChance * MomentoSystem.Instance.GetCriticalChanceMultiplier())){
+            Debug.Log("Critical!");
             damage *= 2; // doubles the damage
+            isCritical = true;
         }
 
     } 

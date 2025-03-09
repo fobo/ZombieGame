@@ -30,4 +30,6 @@ MonoBehaviour:
   damage: 20
   ammoType: 1
   apValue: 15
+  stoppingPower: 0.05
+  criticalChance: 1
   description: This is a default test weapon.

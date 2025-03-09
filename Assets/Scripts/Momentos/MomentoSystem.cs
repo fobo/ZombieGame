@@ -20,6 +20,7 @@ public class MomentoSystem : MonoBehaviour
     private int luckMultiplier = 1;
     private float criticalChanceMultiplier = 1f;
     private float stoppingPowerMultiplier = 1f;
+    private float criticalDamageMultiplier = 1f;
 
     private void Awake()
     {
@@ -63,6 +64,7 @@ public class MomentoSystem : MonoBehaviour
             luckMultiplier += newMomento.GetLuckMultiplier();
             criticalChanceMultiplier *= newMomento.GetCriticalChanceMultiplier();
             stoppingPowerMultiplier *= newMomento.GetStoppingPowerMultiplier();
+            criticalDamageMultiplier *= newMomento.GetCriticalDamageMultiplier();
 
             // Apply special effect (if any)
             newMomento.ApplyEffect();
@@ -84,4 +86,5 @@ public class MomentoSystem : MonoBehaviour
     public int GetLuckMultiplier() => luckMultiplier;
     public float GetCriticalChanceMultiplier() => criticalChanceMultiplier;
     public float GetStoppingPowerMultiplier() => stoppingPowerMultiplier;
+    public float GetCriticalDamageMultiplier() => criticalDamageMultiplier;
 }

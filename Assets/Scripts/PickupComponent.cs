@@ -4,6 +4,15 @@ public class Pickup : MonoBehaviour
 {
     public PickupData pickupData; // Now uses a ScriptableObject
 
+
+    void Awake()
+    {
+        //apply shaders to the pickups
+        if (GetComponent<PickupShaderApplier>() == null)
+        {
+            gameObject.AddComponent<PickupShaderApplier>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -39,7 +48,7 @@ public class Pickup : MonoBehaviour
                 {
                     InventorySystem.Instance.AddAmmo(pickupData.ammoType, pickupData.amount);
 
-                    
+
                     Debug.Log($"Picked up {pickupData.amount} {pickupData.ammoType} ammo.");
                 }
                 break;

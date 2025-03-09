@@ -30,4 +30,5 @@ MonoBehaviour:
   damage: 25
   ammoType: 0
   apValue: 10
+  stoppingPower: 0.5
   description: Glock 19
