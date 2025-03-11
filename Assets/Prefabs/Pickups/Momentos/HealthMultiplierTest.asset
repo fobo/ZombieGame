@@ -15,6 +15,6 @@ MonoBehaviour:
   pickupName: Health Multiplier Test
   pickupIcon: {fileID: 1781329837, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
   pickupType: 3
-  amount: 0
+  amount: 50
   ammoType: 0
   weaponData: {fileID: 0}
