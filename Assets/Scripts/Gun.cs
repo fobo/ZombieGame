@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Instance.OnMomentoPickedUp += UpdateWeaponStats;
+        StartCoroutine(WaitForEventBusAndSubscribe());
     }
 
     private void OnDisable()
@@ -60,6 +60,18 @@ public class Gun : MonoBehaviour
     /////////////// events
     public delegate void ReloadAction(float reloadTime);
     public event ReloadAction OnReloadStart;
+
+
+    private IEnumerator WaitForEventBusAndSubscribe()
+    {
+        while (EventBus.Instance == null)
+        {
+            yield return null; // Wait until EventBus is initialized
+        }
+
+        EventBus.Instance.OnMomentoPickedUp += UpdateWeaponStats;
+        Debug.Log("Gun successfully subscribed to OnMomentoPickedUp.");
+    }
     //
 
 

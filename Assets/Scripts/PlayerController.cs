@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //Debug.LogError("EventBus is not initialized yet! Delaying subscription.");
-            StartCoroutine(WaitForEventBus());
+            //StartCoroutine(WaitForEventBus());
         }
     }
 
