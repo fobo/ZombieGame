@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if (equippedGun.weaponData != null && Input.GetMouseButton(0)) // Detects if the button is HELD
         {
 
-            if (equippedGun.weaponData.fireType == FireType.Automatic)
+            if (equippedGun.weaponData.fireType == FireType.Automatic || equippedGun.weaponData.fireType == FireType.Melee)
             {
                 //Debug.Log("Automatic fire shot");
                 equippedGun.Shoot(); // Fire the gun (FireRateCooldown inside Shoot() handles timing)

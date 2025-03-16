@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     [Header("Bullet Settings")]
     public Transform bulletSpawnPoint; // The point where bullets spawn
     public GameObject bulletPrefab;    // The bullet prefab (if using physical bullets)
+    public GameObject meleeAttackPrefab;
 
 
     public Transform magazineSpawnPoint; // Where the magazine spawns (e.g., under the gun)
@@ -114,6 +115,12 @@ public class Gun : MonoBehaviour
         }
         if (isReloading || !canShoot || currentAmmo <= 0) return;
 
+        if (weaponData.fireType == FireType.Melee)
+        {
+            MeleeAttack();
+            StartCoroutine(FireRateCooldown());
+            return;
+        }
 
         currentAmmo--;
 
@@ -461,5 +468,13 @@ public class Gun : MonoBehaviour
         EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
     }
 
+    public void MeleeAttack()
+    {
+        GameObject meleeAttack = GameController.Instance.GetPooledObject("meleeArea", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        MeleeAttack ma = meleeAttack.GetComponent<MeleeAttack>();
+        ma.SetWeaponData(weaponData);
+        //       MeleeAttackArea meleeAttack = Instantiate(meleeAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+    }
 
 }

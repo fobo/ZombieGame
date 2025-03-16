@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a23457bee5d9c548bb54360c0edbd3c, type: 3}
+  m_Name: Melee
+  m_EditorClassIdentifier: 
+  weaponAnimation: {fileID: 0}
+  weaponIdleFrame: {fileID: 21300000, guid: c1357227ec8a77e44abb6bd1fe6c3808, type: 3}
+  weaponName: Axe
+  weaponSprite: {fileID: 21300000, guid: c1357227ec8a77e44abb6bd1fe6c3808, type: 3}
+  fireType: 3
+  reloadType: 0
+  casingType: {fileID: 0}
+  magazineType: {fileID: 0}
+  maxAmmo: 30
+  reloadSpeed: 2
+  fireRate: 0.5
+  spread: 0.1
+  bulletsPerShot: 1
+  damage: 10
+  ammoType: 0
+  apValue: 0
+  stoppingPower: 0.05
+  criticalChance: 0.05
+  description: yo mama
+  baseReloadSpeed: 2
+  baseFireRate: 0.1
+  baseSpread: 0.1
+  baseDamage: 10
+  baseAPValue: 0
+  baseStoppingPower: 0.05
+  baseCriticalChance: 0.05

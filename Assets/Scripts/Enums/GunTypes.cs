@@ -6,7 +6,8 @@ public enum FireType
 {
     Automatic,
     SingleFire,
-    Shotgun
+    Shotgun,
+    Melee
 }
 
 // Defines the possible reload types for weapons

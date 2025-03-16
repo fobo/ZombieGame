@@ -109,6 +109,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject itemPrefab; // Assign in Inspector
     [SerializeField] private int minTC = 0; // Set the loot level of the chest
     [SerializeField] private int maxTC = 4;
+    [SerializeField] public uint hitID;
 
     private void Awake()
     {
