@@ -27,6 +27,11 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 GameStateManager.Instance.SetState(GameState.Playing);
+
+                if (TooltipManager.Instance != null)
+                {
+                    TooltipManager.Instance.HideTooltip();
+                }
                 Debug.Log("Inventory Closed");
             }
         }

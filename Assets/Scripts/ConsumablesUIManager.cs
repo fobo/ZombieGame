@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // For TextMeshPro support
+using TMPro;
+using UnityEngine.EventSystems; // For tooltip triggers
 
 public class ConsumablesUIManager : MonoBehaviour
 {
-    public GameObject ammoSlotPrefab; // Assign AmmoSlotPrefab in Unity Inspector
-    public Transform consumablesPanel; // Assign the ConsumablesPanel in Unity Inspector
+    public GameObject ammoSlotPrefab; // Assign in Unity Inspector
+    public Transform consumablesPanel; // Assign in Unity Inspector
 
     [Header("Ammo Icons (Assign in Inspector)")]
     public Sprite NineMMIcon;
@@ -16,11 +17,10 @@ public class ConsumablesUIManager : MonoBehaviour
     public Sprite ThreeFiftySevenIcon;
     public Sprite RocketIcon;
 
-    private Dictionary<AmmoType, Sprite> ammoIcons; // Cached dictionary for quick lookups
+    private Dictionary<AmmoType, Sprite> ammoIcons;
 
-    private void Start()
+    private void Awake()
     {
-        // Initialize the sprite dictionary
         ammoIcons = new Dictionary<AmmoType, Sprite>
         {
             { AmmoType.NineMM, NineMMIcon },
@@ -32,17 +32,7 @@ public class ConsumablesUIManager : MonoBehaviour
         };
     }
 
-    private void Awake()
-    {
-        if (ammoIcons == null)
-        {
-            ammoIcons = new Dictionary<AmmoType, Sprite>();
-            Debug.LogWarning("ammoIcons dictionary was null and has been initialized!");
-        }
-    }
-
-
-    private void OnEnable() // When inventory UI opens, update it
+    private void OnEnable()
     {
         UpdateConsumablesUI();
     }
@@ -69,6 +59,9 @@ public class ConsumablesUIManager : MonoBehaviour
             // Update UI components
             newAmmoSlot.transform.Find("AmmoIcon").GetComponent<Image>().sprite = GetAmmoIcon(ammoType);
             newAmmoSlot.transform.Find("AmmoCountText").GetComponent<TMP_Text>().text = $"x{ammoCount}";
+
+            // Add tooltip triggers
+            AddTooltipTriggers(newAmmoSlot, ammoType, ammoCount);
         }
     }
 
@@ -89,4 +82,39 @@ public class ConsumablesUIManager : MonoBehaviour
         return ammoIcons[ammoType];
     }
 
+    private void AddTooltipTriggers(GameObject ammoSlot, AmmoType ammoType, int ammoCount)
+    {
+        EventTrigger trigger = ammoSlot.GetComponent<EventTrigger>();
+        if (trigger == null)
+        {
+            trigger = ammoSlot.AddComponent<EventTrigger>();
+        }
+        trigger.triggers.Clear();
+
+        string tooltipText = $"{ammoType} Ammo\nAmount: x{ammoCount}";
+
+        // Pointer Enter (Show Tooltip)
+        EventTrigger.Entry entryEnter = new EventTrigger.Entry();
+        entryEnter.eventID = EventTriggerType.PointerEnter;
+        entryEnter.callback.AddListener((eventData) =>
+        {
+            if (TooltipManager.Instance != null)
+            {
+                TooltipManager.Instance.ShowTooltip(tooltipText, ammoSlot.transform);
+            }
+        });
+        trigger.triggers.Add(entryEnter);
+
+        // Pointer Exit (Hide Tooltip)
+        EventTrigger.Entry entryExit = new EventTrigger.Entry();
+        entryExit.eventID = EventTriggerType.PointerExit;
+        entryExit.callback.AddListener((eventData) =>
+        {
+            if (TooltipManager.Instance != null)
+            {
+                TooltipManager.Instance.HideTooltip();
+            }
+        });
+        trigger.triggers.Add(entryExit);
+    }
 }
