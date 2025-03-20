@@ -150,4 +150,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   momentoName: Crit Damage Dev
   description: crit damage dev
-  momentoIcon: {fileID: 0}
+  momentoIcon: {fileID: -2072454063, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

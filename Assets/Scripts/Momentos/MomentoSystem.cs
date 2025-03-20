@@ -50,7 +50,7 @@ public class MomentoSystem : MonoBehaviour
         if (!collectedMomentos.Contains(newMomento))
         {
             collectedMomentos.Add(newMomento);
-
+            InventorySystem.Instance.AddMomento(newMomento); // add momento to inventory
             //example stats
             // Apply stat multipliers
             damageMultiplier *= newMomento.GetDamageMultiplier();

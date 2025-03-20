@@ -10,7 +10,7 @@ public class InventorySystem : MonoBehaviour
     private Dictionary<string, WeaponData> weapons = new Dictionary<string, WeaponData>(); // keeps track of collected weapons
     private Dictionary<string, int> weaponMagazineAmmo = new Dictionary<string, int>();
     public Dictionary<AmmoType, int> ammoInventory = new Dictionary<AmmoType, int>();
-
+    private List<Momento> momentoInventory = new List<Momento>();
 
     private void Awake()
     {
@@ -91,6 +91,13 @@ public class InventorySystem : MonoBehaviour
         }
 
         Debug.Log($"Picked up {amount} {ammoType} ammo. Total: {ammoInventory[ammoType]}");
+    }
+
+
+    public void AddMomento(Momento momento)
+    {
+        momentoInventory.Add(momento);
+        Debug.Log($"Added Momento to Inventory: {momento.momentoName} (Total Momentos: {momentoInventory.Count})");
     }
     /////////////////////////////////////////////////////////////
     ////////////////////REMOVE STUFF SECTION/////////////////////
@@ -192,6 +199,11 @@ public class InventorySystem : MonoBehaviour
     public Dictionary<string, WeaponData> GetAllWeapons()
     {
         return weapons;
+    }
+
+    public List<Momento> GetMomentos()
+    {
+        return momentoInventory;
     }
 
 
