@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class InventorySystem : MonoBehaviour
     private Dictionary<string, WeaponData> weapons = new Dictionary<string, WeaponData>(); // keeps track of collected weapons
     private Dictionary<string, int> weaponMagazineAmmo = new Dictionary<string, int>();
     public Dictionary<AmmoType, int> ammoInventory = new Dictionary<AmmoType, int>();
+    public Dictionary<CraftingType, int> craftingInventory = new Dictionary<CraftingType, int>();
     private List<Momento> momentoInventory = new List<Momento>();
 
     private void Awake()
@@ -31,7 +33,11 @@ public class InventorySystem : MonoBehaviour
 
         foreach (AmmoType ammo in System.Enum.GetValues(typeof(AmmoType)))
         {
-            ammoInventory[ammo] = 0;
+            ammoInventory[ammo] = 0; // set the default values to 0
+        }
+        foreach (CraftingType craftingType in System.Enum.GetValues(typeof(CraftingType)))
+        {
+            craftingInventory[craftingType] = 0; // set the default values to 0
         }
 
     }
@@ -41,6 +47,7 @@ public class InventorySystem : MonoBehaviour
         // Subscribe to the event
         EventBus.Instance.OnAmmoUsed += UseAmmo;
         EventBus.Instance.OnAmmoAdded += AddAmmo;
+        EventBus.Instance.OnMaterialAdded += AddCraftingMaterial;
         EventBus.Instance.OnWeaponAdded += AddWeapon;
         EventBus.Instance.OnMagazineSaved += SaveWeaponMagazineAmmo;
         EventBus.Instance.OnPrintInventory += PrintInventory;
@@ -93,6 +100,19 @@ public class InventorySystem : MonoBehaviour
         Debug.Log($"Picked up {amount} {ammoType} ammo. Total: {ammoInventory[ammoType]}");
     }
 
+    public void AddCraftingMaterial(CraftingType craftingType, int amount)
+    {
+        //add the amount to the inventory, otherwise set it to the pickup amount (usually 1)
+        if (craftingInventory.ContainsKey(craftingType))
+        {
+            craftingInventory[craftingType] += amount;
+        }
+        else
+        {
+            craftingInventory[craftingType] = amount;
+        }
+    }
+
 
     public void AddMomento(Momento momento)
     {
@@ -134,6 +154,21 @@ public class InventorySystem : MonoBehaviour
             Debug.LogWarning($"Not enough {ammoType} ammo!");
         }
     }
+
+    public void UseCraftingMaterial(CraftingType craftingType, int amount)
+    {
+        if (HasCraftingMaterial(craftingType, amount))
+        {
+            craftingInventory[craftingType] -= amount;
+        }
+        else
+        {
+            Debug.LogWarning($"Not enough {craftingType}!");
+        }
+    }
+
+
+
     //////////////////////////////////////////////////////////////////
     /// <summary>
     /// Checks if the inventory contains a certain item.
@@ -148,6 +183,11 @@ public class InventorySystem : MonoBehaviour
     public bool HasAmmo(AmmoType ammoType, int amount)
     {
         return ammoInventory.ContainsKey(ammoType) && ammoInventory[ammoType] >= amount;
+    }
+
+    private bool HasCraftingMaterial(CraftingType craftingType, int amount)
+    {//check if the crafting inventory has the correct type of material, and how much there is
+        return craftingInventory.ContainsKey(craftingType) && craftingInventory[craftingType] >= amount;
     }
     /// <summary>
     /// Gets the amount of a specific item in the inventory.
@@ -179,9 +219,17 @@ public class InventorySystem : MonoBehaviour
         return weapons.ContainsKey(weaponName);
     }
 
+/// <summary>
+/// Gets the total items in each inventory, usually to be displayed in the inventory UI.
+/// </summary>
     public Dictionary<AmmoType, int> GetAmmoInventory()
     {
         return ammoInventory;
+    }
+
+    public Dictionary<CraftingType, int> GetCraftingInventory()
+    {
+        return craftingInventory;
     }
 
 
@@ -232,7 +280,7 @@ public class InventorySystem : MonoBehaviour
 
 
     /// <summary>
-    /// Logs all items and weapons in the inventory.
+    /// Logs all items and weapons in the inventory. Used for legacy and bug testing.
     /// </summary>
     public void PrintInventory()
     {

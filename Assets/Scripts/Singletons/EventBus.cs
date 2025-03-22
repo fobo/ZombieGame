@@ -25,8 +25,10 @@ public class EventBus : MonoBehaviour
     public event Action<AmmoType, int> OnAmmoUsed;
     public event Action<AmmoType, int> OnAmmoAdded;
     public event Action<WeaponData> OnWeaponAdded;
+    public event Action<CraftingType, int> OnMaterialAdded;
     public event Action<string, int> OnMagazineSaved;
     public event Action OnPrintInventory;
+
 
 
     //Events for HUD updates
@@ -54,6 +56,9 @@ public class EventBus : MonoBehaviour
         OnAmmoAdded?.Invoke(ammoType, amount);
     }
 
+    public void AddMaterial(CraftingType craftingType, int amount){
+        OnMaterialAdded?.Invoke(craftingType, amount);
+    }
     /// <summary>
     ///  Fire event when a weapon is picked up
     /// </summary>

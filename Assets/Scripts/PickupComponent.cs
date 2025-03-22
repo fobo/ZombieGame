@@ -81,7 +81,10 @@ public class Pickup : MonoBehaviour
                     Debug.LogError($"Momento script is missing from {gameObject.name}!");
                 }
                 break;
-
+            case PickupType.Crafting:
+                InventorySystem.Instance.AddCraftingMaterial(pickupData.craftingType, pickupData.amount);
+                Debug.Log($"Picked up {pickupData.amount} {pickupData.craftingType}.");
+                break;
             case PickupType.Custom:
                 // Add custom pickup logic here
                 break;
@@ -96,5 +99,6 @@ public enum PickupType
     Health,
     Weapon,
     Momento,
+    Crafting,
     Custom
 }
