@@ -16,6 +16,7 @@ public class ConsumablesUIManager : MonoBehaviour
     public Sprite FiveFiveSixIcon;
     public Sprite ThreeFiftySevenIcon;
     public Sprite RocketIcon;
+    public Sprite TurretIcon;
 
     private Dictionary<AmmoType, Sprite> ammoIcons;
 
@@ -28,7 +29,8 @@ public class ConsumablesUIManager : MonoBehaviour
             { AmmoType.ShotgunShell, ShotgunShellIcon },
             { AmmoType.FiveFiveSix, FiveFiveSixIcon },
             { AmmoType.ThreeFiftySeven, ThreeFiftySevenIcon },
-            { AmmoType.Rocket, RocketIcon }
+            { AmmoType.Rocket, RocketIcon },
+            { AmmoType.defaultTurret, TurretIcon}
         };
     }
 

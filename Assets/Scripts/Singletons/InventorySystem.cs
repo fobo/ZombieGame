@@ -14,6 +14,23 @@ public class InventorySystem : MonoBehaviour
     public Dictionary<CraftingType, int> craftingInventory = new Dictionary<CraftingType, int>();
     private List<Momento> momentoInventory = new List<Momento>();
 
+    //icon dictionaries
+    public Dictionary<CraftingType, Sprite> craftingIcons = new Dictionary<CraftingType, Sprite>();
+    public Dictionary<AmmoType, Sprite> ammoIcons = new Dictionary<AmmoType, Sprite>();
+
+
+    //icons
+    [SerializeField] private Sprite woodIcon;
+    [SerializeField] private Sprite metalIcon;
+    [SerializeField] private Sprite electronicIcon;
+
+    [SerializeField] private Sprite nineMMIcon;
+    [SerializeField] private Sprite sevenSixTwoIcon;
+    [SerializeField] private Sprite shotgunShellIcon;
+    [SerializeField] private Sprite fiveFiveSixIcon;
+    [SerializeField] private Sprite threeFiftySevenIcon;
+    [SerializeField] private Sprite rocketIcon;
+    [SerializeField] private Sprite defaultTurretIcon;
     private void Awake()
     {
 
@@ -39,6 +56,19 @@ public class InventorySystem : MonoBehaviour
         {
             craftingInventory[craftingType] = 0; // set the default values to 0
         }
+
+
+        craftingIcons[CraftingType.Wood] = woodIcon;
+        craftingIcons[CraftingType.Metal] = metalIcon;
+        craftingIcons[CraftingType.Electronic] = electronicIcon;
+
+        ammoIcons[AmmoType.NineMM] = nineMMIcon;
+        ammoIcons[AmmoType.SevenSixTwo] = sevenSixTwoIcon;
+        ammoIcons[AmmoType.ShotgunShell] = shotgunShellIcon;
+        ammoIcons[AmmoType.FiveFiveSix] = fiveFiveSixIcon;
+        ammoIcons[AmmoType.ThreeFiftySeven] = threeFiftySevenIcon;
+        ammoIcons[AmmoType.Rocket] = rocketIcon;
+        ammoIcons[AmmoType.defaultTurret] = defaultTurretIcon;
 
     }
 
@@ -167,7 +197,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-
+    ///Crafting button
 
     //////////////////////////////////////////////////////////////////
     /// <summary>
@@ -219,9 +249,9 @@ public class InventorySystem : MonoBehaviour
         return weapons.ContainsKey(weaponName);
     }
 
-/// <summary>
-/// Gets the total items in each inventory, usually to be displayed in the inventory UI.
-/// </summary>
+    /// <summary>
+    /// Gets the total items in each inventory, usually to be displayed in the inventory UI.
+    /// </summary>
     public Dictionary<AmmoType, int> GetAmmoInventory()
     {
         return ammoInventory;
@@ -329,6 +359,17 @@ public class InventorySystem : MonoBehaviour
         }
 
         Debug.Log("==============================");
+    }
+
+
+    public Sprite GetCraftingIcon(CraftingType type)
+    {
+        return craftingIcons.TryGetValue(type, out var icon) ? icon : null;
+    }
+
+    public Sprite GetAmmoIcon(AmmoType type)
+    {
+        return ammoIcons.TryGetValue(type, out var icon) ? icon : null;
     }
 
 }

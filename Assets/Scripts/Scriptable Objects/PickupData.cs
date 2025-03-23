@@ -11,8 +11,8 @@ public class PickupData : ScriptableObject
     [Header("Amount of the item")]
     public int amount; // Health or ammo amount, or whatever.
 
-    [Header("Ammo Pickup Settings")]
-    public AmmoType ammoType;
+    [Header("Consumable Pickup Settings")]
+    public AmmoType ammoType; // "Ammo" is a generic term here, since you will "fire" turrets onto the ground, or "fire" medkits into your bloodstream.
 
     [Header("Material Type Settings")]
     public CraftingType craftingType;

@@ -5,5 +5,6 @@ public enum AmmoType
     ShotgunShell, // Shotgun shells
     FiveFiveSix, //  5.56mm for AR15
     ThreeFiftySeven, // .357 for Revolver
-    Rocket // Rocket for the M72 LAW
+    Rocket, // Rocket for the M72 LAW
+    defaultTurret
 }
