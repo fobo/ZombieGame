@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private WeaponData[] weaponSlots; // Customize as needed
 
+    [SerializeField] public GameObject turret; //placeholder under we figure out how we want to add more turrets
+
 
 
     //events
@@ -120,6 +122,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.V) && InventorySystem.Instance.GetAmmoCount(AmmoType.defaultTurret) > 0)
+        { // check if player is pressing deploy key and has a turret
+            InventorySystem.Instance.UseAmmo(AmmoType.defaultTurret, 1); //uses one turret
+            Instantiate(turret, transform.position, Quaternion.identity);
+
+            //Deploy turret at the players feet
+        }
         if (Input.GetKeyDown(KeyCode.I))
         {
             //EventBus.Instance?.PrintInventory();

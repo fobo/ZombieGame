@@ -48699,7 +48699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b304d2d8e078674fbd99acfc1d118ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalSpawnInterval: 2
+  globalSpawnInterval: 7
   minDistanceToPlayer: 20
   maxDistanceToPlayer: 50
   spawnerCheckInterval: 1
@@ -51943,6 +51943,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4606362567003587733, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
+        type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 3303815367895027116, guid: 715cf80e06a8c5b4bb3a4116149c26a2,
+        type: 3}
     - target: {fileID: 4606362567003587733, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
         type: 3}
       propertyPath: deathMenu

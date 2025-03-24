@@ -138,7 +138,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        Debug.Log($"Enemy {gameObject.name} has died!");
+       // Debug.Log($"Enemy {gameObject.name} has died!");
 
         //  Spawn a mystery item at the enemy's position
         if (itemPrefab != null)

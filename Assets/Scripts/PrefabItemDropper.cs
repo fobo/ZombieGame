@@ -20,7 +20,7 @@ public class PrefabItemDropper : MonoBehaviour
 
         if (itemToSpawn != null)
         {
-            Debug.Log("generating " + itemToSpawn);
+           // Debug.Log("generating " + itemToSpawn);
             Instantiate(itemToSpawn, transform.position, Quaternion.identity);
         }
 

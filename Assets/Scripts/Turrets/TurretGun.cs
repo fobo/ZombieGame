@@ -27,7 +27,6 @@ public class TurretGun : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log(canShoot + " " + currentAmmo);
         if (!canShoot || currentAmmo <= 0) return;
 
 

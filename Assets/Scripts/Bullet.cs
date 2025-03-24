@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         damage = weaponData.damage;
         stoppingPower = weaponData.stoppingPower;
         if(Util.RollChance(weaponData.criticalChance)){
-            Debug.Log("Critical!");
+//            Debug.Log("Critical!");
             damage *= 2 * MomentoSystem.Instance.GetCriticalDamageMultiplier(); // doubles the damage and adds crit damage mult
             isCritical = true;
         }

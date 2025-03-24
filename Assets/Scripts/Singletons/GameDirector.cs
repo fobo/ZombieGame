@@ -11,7 +11,7 @@ public class GameDirector : MonoBehaviour
     public static GameDirector Instance { get; private set; }
 
 
-    
+
     [Header("Spawner Settings")]
     public float globalSpawnInterval = 5f;
     public float minDistanceToPlayer = 10f;
@@ -50,8 +50,18 @@ public class GameDirector : MonoBehaviour
         if (player == null) Debug.LogError("Player not found!");
 
         FindAllSpawners();
+        InitializeDifficulty(0);
         ApplyGlobalSpawnSettings();
+
     }
+
+    public void InitializeDifficulty(int baseStage)
+    {
+        difficultyStage = baseStage;
+        gameTimer = baseStage * 30f;
+        UpdateDifficultyOverTime(); // force initial difficulty sync
+    }
+
 
     private void Update()
     {
@@ -64,31 +74,35 @@ public class GameDirector : MonoBehaviour
             spawnerCheckTimer = 0f;
         }
 
-        UpdateDifficultyOverTime();
+        if (gameTimer % 30f < Time.deltaTime) // Fires roughly every 30 seconds
+        {
+            UpdateDifficultyOverTime();
+        }
     }
 
 
-    //THIS METHOD DOES NOT WORK!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    private int difficultyStage = 0;
+
     private void UpdateDifficultyOverTime()
     {
-        // Linear difficulty scaling
-        float difficultyPercent = Mathf.Clamp01(gameTimer / timeToMaxDifficulty);
+        difficultyStage++; // increment every 30 seconds (based on Update)
 
-        // Calculate new interval but don't modify the base globalSpawnInterval
+        float difficultyPercent = Mathf.Clamp01((difficultyStage * 30f) / timeToMaxDifficulty);
+
         float newInterval = Mathf.Lerp(globalSpawnInterval, minSpawnInterval, difficultyPercent);
+        int newEnemiesPerSpawn = Mathf.RoundToInt(Mathf.Lerp(baseEnemiesPerSpawn, maxEnemiesPerSpawn, difficultyPercent));
 
-        // Apply the new interval WITHOUT changing the base value
         SetGlobalSpawnInterval(newInterval);
 
-        // Adjust enemies per spawn
-        int newEnemiesPerSpawn = Mathf.RoundToInt(Mathf.Lerp(baseEnemiesPerSpawn, maxEnemiesPerSpawn, difficultyPercent));
         foreach (Spawner spawner in spawners)
         {
             spawner.SetEnemiesPerSpawn(newEnemiesPerSpawn);
         }
 
-        //Debug.Log($"[GameDirector] Time: {gameTimer:F1}s, Difficulty: {difficultyPercent:P2}, Spawn Interval: {newInterval:F2}s, Enemies Per Spawn: {newEnemiesPerSpawn}");
+        Debug.Log($"[GameDirector] Difficulty Stage: {difficultyStage}, Interval: {newInterval:F2}s, Enemies: {newEnemiesPerSpawn}");
     }
+
 
 
 
@@ -100,19 +114,18 @@ public class GameDirector : MonoBehaviour
 
         foreach (Spawner spawner in spawners)
         {
-            if (spawner == null) return; // null check on potentially destroyed spawners
-            float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
+            if (spawner == null) continue;
 
-            if (distance < minDistanceToPlayer || distance > maxDistanceToPlayer)
-            {
-                spawner.DisableSpawning();
-            }
-            else
-            {
+            float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
+            bool inRange = distance >= minDistanceToPlayer && distance <= maxDistanceToPlayer;
+
+            if (inRange)
                 spawner.EnableSpawning();
-            }
+            else
+                spawner.DisableSpawning();
         }
     }
+
 
     private void FindAllSpawners()
     {

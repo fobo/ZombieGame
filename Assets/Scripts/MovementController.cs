@@ -43,7 +43,7 @@ public class MovementController : MonoBehaviour
         if (agent == null) return;
 
         float minSpeed = originalSpeed * (1 - stoppingPower);
-        Debug.Log("originalSpeed: " + originalSpeed + " stopping power:" + stoppingPower);
+       // Debug.Log("originalSpeed: " + originalSpeed + " stopping power:" + stoppingPower);
         agent.speed = Mathf.Max(minSpeed, agent.speed - (originalSpeed * stoppingPower));
 
         // If a speed restore coroutine is already running, stop it

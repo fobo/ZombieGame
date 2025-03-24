@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fb1d021cc9a964781a1fcb2115919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 75430ad95d2681f40a813f0f849ea5a0, type: 2}
+  weaponData: {fileID: 11400000, guid: 216100033520a494bb586819fd5136e8, type: 2}
   bulletSpawnPoint: {fileID: 8476353965771134080}
   bulletPrefab: {fileID: 1062132742866633006, guid: c5898951c853268409ee2c89e195e259,
     type: 3}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad289619ea2027843b1143dea1d53fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRange: 1000
+  maxRange: 500
   gunPivot: {fileID: 1408825919053470763}
   detectionMask:
     serializedVersion: 2
