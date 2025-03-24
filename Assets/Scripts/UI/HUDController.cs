@@ -12,7 +12,10 @@ public class HUDController : MonoBehaviour
     public GameObject currentGun; // this is a reference to the current gun the player is holding.
     public GameObject gunHUD; // this is a ref to the gunHUD object that controls the gun animations in the bottom right corner of the screen.
     private Animator gunAnimator; // ref to the animator itself
+    private StatsUIManager statsScript; // reference to the stats script so we can update the health easily
 
+    private float currentHealthRef;
+    private float maxHealthRef;
     private void Awake()
     {
 
@@ -44,8 +47,11 @@ public class HUDController : MonoBehaviour
     {
         AssignReferences(); // Reassign gun reference on scene load
     }
+    public static event Action OnHUDReady;
+
     private void Start()
     {
+
 
 
         //on start, we set the currently equipped gun to whatever the currentGun is holding.
@@ -89,7 +95,8 @@ public class HUDController : MonoBehaviour
 
         EventBus.Instance.OnAmmoUpdated += UpdateAmmoUI;
         EventBus.Instance.OnEquipWeapon += UpdateGunAnimationUI;
-
+        // All setup done
+        OnHUDReady?.Invoke();
     }
 
     private void AssignReferences()
@@ -145,7 +152,17 @@ public class HUDController : MonoBehaviour
         {
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
+        SetHealthMaxHealth(currentHealth, maxHealth);
     }
+    //set and hold references to the players health values whenever we update the UI
+    private void SetHealthMaxHealth(float curr, float max)
+    {
+        currentHealthRef = curr;
+        maxHealthRef = max;
+    }
+
+    public float GetHealth() => currentHealthRef;
+    public float GetMaxHealth() => maxHealthRef;
 
     public void UpdateGunAnimationUI()
     {

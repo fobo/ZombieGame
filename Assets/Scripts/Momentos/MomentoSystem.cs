@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,7 @@ public class MomentoSystem : MonoBehaviour
     private float criticalChanceMultiplier = 1f;
     private float stoppingPowerMultiplier = 1f;
     private float criticalDamageMultiplier = 1f;
-
+    public static event Action OnMomentoReady;
     private void Awake()
     {
 
@@ -40,6 +41,8 @@ public class MomentoSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Instance = this;
+        OnMomentoReady?.Invoke();
     }
 
     /// <summary>
@@ -72,7 +75,7 @@ public class MomentoSystem : MonoBehaviour
             Debug.Log($"Collected Momento: {newMomento.momentoName} - {newMomento.description}");
         }
     }
-    
+
     // example getters
     // Getters for all stat adjustments
     public float GetDamageMultiplier() => damageMultiplier;

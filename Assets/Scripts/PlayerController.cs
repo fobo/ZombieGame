@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-
+        StartCoroutine(WaitForEventBus());
         if (EventBus.Instance != null)
         {
             EventBus.Instance.OnMomentoPickedUp += UpdatePlayerStats;
@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
     private void UpdatePlayerStats()
     {
         hc.SetMaxHealth(hc.GetOriginalMaxHealth() * MomentoSystem.Instance.GetHealthMultiplier());
+        hc.Heal(hc.GetMaxHealth()); //player found a health upgrade, might as well heal them to full as well.
         hc.UpdateUI();
         Debug.Log("Current max health: " + hc.GetMaxHealth());
     }
