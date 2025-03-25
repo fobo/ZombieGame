@@ -54,9 +54,9 @@ public class StatsUIManager : MonoBehaviour
 
         AddModifier("Damage", MomentoSystem.Instance.GetDamageMultiplier());
         AddModifier("Armor Penetration", MomentoSystem.Instance.GetAPMultiplier());
-        AddModifier("Fire Rate", MomentoSystem.Instance.GetFireRateMultiplier());
-        AddModifier("Reload Speed", MomentoSystem.Instance.GetReloadSpeedMultiplier());
-        AddModifier("Spread", MomentoSystem.Instance.GetSpreadMultiplier());
+        AddReverseModifier("Fire Rate", MomentoSystem.Instance.GetFireRateMultiplier());
+        AddReverseModifier("Reload Speed", MomentoSystem.Instance.GetReloadSpeedMultiplier());
+        AddReverseModifier("Spread", MomentoSystem.Instance.GetSpreadMultiplier());
         //AddModifier("Movement Speed", MomentoSystem.Instance.GetMoveSpeedMultiplier()); //not yet functional
         //AddModifier("Treasure Quality", MomentoSystem.Instance.GetTreasureClassMultiplier()); //not yet functional
         AddModifier("Luck", MomentoSystem.Instance.GetLuckMultiplier());
@@ -68,6 +68,14 @@ public class StatsUIManager : MonoBehaviour
     private void AddModifier(string statName, float multiplier)
     {
         int percent = Mathf.RoundToInt(multiplier * 100f);
+        string color = percent > 100 ? "green" : percent < 100 ? "red" : "white";
+
+        AddStat(statName, $"<color={color}>{percent}%</color>");
+    }
+
+    private void AddReverseModifier(string statName, float multiplier)
+    {
+        int percent = Mathf.RoundToInt(100f / multiplier); // Invert the multiplier for display
         string color = percent > 100 ? "green" : percent < 100 ? "red" : "white";
 
         AddStat(statName, $"<color={color}>{percent}%</color>");

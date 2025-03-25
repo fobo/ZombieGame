@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class FirerateMultiplier : Momento
 {
-    public override float GetFireRateMultiplier() => .2f; // multiplies fire rate by 5x
+    public override float GetFireRateMultiplier() => 5f; // multiplies fire rate by 5x
 
 }

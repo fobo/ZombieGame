@@ -59,8 +59,8 @@ public class MomentoSystem : MonoBehaviour
             damageMultiplier *= newMomento.GetDamageMultiplier();
             apMultiplier *= newMomento.GetAPMultiplier();
             healthMultiplier *= newMomento.GetHealthMultiplier();
-            fireRateMultiplier *= newMomento.GetFireRateMultiplier();
-            reloadSpeedMultiplier *= newMomento.GetReloadSpeedMultiplier();
+            fireRateMultiplier /= newMomento.GetFireRateMultiplier();
+            reloadSpeedMultiplier /= newMomento.GetReloadSpeedMultiplier();
             spreadMultiplier *= newMomento.GetSpreadMultiplier();
             moveSpeedMultiplier *= newMomento.GetMoveSpeedMultiplier();
             treasureClassMultiplier *= newMomento.GetTreasureClassMultiplier();
