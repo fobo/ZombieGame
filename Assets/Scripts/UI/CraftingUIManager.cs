@@ -94,7 +94,7 @@ public class CraftingUIManager : MonoBehaviour
         }
         trigger.triggers.Clear();
 
-        string tooltipText = $"{materialSlot} material\nAmount: x{materialCount}";
+        string tooltipText = $"{craftingType} material\nAmount: x{materialCount}";
 
         // Pointer Enter (Show Tooltip)
         EventTrigger.Entry entryEnter = new EventTrigger.Entry();
