@@ -4,17 +4,31 @@ public class Chest : MonoBehaviour
 {
     public Sprite openedChestSprite;  // Assign the opened chest sprite in Inspector
     public GameObject itemPrefab;     // Assign the item prefab in Inspector
-    public Transform dropPosition;    // Drop position (assign a point slightly in front of the chest)
-    [SerializeField] private int minTC = 5; // Set the loot level of the chest
-    [SerializeField] private int maxTC = 10; // Set the loot level of the chest
-    private bool isOpened = false;    // Track if chest has been opened
+    public Transform dropPosition;    // Drop position
+    [SerializeField] private int treasureClass = 3; // Default tier for chests
+    private bool isOpened = false;
+
+    private void Awake()
+    {
+        TryUpgradeTreasureClass(); // Upgrade chest loot tier on load
+    }
+
+    private void TryUpgradeTreasureClass()
+    {
+        float upgradeChance = 0.01f;
+
+        if (Util.RollChance(upgradeChance))
+        {
+            if (treasureClass == 3) treasureClass = 6;
+            else if (treasureClass == 6) treasureClass = 9;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isOpened) // Check if player is near and chest is closed
+        if (other.CompareTag("Player") && !isOpened)
         {
-
-            if (Input.GetKeyDown(KeyCode.F)) // Press 'F' to open
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.LogWarning("Opening");
                 OpenChest();
@@ -26,23 +40,38 @@ public class Chest : MonoBehaviour
     {
         isOpened = true;
 
-        // Change sprite to opened chest
         GetComponent<SpriteRenderer>().sprite = openedChestSprite;
 
-        // Spawn item at drop position
         if (itemPrefab != null && dropPosition != null)
         {
             GameObject mysteryItem = Instantiate(itemPrefab, dropPosition.position, Quaternion.identity);
 
-            //  Assign the treasure class level to the spawned item
             PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
             if (prefrabItemScript != null)
             {
-                prefrabItemScript.SetTreasureClass(minTC, maxTC);
+                prefrabItemScript.SetTreasureClass(treasureClass);
             }
         }
 
-        // Disable collider so it can't be interacted with anymore
         GetComponent<Collider2D>().enabled = false;
     }
+
+    public void SetTreasureClass(int newTC)
+    {
+        treasureClass = newTC;
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.yellow;
+        style.fontSize = 12;
+        style.alignment = TextAnchor.MiddleCenter;
+
+        UnityEditor.Handles.Label(transform.position + Vector3.up * .5f, $"TC: {treasureClass}", style);
+    }
+
+
 }

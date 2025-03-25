@@ -21,7 +21,7 @@ public static class Util
 
         for (int i = 0; i <= luckFactor; i++)
         {
-            
+
             if (Random.value <= targetSuccess)
             {
                 return true; // Success
@@ -49,6 +49,24 @@ public static class Util
         weaponData.stoppingPower *= MomentoSystem.Instance.GetStoppingPowerMultiplier();
 
         return weaponData;
+    }
+
+
+    public static int GetTCForZoneTier(int tier, bool isChest)
+    {
+        switch (tier)
+        {
+            case 1:
+                return isChest ? 3 : Random.Range(0, 3); // 0, 1, 2
+            case 2:
+                return isChest ? Random.value < 0.5f ? 3 : 6 : Random.Range(4, 6); // 4 or 5
+            case 3:
+            case 4:
+                return isChest ? Random.Range(0, 3) * 3 + 3 : Random.Range(7, 9); // 3, 6, 9 and 7 or 8
+            default:
+                Debug.LogWarning($"[LootZoneTierUtil] Unknown zone tier: {tier}");
+                return isChest ? 3 : 0;
+        }
     }
 
 }

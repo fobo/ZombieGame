@@ -63,7 +63,7 @@ public class HUDController : MonoBehaviour
 
             if (gunAnimator != null)
             {
-                Debug.Log("Animator found on GunHUD!");
+                //                Debug.Log("Animator found on GunHUD!");
                 //gunAnimator.runtimeAnimatorController
             }
             else
@@ -106,7 +106,9 @@ public class HUDController : MonoBehaviour
             gunAnimator = gunHUD.GetComponent<Animator>();
 
             if (gunAnimator != null)
-                Debug.Log("Animator found on GunHUD!");
+            {
+                //                Debug.Log("Animator found on GunHUD!");
+            }
             else
                 Debug.LogWarning("No Animator component found on GunHUD!");
         }

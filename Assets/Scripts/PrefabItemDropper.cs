@@ -1,30 +1,61 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PrefabItemDropper : MonoBehaviour
 {
-    [SerializeField] private int minTreasureClass; // Assign a TC level when spawning
-    [SerializeField] private int maxTreasureClass; // Assign a TC level when spawning
+    [SerializeField] private int treasureClass; // Single treasure class now
 
-
-    public void SetTreasureClass(int minLevel, int maxLevel)
+    public void SetTreasureClass(int tc)
     {
-        minTreasureClass = minLevel;
-        maxTreasureClass = maxLevel;
-
-        GenerateLoot();// when this prefab is ready, it just generates the loot, then it KILLS itself sigma skibidy
+        treasureClass = TryUpgradeTreasureClass(tc);
+        GenerateLoot();
     }
+
+    private int TryUpgradeTreasureClass(int baseTC)
+    {
+        float upgradeChance = 0.01f;
+
+        // Linear upgrade paths
+        Dictionary<int, int> primaryUpgrades = new Dictionary<int, int>
+    {
+        { 0, 4 }, { 4, 7 }, // Crafting
+        { 1, 2 }, { 2, 5 }, { 5, 8 }, // Ammo
+        { 3, 6 }, { 6, 9 }  // Momentos
+    };
+
+        // Optional conversions from Crafting to Ammo (secondary path)
+        Dictionary<int, int> altUpgrades = new Dictionary<int, int>
+    {
+        { 0, 1 },
+        { 4, 5 },
+        { 7, 8 }
+    };
+
+        // Try primary upgrade path first
+        if (Util.RollChance(upgradeChance) && primaryUpgrades.ContainsKey(baseTC))
+        {
+            return primaryUpgrades[baseTC];
+        }
+
+        // If not upgraded, try alternate upgrade path
+        if (Util.RollChance(upgradeChance) && altUpgrades.ContainsKey(baseTC))
+        {
+            return altUpgrades[baseTC];
+        }
+
+        return baseTC;
+    }
+
 
     private void GenerateLoot()
     {
-        GameObject itemToSpawn = LootTableManager.Instance.GetRandomItemFromClass(minTreasureClass, maxTreasureClass);
+        GameObject itemToSpawn = LootTableManager.Instance.GetRandomItemFromClass(treasureClass);
 
         if (itemToSpawn != null)
         {
-           // Debug.Log("generating " + itemToSpawn);
             Instantiate(itemToSpawn, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject); // Remove the mystery item after spawning loot
+        Destroy(gameObject); // Clean up the dropper prefab
     }
-
 }

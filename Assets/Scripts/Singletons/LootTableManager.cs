@@ -33,21 +33,15 @@ public class LootTableManager : MonoBehaviour
         }
     }
 
-    public GameObject GetRandomItemFromClass(int minTreasureClass, int maxTreasureClass)
+    public GameObject GetRandomItemFromClass(int treasureClass)
+
     {
         List<GameObject> combinedLootPool = new List<GameObject>();
 
-        // Ensure min is at least 0 and max does not exceed available classes
-        minTreasureClass = Mathf.Max(minTreasureClass, 0);
-        maxTreasureClass = Mathf.Min(maxTreasureClass, treasureClasses.Count - 1);
-
-        // Collect loot only within the given range
-        for (int i = minTreasureClass; i <= maxTreasureClass; i++)
+        if (lootTable.ContainsKey(treasureClass))
         {
-            if (lootTable.ContainsKey(i))
-            {
-                combinedLootPool.AddRange(lootTable[i]);
-            }
+            List<GameObject> drops = lootTable[treasureClass];
+            return drops[Random.Range(0, drops.Count)];
         }
 
         if (combinedLootPool.Count > 0)
@@ -56,7 +50,7 @@ public class LootTableManager : MonoBehaviour
             return combinedLootPool[randomIndex];
         }
 
-        Debug.LogWarning($"No items found for Treasure Classes {minTreasureClass}-{maxTreasureClass}!");
+        //Debug.LogWarning($"No items found for Treasure Classes {minTreasureClass}-{maxTreasureClass}!");
         return null;
     }
 }

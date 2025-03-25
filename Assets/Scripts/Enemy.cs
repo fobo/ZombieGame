@@ -107,8 +107,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int damage = 10;
     [SerializeField] private HealthComponent healthComponent;
     [SerializeField] private GameObject itemPrefab; // Assign in Inspector
-    [SerializeField] private int minTC = 0; // Set the loot level of the chest
-    [SerializeField] private int maxTC = 4;
+    [SerializeField] private int TC = 0;
     [SerializeField] public uint hitID;
 
     private void Awake()
@@ -149,7 +148,7 @@ public class Enemy : MonoBehaviour
             PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
             if (prefrabItemScript != null)
             {
-                prefrabItemScript.SetTreasureClass(minTC, maxTC);
+                prefrabItemScript.SetTreasureClass(TC);
             }
         }
         else

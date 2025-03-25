@@ -71,7 +71,7 @@ public class Gun : MonoBehaviour
         }
 
         EventBus.Instance.OnMomentoPickedUp += UpdateWeaponStats;
-        Debug.Log("Gun successfully subscribed to OnMomentoPickedUp.");
+//        Debug.Log("Gun successfully subscribed to OnMomentoPickedUp.");
     }
     //
 

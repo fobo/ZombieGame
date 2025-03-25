@@ -100,7 +100,7 @@ public class GameDirector : MonoBehaviour
             spawner.SetEnemiesPerSpawn(newEnemiesPerSpawn);
         }
 
-        Debug.Log($"[GameDirector] Difficulty Stage: {difficultyStage}, Interval: {newInterval:F2}s, Enemies: {newEnemiesPerSpawn}");
+//        Debug.Log($"[GameDirector] Difficulty Stage: {difficultyStage}, Interval: {newInterval:F2}s, Enemies: {newEnemiesPerSpawn}");
     }
 
 
@@ -138,7 +138,7 @@ public class GameDirector : MonoBehaviour
             if (spawner != null) spawners.Add(spawner);
         }
 
-        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
+//        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
     }
 
     private void ApplyGlobalSpawnSettings()

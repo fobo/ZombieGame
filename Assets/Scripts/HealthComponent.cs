@@ -35,7 +35,7 @@ public class HealthComponent : MonoBehaviour
         isDead = false;
         if (gameObject.CompareTag("Player"))
         {
-            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+//            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
 
         }
     }

@@ -104,8 +104,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
     type: 3}
   dropPosition: {fileID: 5605484632012431220}
-  minTC: 5
-  maxTC: 10
+  treasureClass: 3
 --- !u!58 &548887700347814190
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,9 +137,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.08314006}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.9145508
+  m_Radius: 3
 --- !u!1 &508930580921764612
 GameObject:
   m_ObjectHideFlags: 0

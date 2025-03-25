@@ -1,40 +1,46 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 /// <summary>
-/// A structure type enemy. Usually this would be something like a spawner, or maybe a crate that the player can destroy.
-/// Assign this script to things you want the player to attack for loot. Dont forget to assign the Die() method in the inspector when onHealthDepleted is invoked.
-/// If you don't want a structure to die, don't apply this or a health component to it.
+/// A structure type enemy. Usually a spawner or breakable crate. Dies when its health is depleted.
 /// </summary>
 public class Structure : MonoBehaviour
 {
-
-    [SerializeField] private int minTC = 0; // Set the loot level of the chest
-    [SerializeField] private int maxTC = 4;
+    [SerializeField] private int TC = 0;
     [SerializeField] private HealthComponent healthComponent;
-    [SerializeField] private GameObject itemPrefab; // Assign in Inspector
-    // Start is called before the first frame update
+    [SerializeField] private GameObject itemPrefab;
+
     private void Awake()
     {
         healthComponent = GetComponent<HealthComponent>();
+        TryUpgradeTreasureClass(); // Upgrade structure loot chance on spawn
+    }
 
+    private void TryUpgradeTreasureClass()
+    {
+        float upgradeChance = 0.01f;
+
+        Dictionary<int, int> upgradePath = new Dictionary<int, int>
+        {
+            { 0, 1 }, { 1, 2 }, { 2, 4 }, { 4, 5 }, { 5, 7 }, { 7, 8 }
+        };
+
+        if (Util.RollChance(upgradeChance) && upgradePath.ContainsKey(TC))
+        {
+            TC = upgradePath[TC];
+        }
     }
 
     public void Die()
     {
-
-        //  Spawn a mystery item at the enemy's position
         if (itemPrefab != null)
         {
             GameObject mysteryItem = Instantiate(itemPrefab, transform.position, Quaternion.identity);
 
-            //  Assign the treasure class level to the spawned item
             PrefabItemDropper prefrabItemScript = mysteryItem.GetComponent<PrefabItemDropper>();
             if (prefrabItemScript != null)
             {
-                prefrabItemScript.SetTreasureClass(minTC, maxTC);
+                prefrabItemScript.SetTreasureClass(TC);
             }
         }
         else
@@ -42,6 +48,23 @@ public class Structure : MonoBehaviour
             Debug.LogWarning($"Mystery item prefab is not assigned on {gameObject.name}!");
         }
 
-        Destroy(gameObject); // kills iteself
+        Destroy(gameObject);
     }
+
+
+    public void SetTreasureClass(int newTC)
+    {
+        TC = newTC;
+    }
+
+    private void OnDrawGizmos()
+    {
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.cyan;
+        style.fontSize = 12;
+        style.alignment = TextAnchor.MiddleCenter;
+
+        UnityEditor.Handles.Label(transform.position + Vector3.up * .5f, $"TC: {TC}", style);
+    }
+
 }

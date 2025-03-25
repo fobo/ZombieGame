@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         // Now that EventBus exists, subscribe to the event
         EventBus.Instance.OnMomentoPickedUp += UpdatePlayerStats;
-        Debug.Log("Successfully subscribed to OnMomentoPickedUp.");
+//        Debug.Log("Successfully subscribed to OnMomentoPickedUp.");
     }
 
     private void OnDisable()

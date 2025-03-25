@@ -108,7 +108,7 @@ public class InventorySystem : MonoBehaviour
         if (!weapons.ContainsKey(weapon.weaponName))
         {
             weapons.Add(weapon.weaponName, weapon);
-            Debug.Log($"Picked up {weapon.weaponName}!");
+//            Debug.Log($"Picked up {weapon.weaponName}!");
             FindObjectOfType<WeaponUIManager>()?.UpdateWeaponUI();
         }
         else
