@@ -32,12 +32,24 @@ public class LootZoneManager : MonoBehaviour
 
     public GameObject GetRandomPrefabForZone(string shape, int tier)
     {
-        if (lootZoneDictionary.TryGetValue(shape, out LootZone lootZone))
+        if (!lootZoneDictionary.TryGetValue(shape, out LootZone lootZone))
         {
-            return lootZone.GetRandomPrefab(tier);
+            Debug.LogWarning($"[LootZoneManager] No loot zone found for shape: {shape}");
+            return null;
         }
 
-        Debug.LogWarning($"No loot zone found for shape {shape}!");
-        return null;
+        int maxTier = 4;
+        float upgradeChance = 0.05f; //small initial chance to upgrade
+        int finalTier = tier;
+
+        // Optional: allow multi-upgrades
+        if (finalTier < maxTier && Util.RollChance(upgradeChance))
+        {
+            finalTier++;
+            Debug.Log($"[LootZoneManager] Tier upgraded from {tier} to {finalTier}");
+        }
+
+        return lootZone.GetRandomPrefab(finalTier);
     }
+
 }
