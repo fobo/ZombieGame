@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class StatsUIManager : MonoBehaviour
 {
@@ -13,20 +14,52 @@ public class StatsUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        HUDController.OnHUDReady += TryUpdateStatsUI;
-        MomentoSystem.OnMomentoReady += TryUpdateStatsUI;
+        Debug.Log("StatsUIManager enabled. Subscribing to events.");
 
-        TryUpdateStatsUI();
+        try
+        {
+            HUDController.OnHUDReady += TryUpdateStatsUI;
+            Debug.Log("Subscribed to HUDController.OnHUDReady.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to subscribe to HUDController.OnHUDReady: {ex.Message}");
+        }
+
+        try
+        {
+            MomentoSystem.OnMomentoReady += TryUpdateStatsUI;
+            Debug.Log("Subscribed to MomentoSystem.OnMomentoReady.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Failed to subscribe to MomentoSystem.OnMomentoReady: {ex.Message}");
+        }
     }
+
+
+
+    private IEnumerator Start()
+    {
+        Debug.Log("START METHOD - Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance );
+        yield return new WaitUntil(() => MomentoSystem.Instance != null);
+        UpdateStatsUI();
+    }
+
 
     private void OnDisable()
     {
+        Debug.Log("StatsUIManager disabled. Unsubscribing from events.");
+
         HUDController.OnHUDReady -= TryUpdateStatsUI;
         MomentoSystem.OnMomentoReady -= TryUpdateStatsUI;
     }
 
+
     private void TryUpdateStatsUI()
     {
+        Debug.Log("Trying to update stats");
+        Debug.Log("Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance );
         if (MomentoSystem.Instance != null && HUDController.Instance != null)
             UpdateStatsUI();
     }
@@ -43,6 +76,7 @@ public class StatsUIManager : MonoBehaviour
 
     public void UpdateStatsUI()
     {
+        Debug.Log("RUNNING UPDATE STATS UI");
 
         foreach (Transform child in statsPanel)
         {
@@ -63,6 +97,7 @@ public class StatsUIManager : MonoBehaviour
         AddModifier("Critical Chance", MomentoSystem.Instance.GetCriticalChanceMultiplier());
         AddModifier("Critical Damage", MomentoSystem.Instance.GetCriticalDamageMultiplier());
         AddModifier("Stopping Power", MomentoSystem.Instance.GetStoppingPowerMultiplier());
+        Debug.Log("Luck" + MomentoSystem.Instance.GetLuckMultiplier());
     }
 
     private void AddModifier(string statName, float multiplier)

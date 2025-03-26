@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         hc.SetMaxHealth(hc.GetOriginalMaxHealth() * MomentoSystem.Instance.GetHealthMultiplier());
         hc.Heal(hc.GetMaxHealth()); //player found a health upgrade, might as well heal them to full as well.
         hc.UpdateUI();
-        Debug.Log("Current max health: " + hc.GetMaxHealth());
+//        Debug.Log("Current max health: " + hc.GetMaxHealth());
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

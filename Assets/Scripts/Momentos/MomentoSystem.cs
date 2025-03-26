@@ -7,6 +7,9 @@ public class MomentoSystem : MonoBehaviour
 {
     public static MomentoSystem Instance { get; private set; } // Singleton
 
+
+    public static event Action OnStatsChanged;
+
     private List<Momento> collectedMomentos = new List<Momento>();
 
     //example stats
@@ -71,8 +74,10 @@ public class MomentoSystem : MonoBehaviour
 
             // Apply special effect (if any)
             newMomento.ApplyEffect();
+            OnStatsChanged?.Invoke();
 
-            Debug.Log($"Collected Momento: {newMomento.momentoName} - {newMomento.description}");
+
+//            Debug.Log($"Collected Momento: {newMomento.momentoName} - {newMomento.description}");
         }
     }
 
@@ -90,4 +95,7 @@ public class MomentoSystem : MonoBehaviour
     public float GetCriticalChanceMultiplier() => criticalChanceMultiplier;
     public float GetStoppingPowerMultiplier() => stoppingPowerMultiplier;
     public float GetCriticalDamageMultiplier() => criticalDamageMultiplier;
+
+
+    
 }

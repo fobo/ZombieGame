@@ -16,6 +16,7 @@ public class StartMenu : MonoBehaviour
         if (InventorySystem.Instance != null) Destroy(InventorySystem.Instance.gameObject);
         if (MomentoSystem.Instance != null) Destroy(MomentoSystem.Instance.gameObject);
         if (LootZoneManager.Instance != null) Destroy(LootZoneManager.Instance.gameObject);
+        if (TooltipManager.Instance != null) Destroy(TooltipManager.Instance.gameObject);
     }
     public void LoadNextLevel()
     {

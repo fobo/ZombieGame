@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class TooltipManager : MonoBehaviour
 {
-    public static TooltipManager Instance;
-
+    public static TooltipManager Instance { get; private set; }
     public GameObject tooltipPanel;
     public TMP_Text tooltipText;
     public Vector3 offset = new Vector3(0f, -50f, 0f); // Offset to place it below the slot
@@ -16,6 +15,7 @@ public class TooltipManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

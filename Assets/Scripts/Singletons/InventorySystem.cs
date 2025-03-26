@@ -127,7 +127,7 @@ public class InventorySystem : MonoBehaviour
             ammoInventory[ammoType] = amount;
         }
 
-        Debug.Log($"Picked up {amount} {ammoType} ammo. Total: {ammoInventory[ammoType]}");
+//        Debug.Log($"Picked up {amount} {ammoType} ammo. Total: {ammoInventory[ammoType]}");
     }
 
     public void AddCraftingMaterial(CraftingType craftingType, int amount)
@@ -147,7 +147,7 @@ public class InventorySystem : MonoBehaviour
     public void AddMomento(Momento momento)
     {
         momentoInventory.Add(momento);
-        Debug.Log($"Added Momento to Inventory: {momento.momentoName} (Total Momentos: {momentoInventory.Count})");
+//        Debug.Log($"Added Momento to Inventory: {momento.momentoName} (Total Momentos: {momentoInventory.Count})");
     }
     /////////////////////////////////////////////////////////////
     ////////////////////REMOVE STUFF SECTION/////////////////////

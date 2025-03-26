@@ -31,7 +31,7 @@ public class LootZonePlaceholder : MonoBehaviour
         if (zoneInstance != null)
         {
             GameObject spawnedZone = Instantiate(zoneInstance, transform.position, Quaternion.identity);
-            Debug.Log($"[LootZone] Spawned zone prefab '{spawnedZone.name}' at Tier {upgradedTier}");
+            //Debug.Log($"[LootZone] Spawned zone prefab '{spawnedZone.name}' at Tier {upgradedTier}");
 
             // Apply TC to all Chests and Structures within the zone
             Chest[] chests = spawnedZone.GetComponentsInChildren<Chest>(true);
@@ -39,7 +39,7 @@ public class LootZonePlaceholder : MonoBehaviour
             {
                 int tc = Util.GetTCForZoneTier(upgradedTier, true);
                 chest.SetTreasureClass(tc);
-                Debug.Log($"[LootZone] Assigned TC {tc} to Chest '{chest.gameObject.name}'");
+                //Debug.Log($"[LootZone] Assigned TC {tc} to Chest '{chest.gameObject.name}'");
             }
 
             Structure[] structures = spawnedZone.GetComponentsInChildren<Structure>(true);
@@ -47,7 +47,7 @@ public class LootZonePlaceholder : MonoBehaviour
             {
                 int tc = Util.GetTCForZoneTier(upgradedTier, false);
                 structure.SetTreasureClass(tc);
-                Debug.Log($"[LootZone] Assigned TC {tc} to Structure '{structure.gameObject.name}'");
+                //Debug.Log($"[LootZone] Assigned TC {tc} to Structure '{structure.gameObject.name}'");
             }
         }
         else

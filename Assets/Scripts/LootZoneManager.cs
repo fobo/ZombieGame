@@ -46,7 +46,7 @@ public class LootZoneManager : MonoBehaviour
         if (finalTier < maxTier && Util.RollChance(upgradeChance))
         {
             finalTier++;
-            Debug.Log($"[LootZoneManager] Tier upgraded from {tier} to {finalTier}");
+            //Debug.Log($"[LootZoneManager] Tier upgraded from {tier} to {finalTier}");
         }
 
         return lootZone.GetRandomPrefab(finalTier);

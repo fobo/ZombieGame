@@ -135,11 +135,11 @@ public class HealthComponent : MonoBehaviour
 
         // Notify listeners about the health change.
         onHealthChanged?.Invoke(currentHealth, maxHealth);
-        Debug.Log("Healed " + healAmount);
-        Debug.Log("Current HP: " + GetCurrentHealth());
+//        Debug.Log("Healed " + healAmount);
+//        Debug.Log("Current HP: " + GetCurrentHealth());
         if (gameObject.CompareTag("Player"))
         {
-            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+//            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
             HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }

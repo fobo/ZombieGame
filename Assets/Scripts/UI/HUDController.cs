@@ -48,7 +48,7 @@ public class HUDController : MonoBehaviour
         AssignReferences(); // Reassign gun reference on scene load
     }
     public static event Action OnHUDReady;
-
+    public static event Action OnHealthChanged;
     private void Start()
     {
 
@@ -155,6 +155,7 @@ public class HUDController : MonoBehaviour
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
         SetHealthMaxHealth(currentHealth, maxHealth);
+        OnHealthChanged?.Invoke();
     }
     //set and hold references to the players health values whenever we update the UI
     private void SetHealthMaxHealth(float curr, float max)
