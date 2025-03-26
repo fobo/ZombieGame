@@ -15,7 +15,8 @@ public class LootZonePlaceholder : MonoBehaviour
         L_Shape_FlippedMirrored,
         Long,
         Circle,
-        Hollow_Square
+        Hollow_Square,
+        Square
     }
 
     public LootZoneShape selectedShape = LootZoneShape.L_Shape;
@@ -23,37 +24,37 @@ public class LootZonePlaceholder : MonoBehaviour
     public Vector2 prefabSize = new Vector2(5, 5); // Manual override size
 
     private void Start()
-{
-    int upgradedTier = TryUpgradeTier(tier);
-    GameObject zoneInstance = LootZoneManager.Instance.GetRandomPrefabForZone(selectedShape.ToString(), upgradedTier);
-
-    if (zoneInstance != null)
     {
-        GameObject spawnedZone = Instantiate(zoneInstance, transform.position, Quaternion.identity);
-        Debug.Log($"[LootZone] Spawned zone prefab '{spawnedZone.name}' at Tier {upgradedTier}");
+        int upgradedTier = TryUpgradeTier(tier);
+        GameObject zoneInstance = LootZoneManager.Instance.GetRandomPrefabForZone(selectedShape.ToString(), upgradedTier);
 
-        // Apply TC to all Chests and Structures within the zone
-        Chest[] chests = spawnedZone.GetComponentsInChildren<Chest>(true);
-        foreach (var chest in chests)
+        if (zoneInstance != null)
         {
-            int tc = Util.GetTCForZoneTier(upgradedTier, true);
-            chest.SetTreasureClass(tc);
-            Debug.Log($"[LootZone] Assigned TC {tc} to Chest '{chest.gameObject.name}'");
+            GameObject spawnedZone = Instantiate(zoneInstance, transform.position, Quaternion.identity);
+            Debug.Log($"[LootZone] Spawned zone prefab '{spawnedZone.name}' at Tier {upgradedTier}");
+
+            // Apply TC to all Chests and Structures within the zone
+            Chest[] chests = spawnedZone.GetComponentsInChildren<Chest>(true);
+            foreach (var chest in chests)
+            {
+                int tc = Util.GetTCForZoneTier(upgradedTier, true);
+                chest.SetTreasureClass(tc);
+                Debug.Log($"[LootZone] Assigned TC {tc} to Chest '{chest.gameObject.name}'");
+            }
+
+            Structure[] structures = spawnedZone.GetComponentsInChildren<Structure>(true);
+            foreach (var structure in structures)
+            {
+                int tc = Util.GetTCForZoneTier(upgradedTier, false);
+                structure.SetTreasureClass(tc);
+                Debug.Log($"[LootZone] Assigned TC {tc} to Structure '{structure.gameObject.name}'");
+            }
         }
-
-        Structure[] structures = spawnedZone.GetComponentsInChildren<Structure>(true);
-        foreach (var structure in structures)
+        else
         {
-            int tc = Util.GetTCForZoneTier(upgradedTier, false);
-            structure.SetTreasureClass(tc);
-            Debug.Log($"[LootZone] Assigned TC {tc} to Structure '{structure.gameObject.name}'");
+            Debug.LogWarning($"[LootZone] No prefab found for shape '{selectedShape}' at Tier {upgradedTier}");
         }
     }
-    else
-    {
-        Debug.LogWarning($"[LootZone] No prefab found for shape '{selectedShape}' at Tier {upgradedTier}");
-    }
-}
 
 
 
@@ -97,6 +98,9 @@ public class LootZonePlaceholder : MonoBehaviour
                 break;
             case LootZoneShape.Long:
                 Gizmos.DrawWireCube(transform.position, new Vector3(prefabSize.x * 2, prefabSize.y / 2, 0));
+                break;
+            case LootZoneShape.Square:
+                Gizmos.DrawWireCube(transform.position, new Vector3(prefabSize.x, prefabSize.y, 0));
                 break;
             case LootZoneShape.Circle:
                 DrawCircle();

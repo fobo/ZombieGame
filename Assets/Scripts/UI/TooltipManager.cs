@@ -9,7 +9,7 @@ public class TooltipManager : MonoBehaviour
     public GameObject tooltipPanel;
     public TMP_Text tooltipText;
     public Vector3 offset = new Vector3(0f, -50f, 0f); // Offset to place it below the slot
-    private bool isTooltipActive = false;
+    public bool isTooltipActive;
 
     private void Awake()
     {

@@ -254,12 +254,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   healthComponent: {fileID: 0}
   itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
     type: 3}
-  minTC: 0
-  maxTC: 4
+  TC: 0
+  hitID: 0
 --- !u!114 &7691562356777959953
 MonoBehaviour:
   m_ObjectHideFlags: 0

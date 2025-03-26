@@ -7,6 +7,8 @@ public class Chest : MonoBehaviour
     public Transform dropPosition;    // Drop position
     [SerializeField] private int treasureClass = 3; // Default tier for chests
     private bool isOpened = false;
+    [SerializeField] private GameObject promptUI;
+
 
     private void Awake()
     {
@@ -35,10 +37,33 @@ public class Chest : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !isOpened)
+        {
+            promptUI.SetActive(true);
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            promptUI.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (promptUI.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            OpenChest();
+        }
+    }
     private void OpenChest()
     {
         isOpened = true;
+        promptUI.SetActive(false);
 
         GetComponent<SpriteRenderer>().sprite = openedChestSprite;
 
