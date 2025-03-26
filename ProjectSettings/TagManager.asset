@@ -50,6 +50,9 @@ TagManager:
   - name: Ground
     uniqueID: 3189613573
     locked: 0
+  - name: Trash
+    uniqueID: 2458228431
+    locked: 0
   - name: Props
     uniqueID: 3114861151
     locked: 0

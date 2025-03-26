@@ -71,7 +71,7 @@ public class Gun : MonoBehaviour
         }
 
         EventBus.Instance.OnMomentoPickedUp += UpdateWeaponStats;
-//        Debug.Log("Gun successfully subscribed to OnMomentoPickedUp.");
+        //        Debug.Log("Gun successfully subscribed to OnMomentoPickedUp.");
     }
     //
 
@@ -302,89 +302,15 @@ public class Gun : MonoBehaviour
         }
     }
 
+
     private void EjectShellCasing()
     {
         if (casingSpawnPoint != null)
         {
-            // Instantiate the magazine at the spawn point
             GameObject casing = Instantiate(weaponData.casingType, casingSpawnPoint.position, Quaternion.identity);
-
-            // Start the scaling and spinning effect
-            StartCoroutine(AnimateCasingEjection(casing));
+            casing.GetComponent<CasingBehavior>().Eject(transform.eulerAngles.z);
         }
     }
-
-    private IEnumerator AnimateCasingEjection(GameObject casing)
-    {
-        float ejectDuration = 0.5f; // Time the casing moves before physics takes over
-        float elapsedTime = 0f;
-
-        Rigidbody2D rb = casing.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.isKinematic = true; // Temporarily disable physics
-
-            // Get the gun's rotation
-            float gunAngle = transform.eulerAngles.z; // Get gun rotation in world space
-
-            // Define the **base ejection direction** (rightward, assuming casings eject to the right)
-            Vector2 baseEjectDirection = Vector2.right;
-
-            // Rotate the ejection direction based on the gun's current angle
-            Vector2 ejectDirection = Quaternion.Euler(0, 0, gunAngle - 90f + Random.Range(-15f, 15f)) * baseEjectDirection;
-
-            // Set ejection speed
-            float ejectSpeed = Random.Range(2f, 4f);
-
-            // Apply an initial spin
-            float spinSpeed = Random.Range(-300f, 300f);
-
-            while (elapsedTime < ejectDuration)
-            {
-                elapsedTime += Time.deltaTime;
-
-                // Move casing in rotated ejection direction
-                casing.transform.position += (Vector3)(ejectDirection * ejectSpeed * Time.deltaTime);
-
-                // Rotate casing for spin effect
-                casing.transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
-
-                yield return null;
-            }
-
-            // Enable Rigidbody2D physics for natural falling
-            rb.isKinematic = false;
-            rb.velocity = ejectDirection * 1.5f; // Reduced velocity to avoid sliding too far
-            rb.angularVelocity = spinSpeed / 2f; // Reduce spin for realism
-
-            // Gradually slow down the casing's movement
-            StartCoroutine(SlowDownCasing(rb));
-        }
-    }
-
-    private IEnumerator SlowDownCasing(Rigidbody2D rb)
-    {
-        float stopDuration = 1.5f; // Time it takes for the casing to come to a stop
-        float elapsedTime = 0f;
-
-        Vector2 initialVelocity = rb.velocity;
-
-        while (elapsedTime < stopDuration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            // Gradually reduce velocity
-            rb.velocity = Vector2.Lerp(initialVelocity, Vector2.zero, elapsedTime / stopDuration);
-            rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0f, elapsedTime / stopDuration);
-
-            yield return null;
-        }
-
-        // Ensure it fully stops
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-    }
-
 
 
 
