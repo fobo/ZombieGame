@@ -14,52 +14,32 @@ public class StatsUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("StatsUIManager enabled. Subscribing to events.");
-
-        try
-        {
-            HUDController.OnHUDReady += TryUpdateStatsUI;
-            Debug.Log("Subscribed to HUDController.OnHUDReady.");
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError($"Failed to subscribe to HUDController.OnHUDReady: {ex.Message}");
-        }
-
-        try
-        {
-            MomentoSystem.OnMomentoReady += TryUpdateStatsUI;
-            Debug.Log("Subscribed to MomentoSystem.OnMomentoReady.");
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError($"Failed to subscribe to MomentoSystem.OnMomentoReady: {ex.Message}");
-        }
+        TryUpdateStatsUI();
     }
 
 
 
     private IEnumerator Start()
     {
-        Debug.Log("START METHOD - Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance );
+        Debug.Log("START METHOD - Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance);
         yield return new WaitUntil(() => MomentoSystem.Instance != null);
         UpdateStatsUI();
     }
 
 
-    private void OnDisable()
-    {
-        Debug.Log("StatsUIManager disabled. Unsubscribing from events.");
+    // private void OnDisable()
+    // {
+    //     Debug.Log("StatsUIManager disabled. Unsubscribing from events.");
 
-        HUDController.OnHUDReady -= TryUpdateStatsUI;
-        MomentoSystem.OnMomentoReady -= TryUpdateStatsUI;
-    }
+    //     HUDController.OnHUDReady -= TryUpdateStatsUI;
+    //     MomentoSystem.OnMomentoReady -= TryUpdateStatsUI;
+    // }
 
 
     private void TryUpdateStatsUI()
     {
         Debug.Log("Trying to update stats");
-        Debug.Log("Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance );
+        Debug.Log("Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance);
         if (MomentoSystem.Instance != null && HUDController.Instance != null)
             UpdateStatsUI();
     }

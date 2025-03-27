@@ -5,6 +5,10 @@ public class CasingBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    void Awake()
+    {
+        Destroy(gameObject, 10f);
+    }
     public void Eject(float gunAngle)
     {
         StartCoroutine(AnimateEjection(gunAngle));

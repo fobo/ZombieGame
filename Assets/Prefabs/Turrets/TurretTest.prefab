@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad289619ea2027843b1143dea1d53fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRange: 500
+  maxRange: 250
   gunPivot: {fileID: 1408825919053470763}
   detectionMask:
     serializedVersion: 2

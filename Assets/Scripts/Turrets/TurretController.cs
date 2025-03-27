@@ -18,6 +18,7 @@ public class TurretController : MonoBehaviour
             if (turretGun == null)
                 Debug.LogWarning("TurretGun not found on gunPivot (TurretEye).");
         }
+
     }
 
 
@@ -27,7 +28,7 @@ public class TurretController : MonoBehaviour
         if (currentTarget != null)
         {
             RotateToFace(currentTarget.position);
-            
+
             turretGun?.Shoot(); // Fire if possible
         }
     }
@@ -62,4 +63,6 @@ public class TurretController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gunPivot.rotation = Quaternion.Euler(0, 0, angle + 90f);
     }
+
+
 }

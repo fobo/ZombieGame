@@ -43,6 +43,7 @@ public class MomentoSystem : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
         Instance = this;
         OnMomentoReady?.Invoke();

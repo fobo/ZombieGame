@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject popupTextField; // used for pickups, reload status, etc
     public Transform textSpawnPoint; // position where text spawns from the player.
     public HealthComponent hc; // reference to the health component
+    public Vector2 moveDir = Vector2.zero;
 
 
     // Reference to the equipped gun
@@ -192,21 +193,23 @@ public class PlayerController : MonoBehaviour
 
         //  Set Animator parameter
         playerAnimator.SetBool("isMoving", isMoving);
+        myRigidBody.velocity = moveDir * moveSpeed;
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+        moveDir = context.ReadValue<Vector2>().normalized;
         Vector2 inputVector = context.ReadValue<Vector2>();
 
-        if (context.canceled)
-        {
-            myRigidBody.velocity = Vector2.zero; //  Stop movement when no input
-            return;
-        }
+        // if (context.canceled)
+        // {
+        //     myRigidBody.velocity = Vector2.zero; //  Stop movement when no input
+        //     return;
+        // }
 
-        //  Normal movement
-        Vector3 direction = new Vector3(inputVector.x, inputVector.y, 0).normalized;
-        myRigidBody.velocity = direction * moveSpeed;
+        // //  Normal movement
+        // Vector3 direction = new Vector3(inputVector.x, inputVector.y, 0).normalized;
+        // myRigidBody.velocity = direction * moveSpeed;
     }
 
 

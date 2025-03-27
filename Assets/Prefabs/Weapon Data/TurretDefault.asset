@@ -21,7 +21,7 @@ MonoBehaviour:
   casingType: {fileID: 8608023441638839669, guid: 0653086062258cc4c86c461b8b93b28b,
     type: 3}
   magazineType: {fileID: 0}
-  maxAmmo: 500
+  maxAmmo: 75
   reloadSpeed: 2
   fireRate: 0.1
   spread: 0.4

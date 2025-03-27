@@ -20,18 +20,24 @@ public class TurretGun : MonoBehaviour
     [Header("Runtime Variables")]
     private bool canShoot = true;
 
+
     void Start()
     {
-        currentAmmo = 500;
+        currentAmmo = 75;
     }
 
     public void Shoot()
     {
-        if (!canShoot || currentAmmo <= 0) return;
+        if (!canShoot) return;
 
 
         currentAmmo--;
 
+        if (currentAmmo <= 0)
+        {
+            Destroy(transform.root.gameObject);
+
+        }
         int bulletsPerShot = (weaponData.fireType == FireType.Shotgun) ? weaponData.bulletsPerShot : 1;
 
         FireWeapon(bulletsPerShot);
