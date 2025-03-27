@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5537763f70e6eb64398d98db40802f4f, type: 3}
-  m_Name: test
+  m_Name: 762mm
   m_EditorClassIdentifier: 
-  recipeName: test
+  recipeName: 762mm
   ingredients:
   - type: 0
     craftingType: 0
@@ -21,15 +21,7 @@ MonoBehaviour:
   - type: 0
     craftingType: 1
     ammoType: 0
-    amount: 3
-  - type: 0
-    craftingType: 2
-    ammoType: 0
-    amount: 10
-  - type: 1
-    craftingType: 2
-    ammoType: 1
-    amount: 10
-  resultAmmoType: 6
-  resultAmount: 1
+    amount: 5
+  resultAmmoType: 1
+  resultAmount: 30
   icon: {fileID: 0}

@@ -57,7 +57,7 @@ public class Pickup : MonoBehaviour
                     InventorySystem.Instance.AddAmmo(pickupData.ammoType, pickupData.amount);
 
 
- //                   Debug.Log($"Picked up {pickupData.amount} {pickupData.ammoType} ammo.");
+                    //                   Debug.Log($"Picked up {pickupData.amount} {pickupData.ammoType} ammo.");
                 }
                 break;
 
@@ -65,6 +65,12 @@ public class Pickup : MonoBehaviour
                 if (InventorySystem.Instance != null && pickupData.weaponData != null)
                 {
                     InventorySystem.Instance.AddWeapon(pickupData.weaponData);
+
+                    PlayerController pcWeapon = player.GetComponent<PlayerController>();
+                    if (pcWeapon != null && pcWeapon.equippedGun != null)
+                    {
+                        pcWeapon.SwitchWeapon(pickupData.weaponData);
+                    }
                 }
                 break;
             case PickupType.Momento:
@@ -74,7 +80,7 @@ public class Pickup : MonoBehaviour
                     //InventorySystem.Instance.AddMomento(momento);
                     MomentoSystem.Instance.AddMomento(momento);
                     EventBus.Instance?.MomentoPickedUp();
- //                   Debug.Log($"Picked up Momento: {momento.momentoName}");
+                    //                   Debug.Log($"Picked up Momento: {momento.momentoName}");
                 }
                 else
                 {
@@ -83,7 +89,7 @@ public class Pickup : MonoBehaviour
                 break;
             case PickupType.Crafting:
                 InventorySystem.Instance.AddCraftingMaterial(pickupData.craftingType, pickupData.amount);
- //               Debug.Log($"Picked up {pickupData.amount} {pickupData.craftingType}.");
+                //               Debug.Log($"Picked up {pickupData.amount} {pickupData.craftingType}.");
                 break;
             case PickupType.Custom:
                 // Add custom pickup logic here

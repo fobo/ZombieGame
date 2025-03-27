@@ -72,7 +72,7 @@ public class HealthComponent : MonoBehaviour
         // Trigger damage flash
         damageFlashController?.TriggerFlash();
         // If health reaches zero, invoke the health-depleted event.
-        if (currentHealth == 0)
+        if (currentHealth < 1)
         {
             if (!isDead)
             {   

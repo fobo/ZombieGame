@@ -1,5 +1,7 @@
 using UnityEngine;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class Chest : MonoBehaviour
 {
     public Sprite openedChestSprite;  // Assign the opened chest sprite in Inspector
@@ -10,14 +12,14 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject promptUI;
 
 
-    private void Awake()
+    private void Start()
     {
         TryUpgradeTreasureClass(); // Upgrade chest loot tier on load
     }
 
     private void TryUpgradeTreasureClass()
     {
-        float upgradeChance = 0.01f;
+        float upgradeChance = 0.05f;
 
         if (Util.RollChance(upgradeChance))
         {
@@ -87,7 +89,7 @@ public class Chest : MonoBehaviour
     }
 
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         GUIStyle style = new GUIStyle();
@@ -98,5 +100,5 @@ public class Chest : MonoBehaviour
         UnityEditor.Handles.Label(transform.position + Vector3.up * .5f, $"TC: {treasureClass}", style);
     }
 
-
+#endif
 }

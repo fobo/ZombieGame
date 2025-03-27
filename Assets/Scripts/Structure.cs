@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 /// <summary>
 /// A structure type enemy. Usually a spawner or breakable crate. Dies when its health is depleted.
 /// </summary>
@@ -56,7 +58,7 @@ public class Structure : MonoBehaviour
     {
         TC = newTC;
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         GUIStyle style = new GUIStyle();
@@ -66,5 +68,5 @@ public class Structure : MonoBehaviour
 
         UnityEditor.Handles.Label(transform.position + Vector3.up * .5f, $"TC: {TC}", style);
     }
-
+#endif
 }

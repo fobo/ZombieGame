@@ -201,19 +201,11 @@ public class PlayerController : MonoBehaviour
         moveDir = context.ReadValue<Vector2>().normalized;
         Vector2 inputVector = context.ReadValue<Vector2>();
 
-        // if (context.canceled)
-        // {
-        //     myRigidBody.velocity = Vector2.zero; //  Stop movement when no input
-        //     return;
-        // }
 
-        // //  Normal movement
-        // Vector3 direction = new Vector3(inputVector.x, inputVector.y, 0).normalized;
-        // myRigidBody.velocity = direction * moveSpeed;
     }
 
 
-    void SwitchWeapon(WeaponData newWeapon)
+    public void SwitchWeapon(WeaponData newWeapon)
     {
         if (equippedGun != null)
         {

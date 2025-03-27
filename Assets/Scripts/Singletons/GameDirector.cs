@@ -44,16 +44,35 @@ public class GameDirector : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"[GameDirector] Scene loaded: {scene.name}");
+
+        // Re-acquire player and spawners after new scene loads
         player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) Debug.LogError("Player not found!");
+        if (player == null)
+        {
+            Debug.LogError("[GameDirector] Player not found after scene load!");
+            return;
+        }
 
         FindAllSpawners();
         InitializeDifficulty(0);
         ApplyGlobalSpawnSettings();
-
     }
+
+
+
 
     public void InitializeDifficulty(int baseStage)
     {
@@ -74,7 +93,7 @@ public class GameDirector : MonoBehaviour
             spawnerCheckTimer = 0f;
         }
 
-        if (gameTimer % 30f < Time.deltaTime) // Fires roughly every 30 seconds
+        if (gameTimer % 60f < Time.deltaTime) // Fires roughly every 60 seconds
         {
             UpdateDifficultyOverTime();
         }
@@ -88,7 +107,7 @@ public class GameDirector : MonoBehaviour
     {
         difficultyStage++; // increment every 30 seconds (based on Update)
 
-        float difficultyPercent = Mathf.Clamp01((difficultyStage * 30f) / timeToMaxDifficulty);
+        float difficultyPercent = Mathf.Clamp01((difficultyStage * 60f) / timeToMaxDifficulty);
 
         float newInterval = Mathf.Lerp(globalSpawnInterval, minSpawnInterval, difficultyPercent);
         int newEnemiesPerSpawn = Mathf.RoundToInt(Mathf.Lerp(baseEnemiesPerSpawn, maxEnemiesPerSpawn, difficultyPercent));
@@ -100,7 +119,7 @@ public class GameDirector : MonoBehaviour
             spawner.SetEnemiesPerSpawn(newEnemiesPerSpawn);
         }
 
-//        Debug.Log($"[GameDirector] Difficulty Stage: {difficultyStage}, Interval: {newInterval:F2}s, Enemies: {newEnemiesPerSpawn}");
+        //        Debug.Log($"[GameDirector] Difficulty Stage: {difficultyStage}, Interval: {newInterval:F2}s, Enemies: {newEnemiesPerSpawn}");
     }
 
 
@@ -131,14 +150,14 @@ public class GameDirector : MonoBehaviour
     {
         spawners.Clear();
         GameObject[] spawnerObjects = GameObject.FindGameObjectsWithTag("Spawner");
-
+        Debug.Log("Found " + spawnerObjects.Length + " spawners");
         foreach (GameObject obj in spawnerObjects)
         {
             Spawner spawner = obj.GetComponent<Spawner>();
             if (spawner != null) spawners.Add(spawner);
         }
 
-//        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
+        //        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
     }
 
     private void ApplyGlobalSpawnSettings()

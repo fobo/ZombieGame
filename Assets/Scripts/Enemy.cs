@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject itemPrefab; // Assign in Inspector
     [SerializeField] private int TC = 0;
     [SerializeField] public uint hitID;
+    private bool lucky;
 
     private void Awake()
     {
@@ -39,7 +40,8 @@ public class Enemy : MonoBehaviour
        // Debug.Log($"Enemy {gameObject.name} has died!");
 
         //  Spawn a mystery item at the enemy's position
-        if (itemPrefab != null)
+        lucky = Util.RollChance(0.15f);
+        if (itemPrefab != null && lucky)
         {
             GameObject mysteryItem = Instantiate(itemPrefab, transform.position, Quaternion.identity);
 
@@ -50,10 +52,7 @@ public class Enemy : MonoBehaviour
                 prefrabItemScript.SetTreasureClass(TC);
             }
         }
-        else
-        {
-            Debug.LogWarning($"Mystery item prefab is not assigned on {gameObject.name}!");
-        }
+
 
         Destroy(gameObject); // Destroy the enemy after it dies
     }

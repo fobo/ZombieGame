@@ -23,6 +23,7 @@ public class MovementController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         agent = GetComponent<NavMeshAgent>();
+        agent.updatePosition = false;
         agent.updateUpAxis = false;
         agent.updateRotation = false;
         // Find the player object in the scene and assign it as the target
@@ -74,7 +75,16 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         if (target == null) { return; }
+
         agent.SetDestination(target.transform.position);
+
+        Vector3 desiredVelocity = agent.desiredVelocity;
+        
+
+        if (desiredVelocity != Vector3.zero)
+        {
+            myRigidBody.velocity = desiredVelocity;
+        }
 
         if (gameObject.CompareTag("Enemy"))
         {
@@ -95,7 +105,10 @@ public class MovementController : MonoBehaviour
     }
 
 
-
+    void LateUpdate()
+    {
+        agent.nextPosition = myRigidBody.position;
+    }
 
 
 
