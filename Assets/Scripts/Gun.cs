@@ -110,7 +110,8 @@ public class Gun : MonoBehaviour
     {
         if (currentAmmo == 0 && !isReloading && canShoot && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Text text = new Text("Reload!", Color.red);
+            Text text = new Text("Reloading!", Color.red);
+            StartCoroutine(Reload());
             player.SpawnTextPopup(text);
         }
         if (isReloading || !canShoot || currentAmmo <= 0) return;
@@ -137,30 +138,9 @@ public class Gun : MonoBehaviour
 
 
 
-    private void PlayShootAnimation()
-    {
-        if (gunAnimator != null)
-        {
-            gunAnimator.SetTrigger("Shoot");
-        }
-        else
-        {
-            Debug.LogWarning("Gun Animator not assigned!");
-        }
-    }
 
-    private void PlayReloadAnimation()
-    {
-        gunAnimator.Play("Idle");
-        if (gunAnimator != null)
-        {
-            gunAnimator.SetTrigger("Reload");
-        }
-        else
-        {
-            Debug.LogWarning("Gun Animator not assigned!");
-        }
-    }
+
+
 
 
 
@@ -199,7 +179,6 @@ public class Gun : MonoBehaviour
             }
         }
 
-        PlayShootAnimation(); // Play shooting animation in the HUD
         EjectShellCasing(); // Eject shell casing (only one per shot)
     }
 
@@ -223,7 +202,6 @@ public class Gun : MonoBehaviour
         }
 
         isReloading = true;
-        PlayReloadAnimation();
         Debug.Log($"Reloading {weaponData.weaponName}...");
         OnReloadStart?.Invoke(weaponData.reloadSpeed);
         //  Get the correct ammo type for this weapon
@@ -336,7 +314,7 @@ public class Gun : MonoBehaviour
             float t = elapsedTime / duration;
             magazine.transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
 
-            // Interpolate rotation (local Z-axis for 2D games)
+            // Interpolate rotation 
             float currentAngle = Mathf.Lerp(0f, spinAngle * spinDirection, t);
             magazine.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
 

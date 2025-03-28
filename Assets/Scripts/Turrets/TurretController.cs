@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour
@@ -22,7 +23,27 @@ public class TurretController : MonoBehaviour
     }
 
 
-    private void Update()
+
+    private List<Transform> enemiesInRange = new List<Transform>();
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(enemyTag))
+        {
+            enemiesInRange.Add(other.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(enemyTag))
+        {
+            enemiesInRange.Remove(other.transform);
+            if (currentTarget == other.transform)
+                currentTarget = null;
+        }
+    }
+    private void FixedUpdate()
     {
         ScanForTarget();
         if (currentTarget != null)
@@ -35,26 +56,20 @@ public class TurretController : MonoBehaviour
 
     private void ScanForTarget()
     {
-        currentTarget = null;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, maxRange, detectionMask);
-
         float closestDistance = Mathf.Infinity;
+        Transform closest = null;
 
-        foreach (var hit in hits)
+        foreach (Transform enemy in enemiesInRange)
         {
-            Vector2 direction = hit.transform.position - transform.position;
-            RaycastHit2D rayHit = Physics2D.Raycast(transform.position, direction.normalized, maxRange, detectionMask);
-
-            if (rayHit && rayHit.collider.CompareTag(enemyTag))
+            float distance = Vector2.Distance(transform.position, enemy.position);
+            if (distance < closestDistance)
             {
-                float dist = Vector2.Distance(transform.position, rayHit.point);
-                if (dist < closestDistance)
-                {
-                    closestDistance = dist;
-                    currentTarget = rayHit.transform;
-                }
+                closestDistance = distance;
+                closest = enemy;
             }
         }
+
+        currentTarget = closest;
     }
 
     private void RotateToFace(Vector2 targetPos)

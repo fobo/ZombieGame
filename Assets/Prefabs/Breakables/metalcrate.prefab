@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4484030833286404231}
   - component: {fileID: 6717425475853299077}
   - component: {fileID: 5791893358882496953}
-  - component: {fileID: 3222649213806722933}
   - component: {fileID: 8039394086564847985}
+  - component: {fileID: -5416569083484009851}
   m_Layer: 0
   m_Name: metalcrate
   m_TagString: Structure
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d681c50b5ffb74a96be6ac376a5be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1
   damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
     type: 3}
   damageNumberSpawnPoint: {fileID: 0}
@@ -163,13 +163,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b3ff6e39db4674eafc33a5501adb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTC: 0
-  maxTC: 4
+  TC: 0
   healthComponent: {fileID: 4484030833286404231}
   itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
     type: 3}
---- !u!60 &3222649213806722933
-PolygonCollider2D:
+--- !u!114 &8039394086564847985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230080792314659676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6760b708baf4fcb4dafa558ad3c8e243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: -876546973899608171, guid: d7e734e2171e7444dbc88c8f8b224039,
+    type: 3}
+  flashDuration: 0.1
+--- !u!58 &-5416569083484009851
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -197,38 +211,9 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.4375, y: 0.5}
-      - {x: -0.4375, y: -0.4375}
-      - {x: 0.4375, y: -0.4375}
-      - {x: 0.4375, y: 0.5}
-  m_UseDelaunayMesh: 0
---- !u!114 &8039394086564847985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230080792314659676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6760b708baf4fcb4dafa558ad3c8e243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashMaterial: {fileID: -876546973899608171, guid: d7e734e2171e7444dbc88c8f8b224039,
-    type: 3}
-  flashDuration: 0.1
+  serializedVersion: 2
+  m_Radius: 0.75
