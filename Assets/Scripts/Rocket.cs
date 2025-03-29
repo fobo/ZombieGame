@@ -56,17 +56,15 @@ public class Rocket : MonoBehaviour
             return;
         }
         //blow up the rocket
+        GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+        RocketDamageArea bs = explosion.GetComponent<RocketDamageArea>();
+        bs.SetDamage(damage);
         //create a new circle object that has a hitbox to flash damage on enemies
         Destroy(gameObject);
 
     }
 
-    void OnDestroy()
-    {
-        GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
-        RocketDamageArea bs = explosion.GetComponent<RocketDamageArea>();
-        bs.SetDamage(damage);
-    }
+
     public void setCritical()
     {
         isCritical = true;

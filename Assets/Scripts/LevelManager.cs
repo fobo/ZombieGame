@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,8 +34,41 @@ public class LevelManager : MonoBehaviour
         GameStateManager.Instance.SetState(GameState.Playing);
     }
 
+    // public void LoadNextLevel()
+    // {
+
+    //     // find all game objects with the tag "DeleteOnSceneChange", and delete them
+
+
+
+    //     //wait until all of those objects are destroyed to continue loading the next scene
+
+
+    //     // Reset difficulty if you are going to the next scene
+    //     int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+    //     if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+    //     {
+    //         SceneManager.LoadScene(nextSceneIndex);
+    //     }
+    // }
+
     public void LoadNextLevel()
     {
+        StartCoroutine(LoadNextLevelCoroutine());
+    }
+
+    private IEnumerator LoadNextLevelCoroutine()
+    {
+        // Find all game objects with the tag "DeleteOnSceneChange" and delete them
+        GameObject[] objectsToDelete = GameObject.FindGameObjectsWithTag("DeleteOnSceneChange");
+        foreach (GameObject obj in objectsToDelete)
+        {
+            Destroy(obj);
+        }
+
+        // Wait until end of frame to ensure all objects are destroyed
+        yield return new WaitForEndOfFrame();
+
         // Reset difficulty if you are going to the next scene
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -43,7 +77,8 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void ReturnToMainMenu(){
+    public void ReturnToMainMenu()
+    {
         SceneManager.LoadScene(0); // this should refer to the main menu usually.
     }
 
