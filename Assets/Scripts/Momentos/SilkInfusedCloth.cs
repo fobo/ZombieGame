@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SilkInfusedCloth : Momento
 {
-    public override float GetHealthMultiplier() => 1.2f;
+    public override int GetHealthMultiplier() => 20;
 }

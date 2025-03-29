@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     [Header("Bullet Settings")]
     public Transform bulletSpawnPoint; // The point where bullets spawn
     public GameObject bulletPrefab;    // The bullet prefab (if using physical bullets)
+    public GameObject rocketPrefab;
     public GameObject meleeAttackPrefab;
 
 
@@ -160,6 +161,26 @@ public class Gun : MonoBehaviour
 
             if (bulletSpawnPoint != null)
             {
+                //spawn rocket if its a rocket
+                if (weaponData.ammoType == AmmoType.Rocket)
+                {
+                    GameObject rocket = Instantiate(rocketPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
+                    
+
+                    if (rocket != null)
+                    {
+                        Rocket bs = rocket.GetComponent<Rocket>();
+                        bs.SetWeaponData(weaponData); // apply the current weapon data to the bullet
+
+                        Rigidbody2D rb = rocket.GetComponent<Rigidbody2D>();
+                        if (rb != null)
+                        {
+                            rb.velocity = finalDirection * .1f; // Set rocket speed
+                        }
+                    }
+
+                    return;
+                }
 
 
                 // Get a bullet from the pool instead of Instantiating
@@ -348,7 +369,7 @@ public class Gun : MonoBehaviour
     private void ApplyMomentoMultipliers(WeaponData weaponData)
     {
         weaponData.apValue *= MomentoSystem.Instance.GetAPMultiplier();
-        weaponData.damage *= MomentoSystem.Instance.GetDamageMultiplier();
+        weaponData.damage += MomentoSystem.Instance.GetDamageMultiplier();
         weaponData.fireRate *= MomentoSystem.Instance.GetFireRateMultiplier();
         weaponData.reloadSpeed *= MomentoSystem.Instance.GetReloadSpeedMultiplier();
         weaponData.spread *= MomentoSystem.Instance.GetSpreadMultiplier();

@@ -12,8 +12,8 @@ public class HUDController : MonoBehaviour
     public GameObject currentGun; // this is a reference to the current gun the player is holding.
     private StatsUIManager statsScript; // reference to the stats script so we can update the health easily
 
-    private float currentHealthRef;
-    private float maxHealthRef;
+    private int currentHealthRef;
+    private int maxHealthRef;
     private void Awake()
     {
 
@@ -64,7 +64,7 @@ public class HUDController : MonoBehaviour
     /// <summary>
     /// Updates the player's health on the HUD.
     /// </summary>
-    public void UpdateHealthUI(float currentHealth, float maxHealth)
+    public void UpdateHealthUI(int currentHealth, int maxHealth)
     {
         //Debug.Log("Healthed");
         if (healthText != null)
@@ -75,14 +75,14 @@ public class HUDController : MonoBehaviour
         OnHealthChanged?.Invoke();
     }
     //set and hold references to the players health values whenever we update the UI
-    private void SetHealthMaxHealth(float curr, float max)
+    private void SetHealthMaxHealth(int curr, int max)
     {
         currentHealthRef = curr;
         maxHealthRef = max;
     }
 
-    public float GetHealth() => currentHealthRef;
-    public float GetMaxHealth() => maxHealthRef;
+    public int GetHealth() => currentHealthRef;
+    public int GetMaxHealth() => maxHealthRef;
 
 
 

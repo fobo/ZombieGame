@@ -11,9 +11,9 @@ public class HealthComponent : MonoBehaviour
     private bool isDead;
 
     [Header("Health Settings")]
-    [SerializeField] private float maxHealth = 100; // Maximum health.
-    private float originalMaxHealth;
-    private float currentHealth;
+    [SerializeField] private int maxHealth = 100; // Maximum health.
+    private int originalMaxHealth;
+    private int currentHealth;
     public GameObject damageTextNumber; // reference to the damage text number prefab.
     public Transform damageNumberSpawnPoint;
 
@@ -24,7 +24,7 @@ public class HealthComponent : MonoBehaviour
     public UnityEvent onHealthDepleted;
 
     //  Event triggered whenever health changes.
-    public UnityEvent<float, float> onHealthChanged;
+    public UnityEvent<int, int> onHealthChanged;
 
     private void Awake()
     {
@@ -124,7 +124,7 @@ public class HealthComponent : MonoBehaviour
     /// Heal the object.
     /// </summary>
     /// <param name="healAmount">Amount of health to restore.</param>
-    public void Heal(float healAmount)
+    public void Heal(int healAmount)
     {
         if (healAmount <= 0 || currentHealth <= 0) return;
 
@@ -168,18 +168,18 @@ public class HealthComponent : MonoBehaviour
     /// <summary>
     /// Get the current health value.
     /// </summary>
-    public float GetCurrentHealth() => currentHealth;
+    public int GetCurrentHealth() => currentHealth;
 
     /// <summary>
     /// Get the maximum health value.
     /// </summary>
-    public float GetMaxHealth() => maxHealth;
+    public int GetMaxHealth() => maxHealth;
 
     public float GetArmorValue() => armor;
 
-    public float GetOriginalMaxHealth() => originalMaxHealth;
+    public int GetOriginalMaxHealth() => originalMaxHealth;
 
-    public void SetMaxHealth(float healthValue){
+    public void SetMaxHealth(int healthValue){
         maxHealth = healthValue;
     }
 }

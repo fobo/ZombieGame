@@ -7,9 +7,9 @@ public abstract class Momento : MonoBehaviour
     public Sprite momentoIcon;  // UI Icon
 
 //STATS SUBJECT TO CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public virtual float GetDamageMultiplier() => 1f;
+    public virtual int GetDamageMultiplier() => 0;
     public virtual float GetAPMultiplier() => 1f;
-    public virtual float GetHealthMultiplier() => 1f;
+    public virtual int GetHealthMultiplier() => 0;
     public virtual float GetFireRateMultiplier() => 1f;
     public virtual float GetReloadSpeedMultiplier() => 1f;
     public virtual float GetSpreadMultiplier() => 1f;

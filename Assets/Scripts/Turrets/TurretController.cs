@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
-    public float maxRange = 10f;
+    public float maxRange = 15f;
     public Transform gunPivot;
     public LayerMask detectionMask;
     public string enemyTag = "Enemy";
+    public LayerMask wall;
 
     private Transform currentTarget;
     private TurretGun turretGun;
@@ -58,20 +60,23 @@ public class TurretController : MonoBehaviour
     {
         float closestDistance = Mathf.Infinity;
         Transform closest = null;
-
         foreach (Transform enemy in enemiesInRange)
         {
-            float distance = Vector2.Distance(transform.position, enemy.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closest = enemy;
+            
+            Vector2 direction = (Vector2)(enemy.position - transform.position); // find direction of the enemy
+            float distanceToEnemy = direction.magnitude; // get distance
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, distanceToEnemy, wall);
+            if (hit.collider != null && hit.transform == enemy)
+            { // if the ray hits something and is an enemy
+                if (distanceToEnemy < closestDistance)
+                { 
+                    closestDistance = distanceToEnemy;
+                    closest = enemy;
+                }
             }
         }
-
         currentTarget = closest;
     }
-
     private void RotateToFace(Vector2 targetPos)
     {
         Vector2 direction = targetPos - (Vector2)gunPivot.position;

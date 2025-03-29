@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1408825919053470763}
   - component: {fileID: 1803330114846252896}
   - component: {fileID: 2767158366187246076}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8265187265289954999}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: shellspawnpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1791034452129551392}
   - component: {fileID: 3028603495936170836}
   - component: {fileID: 9100919532811345498}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   enemyTag: Enemy
+  wall:
+    serializedVersion: 2
+    m_Bits: 129
 --- !u!58 &9100919532811345498
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -233,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8827066852050988181}
   - component: {fileID: 5574986361606545712}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8476353965771134080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bulletspawnpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

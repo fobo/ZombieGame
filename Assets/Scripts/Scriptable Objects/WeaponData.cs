@@ -21,7 +21,7 @@ public class WeaponData : ScriptableObject
     public float fireRate = 0.1f; // Time between shots (Automatic fire only)
     public float spread = 0.1f; // Bullet inaccuracy (0 = no spread)
     public int bulletsPerShot = 1; // Number of bullets fired per shot (e.g., for shotguns)
-    public float damage = 10; // Damage per bullet
+    public int damage = 10; // Damage per bullet
     public AmmoType ammoType; // Choose the ammo type.... be careful, you can make the shotgun shoot rockets if you wanted it to.
     public float apValue; // armor piercing value, i.e how good is it at piercing armor
     public float stoppingPower = 0.05f; //stopping power will provide a slowing effect to the enemy for 1 seconds. The higher the power, the more the effect is.
@@ -36,7 +36,7 @@ public class WeaponData : ScriptableObject
     [HideInInspector] public float baseReloadSpeed;
     [HideInInspector] public float baseFireRate;
     [HideInInspector] public float baseSpread;
-    [HideInInspector] public float baseDamage;
+    [HideInInspector] public int baseDamage;
     [HideInInspector] public float baseAPValue;
     [HideInInspector] public float baseStoppingPower;
     [HideInInspector] public float baseCriticalChance;

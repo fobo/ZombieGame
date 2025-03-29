@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SpoiledMysteryDrink : Momento
 {
-    public override float GetDamageMultiplier() => 1.75f;
-    public override float GetHealthMultiplier() => 0.9f;
+    public override int GetDamageMultiplier() => 7;
+    public override int GetHealthMultiplier() => -10;
 }

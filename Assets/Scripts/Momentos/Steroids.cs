@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Steroids : Momento
 {
-    public override float GetDamageMultiplier() => 1.25f;
+    public override int GetDamageMultiplier() => 5;
 }

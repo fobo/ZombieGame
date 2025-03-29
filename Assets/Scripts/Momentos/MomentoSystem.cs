@@ -13,9 +13,9 @@ public class MomentoSystem : MonoBehaviour
     private List<Momento> collectedMomentos = new List<Momento>();
 
     //example stats
-    private float damageMultiplier = 1f;
+    private int damageMultiplier = 0;
     private float apMultiplier = 1f;
-    private float healthMultiplier = 1f;
+    private int healthMultiplier = 0;
     private float fireRateMultiplier = 1f;
     private float reloadSpeedMultiplier = 1f;
     private float spreadMultiplier = 1f;
@@ -60,9 +60,9 @@ public class MomentoSystem : MonoBehaviour
             InventorySystem.Instance.AddMomento(newMomento); // add momento to inventory
             //example stats
             // Apply stat multipliers
-            damageMultiplier *= newMomento.GetDamageMultiplier();
+            damageMultiplier += newMomento.GetDamageMultiplier();
             apMultiplier *= newMomento.GetAPMultiplier();
-            healthMultiplier *= newMomento.GetHealthMultiplier();
+            healthMultiplier += newMomento.GetHealthMultiplier();
             fireRateMultiplier /= newMomento.GetFireRateMultiplier();
             reloadSpeedMultiplier /= newMomento.GetReloadSpeedMultiplier();
             spreadMultiplier *= newMomento.GetSpreadMultiplier();
@@ -84,9 +84,9 @@ public class MomentoSystem : MonoBehaviour
 
     // example getters
     // Getters for all stat adjustments
-    public float GetDamageMultiplier() => damageMultiplier;
+    public int GetDamageMultiplier() => damageMultiplier;
     public float GetAPMultiplier() => apMultiplier;
-    public float GetHealthMultiplier() => healthMultiplier;
+    public int GetHealthMultiplier() => healthMultiplier;
     public float GetFireRateMultiplier() => fireRateMultiplier;
     public float GetReloadSpeedMultiplier() => reloadSpeedMultiplier;
     public float GetSpreadMultiplier() => spreadMultiplier;

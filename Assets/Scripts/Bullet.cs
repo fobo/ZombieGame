@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    private float damage;
+    private int damage;
     public float lifetime = 3f;
     private WeaponData weaponData;
     private float bulletapValue = 0;
@@ -14,10 +14,7 @@ public class Bullet : MonoBehaviour
     private Gun gunScript;
     public bool isCritical = false;
 
-    void Start()
-    {
 
-    }
     private void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -32,7 +29,7 @@ public class Bullet : MonoBehaviour
         stoppingPower = weaponData.stoppingPower;
         if(Util.RollChance(weaponData.criticalChance)){
 //            Debug.Log("Critical!");
-            damage *= 2 * MomentoSystem.Instance.GetCriticalDamageMultiplier(); // doubles the damage and adds crit damage mult
+            damage *= (int)(2 * MomentoSystem.Instance.GetCriticalDamageMultiplier()); // doubles the damage and adds crit damage mult
             isCritical = true;
         }
 

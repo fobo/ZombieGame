@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
 
-    private float damage;
+    private int damage;
     public float lifetime = 0.1f;
     private WeaponData weaponData;
     private float bulletapValue = 0;
@@ -93,7 +93,7 @@ public class MeleeAttack : MonoBehaviour
         if (Util.RollChance(weaponData.criticalChance))
         {
             Debug.Log("Critical!");
-            damage *= 2 * MomentoSystem.Instance.GetCriticalDamageMultiplier(); // doubles the damage and adds crit damage mult
+            damage *= (int)(2 * MomentoSystem.Instance.GetCriticalDamageMultiplier()); // doubles the damage and adds crit damage mult
             isCritical = true;
         }
 
