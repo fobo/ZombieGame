@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
             //Debug.LogError("EventBus is not initialized yet! Delaying subscription.");
             //StartCoroutine(WaitForEventBus());
         }
+
+
+
     }
 
     private IEnumerator WaitForEventBus()
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         // Now that EventBus exists, subscribe to the event
         EventBus.Instance.OnMomentoPickedUp += UpdatePlayerStats;
-//        Debug.Log("Successfully subscribed to OnMomentoPickedUp.");
+        //        Debug.Log("Successfully subscribed to OnMomentoPickedUp.");
     }
 
     private void OnDisable()
@@ -90,15 +93,31 @@ public class PlayerController : MonoBehaviour
         hc.SetMaxHealth((int)(hc.GetOriginalMaxHealth() + MomentoSystem.Instance.GetHealthMultiplier()));
         hc.Heal((int)hc.GetMaxHealth()); //player found a health upgrade, might as well heal them to full as well.
         hc.UpdateUI();
-//        Debug.Log("Current max health: " + hc.GetMaxHealth());
+        //        Debug.Log("Current max health: " + hc.GetMaxHealth());
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         MoveToSpawnPoint();
     }
 
+    //moves the player to the spawn point, esentially starting the level
     public void MoveToSpawnPoint()
     {
+        if (deathMenu == null)
+        {
+            GameObject foundMenu = GameObject.FindGameObjectWithTag("DeathMenu");
+            if (foundMenu != null)
+            {
+                deathMenu = foundMenu;
+                Debug.Log("Setting death menu to the player");
+            }
+            else
+            {
+                Debug.LogWarning("DeathMenu not found in the scene. Make sure it has the correct tag assigned.");
+            }
+        }
+        deathMenu.SetActive(false); // make the death menu not appear yet
+        Debug.Log("Disabling death menu");
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         if (spawnPoint != null)
         {
@@ -113,17 +132,23 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+
+
         myRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
         hc = GetComponent<HealthComponent>();
-        deathMenu.SetActive(false); // make the death menu not appear yet
+
     }
 
     private bool canShootSingleFire = true; // Prevents rapid single-fire shots
 
     void Update()
     {
+        //game is paused
+        if(!GameStateManager.Instance.IsGamePlaying()) return;
+        
+        //deploy turret
         if (Input.GetKeyDown(KeyCode.V) && InventorySystem.Instance.GetAmmoCount(AmmoType.defaultTurret) > 0)
         { // check if player is pressing deploy key and has a turret
             InventorySystem.Instance.UseAmmo(AmmoType.defaultTurret, 1); //uses one turret
@@ -131,10 +156,8 @@ public class PlayerController : MonoBehaviour
 
             //Deploy turret at the players feet
         }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            //EventBus.Instance?.PrintInventory();
-        }
+
+
         //  Handle Single Fire & Shotgun (One shot per click)
         if (equippedGun.weaponData != null && Input.GetMouseButtonDown(0))
         {
@@ -146,6 +169,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
         //  Handle Automatic Fire (Hold to shoot)
         if (equippedGun.weaponData != null && Input.GetMouseButton(0)) // Detects if the button is HELD
         {
@@ -156,6 +180,7 @@ public class PlayerController : MonoBehaviour
                 equippedGun.Shoot(); // Fire the gun (FireRateCooldown inside Shoot() handles timing)
             }
         }
+
 
         //  Reset Single-Fire on Button Release
         if (Input.GetMouseButtonUp(0))
@@ -276,7 +301,9 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+
         deathMenu.SetActive(true);
+        //GameStateManager.Instance.SetState(GameState.DeathMenu);
         Debug.Log($"Player {gameObject.name} has been destroyed!");
         Destroy(gameObject);
     }

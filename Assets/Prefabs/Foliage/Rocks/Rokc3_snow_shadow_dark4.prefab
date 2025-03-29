@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5488881975434297157}
   m_Layer: 7
   m_Name: Rokc3_snow_shadow_dark4
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

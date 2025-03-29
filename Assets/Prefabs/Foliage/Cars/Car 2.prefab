@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3933994764283995760}
   - component: {fileID: 5706460129752206234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tilemap_packed_736
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2823944032731743954}
   - component: {fileID: 1503398904060894670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tilemap_packed_700
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6412562821438153093}
   - component: {fileID: 8619513092792350020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tilemap_packed_699
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,10 +261,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3865992637271307360}
-  - component: {fileID: 8466912583510231332}
-  m_Layer: 0
+  - component: {fileID: -7667375306592777722}
+  m_Layer: 7
   m_Name: Car 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,13 +288,15 @@ Transform:
   - {fileID: 6412562821438153093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8466912583510231332
-CapsuleCollider:
+--- !u!70 &-7667375306592777722
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4393958550860642954}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -303,14 +305,24 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5602411
-  m_Height: 1.6626515
-  m_Direction: 1
-  m_Center: {x: -0.5060247, y: 0.4016068, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.51785773, y: 0.48660767}
+  m_Size: {x: 1.1071435, y: 1.7857158}
+  m_Direction: 0
 --- !u!1 &8256408585258281792
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915339119021027859}
   - component: {fileID: 7582250093897593349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tilemap_packed_737
   m_TagString: Untagged
   m_Icon: {fileID: 0}

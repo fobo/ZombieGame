@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7981834229940636181}
   m_Layer: 7
   m_Name: Rock2_1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

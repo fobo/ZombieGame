@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3017713789937292010}
   m_Layer: 7
   m_Name: Rock7_water_shadow_dark1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

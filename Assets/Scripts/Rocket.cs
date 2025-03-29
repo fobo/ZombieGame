@@ -29,17 +29,20 @@ public class Rocket : MonoBehaviour
 
         damage = weaponData.damage;
 
-        if(Util.RollChance(weaponData.criticalChance)){
+        if (Util.RollChance(weaponData.criticalChance))
+        {
             damage *= (int)(2 * MomentoSystem.Instance.GetCriticalDamageMultiplier()); // doubles the damage and adds crit damage mult
             isCritical = true;
         }
 
-    } 
+    }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         //instantiate smoke trail objects behind the rocket
         timerForSmokeSpawn += 1;// increment smoke spawn by 1
-        if(timerForSmokeSpawn % 2 == 0){ //make smoke spawn 
+        if (timerForSmokeSpawn % 2 == 0)
+        { //make smoke spawn 
             GameObject smoke = Instantiate(smokeAnim, smokeSpawnPos.transform.position, Quaternion.identity);
             timerForSmokeSpawn = 0; // reset value
         }
@@ -48,10 +51,14 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag("Environment") && !other.CompareTag("Enemy") && !other.CompareTag("Structure"))
+        {
+            return;
+        }
         //blow up the rocket
         //create a new circle object that has a hitbox to flash damage on enemies
         Destroy(gameObject);
-        
+
     }
 
     void OnDestroy()
@@ -60,7 +67,8 @@ public class Rocket : MonoBehaviour
         RocketDamageArea bs = explosion.GetComponent<RocketDamageArea>();
         bs.SetDamage(damage);
     }
-    public void setCritical(){
+    public void setCritical()
+    {
         isCritical = true;
     }
 

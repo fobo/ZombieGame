@@ -84,8 +84,7 @@ public class Gun : MonoBehaviour
         {
             InventorySystem.Instance.SaveWeaponMagazineAmmo(weaponData.weaponName, currentAmmo);
         }
-        Debug.LogWarning("base bullet damage " + newWeaponData.baseDamage);
-        Debug.LogWarning("bullet damage " + newWeaponData.damage);
+
         // Instantiate a fresh copy of the weapon data
         weaponData = ScriptableObject.Instantiate(newWeaponData);
 
@@ -97,6 +96,10 @@ public class Gun : MonoBehaviour
 
         // Retrieve the saved ammo count (or use max ammo if new weapon)
         currentAmmo = InventorySystem.Instance.GetSavedWeaponAmmo(weaponData.weaponName, weaponData.maxAmmo);
+
+        //notify the player that their weapon has been swapped
+        Text textEquip = new Text("Equipped " + newWeaponData.weaponName, Color.magenta);
+        player.SpawnTextPopup(textEquip);
 
         // Update the HUD with the correct ammo
         EventBus.Instance?.UpdateGunAnimationUI();
@@ -111,9 +114,8 @@ public class Gun : MonoBehaviour
     {
         if (currentAmmo == 0 && !isReloading && canShoot && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Text text = new Text("Reloading!", Color.red);
             StartCoroutine(Reload());
-            player.SpawnTextPopup(text);
+
         }
         if (isReloading || !canShoot || currentAmmo <= 0) return;
 
@@ -165,10 +167,14 @@ public class Gun : MonoBehaviour
                 if (weaponData.ammoType == AmmoType.Rocket)
                 {
                     GameObject rocket = Instantiate(rocketPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation * spreadRotation);
-                    
+
 
                     if (rocket != null)
                     {
+                        if (!gameObject.scene.isLoaded)
+                        {
+                            return;
+                        }
                         Rocket bs = rocket.GetComponent<Rocket>();
                         bs.SetWeaponData(weaponData); // apply the current weapon data to the bullet
 
@@ -216,11 +222,20 @@ public class Gun : MonoBehaviour
         int missingAmmo = weaponData.maxAmmo - currentAmmo;
 
 
-        if (missingAmmo == 0 || availableAmmo <= 0)
+        if (missingAmmo == 0 || availableAmmo <= 0)//full magazine
         { // if the player has a full magazine, or has no ammo in the inventory, stop reload.
             Debug.Log("Player does not need to reload, or magazine is full.");
+            if (availableAmmo <= 0)
+            {//no ammo left in inventory, spawn a warning to the player
+                Text text = new Text("You have no " + weaponData.ammoType, Color.red);
+                player.SpawnTextPopup(text);
+            }
             yield break;
         }
+
+        Text textReload = new Text("Reloading!", Color.red);
+
+        player.SpawnTextPopup(textReload);
 
         isReloading = true;
         Debug.Log($"Reloading {weaponData.weaponName}...");

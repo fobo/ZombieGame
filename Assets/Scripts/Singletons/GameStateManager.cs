@@ -7,7 +7,8 @@ public enum GameState
 {
     Playing,
     Inventory,
-    LevelSelect
+    LevelSelect,
+    DeathMenu
 }
 
 public class GameStateManager : MonoBehaviour
@@ -26,6 +27,17 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    //return the current state of the game to check for things like "I SHOULD NOT FIRE MY GUN IF THE GAME IS PAUSED" stupid rockets
+    public GameState GetGameState(){
+        return CurrentState;
+    }
+
+    //fast way to check if the game is being played or not (not paused)
+    public bool IsGamePlaying(){
+        if(CurrentState == GameState.Playing) return true;
+
+        return false;
+    }
     public void SetState(GameState newState)
     {
         CurrentState = newState;

@@ -57,7 +57,7 @@ public class GameDirector : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"[GameDirector] Scene loaded: {scene.name}");
-
+        if(SceneManager.GetActiveScene().name == "MainMenu") return; // i dont care, its the main menu!!
         // Re-acquire player and spawners after new scene loads
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)

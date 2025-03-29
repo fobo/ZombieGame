@@ -13,6 +13,7 @@ TagManager:
   - Structure
   - Ground
   - SpawnPoint
+  - DeathMenu
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 421706521053258952}
   m_Layer: 7
   m_Name: Broken_tree7
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

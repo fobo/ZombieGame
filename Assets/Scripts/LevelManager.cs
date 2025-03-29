@@ -29,8 +29,8 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("Player controller script is null");
         }
-
-
+        //play the game
+        GameStateManager.Instance.SetState(GameState.Playing);
     }
 
     public void LoadNextLevel()

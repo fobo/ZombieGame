@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1155067440177136334}
   m_Layer: 7
   m_Name: Palm_tree1_2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
