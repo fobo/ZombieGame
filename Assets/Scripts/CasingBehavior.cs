@@ -22,6 +22,8 @@ public class CasingBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
 
+
+
         Vector2 baseEjectDirection = Vector2.right;
         Vector2 ejectDirection = Quaternion.Euler(0, 0, gunAngle - 90f + Random.Range(-15f, 15f)) * baseEjectDirection;
         float ejectSpeed = Random.Range(2f, 4f);
@@ -49,7 +51,7 @@ public class CasingBehavior : MonoBehaviour
 
             yield return null;
         }
-
+        
         rb.isKinematic = false;
         rb.velocity = ejectDirection * 1.5f;
         rb.angularVelocity = spinSpeed / 2f;

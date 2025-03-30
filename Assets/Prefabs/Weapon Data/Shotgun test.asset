@@ -33,6 +33,9 @@ MonoBehaviour:
   criticalChance: 0.05
   shootSFX: {fileID: 8300000, guid: 846480854707b3740ad11f11923e5268, type: 3}
   reloadSFX: {fileID: 8300000, guid: fedccc41a465fee45994906fd2da0162, type: 3}
+  magDropSFX: {fileID: 0}
+  shellSFX:
+  - {fileID: 8300000, guid: 235f6f395971ba94b8d22a982c3c715a, type: 3}
   description: Test for the shotgun item
   baseReloadSpeed: 3
   baseFireRate: 1

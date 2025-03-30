@@ -325,6 +325,7 @@ public class Gun : MonoBehaviour
         {
             GameObject casing = Instantiate(weaponData.casingType, casingSpawnPoint.position, Quaternion.identity);
             casing.GetComponent<CasingBehavior>().Eject(transform.eulerAngles.z);
+            SFXManager.Instance.PlayRandomSFXClip(weaponData.shellSFX, casing.transform, 0.5f);
         }
     }
 
@@ -362,6 +363,7 @@ public class Gun : MonoBehaviour
         // Ensure the final scale and rotation are applied
         magazine.transform.localScale = targetScale;
         //magazine.transform.rotation = Quaternion.identity; // Reset to no rotation
+        SFXManager.Instance.PlaySFXClip(weaponData.magDropSFX, gameObject.transform, 0.5f);
     }
 
 

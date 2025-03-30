@@ -34,6 +34,10 @@ MonoBehaviour:
   criticalChance: 0.1
   shootSFX: {fileID: 8300000, guid: 4ed308a63bd16b64ba8f0b2a22e7c9e3, type: 3}
   reloadSFX: {fileID: 8300000, guid: 4a510ff475241574d93e2621c5926e98, type: 3}
+  magDropSFX: {fileID: 8300000, guid: 0020a6b053ec4b842bc6ba2c1532b0af, type: 3}
+  shellSFX:
+  - {fileID: 8300000, guid: bcfb775b535b54f49bcaeaa82c06b019, type: 3}
+  - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: This is a default test weapon.
   baseReloadSpeed: 3
   baseFireRate: 0.1

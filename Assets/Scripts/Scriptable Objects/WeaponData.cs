@@ -31,6 +31,8 @@ public class WeaponData : ScriptableObject
     [Header("SFX")]
     public AudioClip shootSFX; // the sound of the gun when it fires
     public AudioClip reloadSFX; // the sounds of the gun when it reloads!!
+    public AudioClip magDropSFX; // the sound of the magazine when it hits the floors
+    public AudioClip[] shellSFX; // sound, or sounds of the shells hitting the floor
     [TextArea]
     public string description; // Optional description for the weapon
 

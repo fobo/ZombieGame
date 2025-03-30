@@ -34,6 +34,10 @@ MonoBehaviour:
   criticalChance: 0.05
   shootSFX: {fileID: 8300000, guid: c5425338064960041893306456061541, type: 3}
   reloadSFX: {fileID: 8300000, guid: 786f5227194b1d045b35bb2ab1d6555d, type: 3}
+  magDropSFX: {fileID: 8300000, guid: f99e68c7a0072a2418af1a9f6edbf89d, type: 3}
+  shellSFX:
+  - {fileID: 8300000, guid: bcfb775b535b54f49bcaeaa82c06b019, type: 3}
+  - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: Glock 19
   baseReloadSpeed: 2
   baseFireRate: 0.19
