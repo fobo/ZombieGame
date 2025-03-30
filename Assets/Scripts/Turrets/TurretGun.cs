@@ -103,6 +103,7 @@ public class TurretGun : MonoBehaviour
     {
         if (casingSpawnPoint != null)
         {
+            
             // Instantiate the magazine at the spawn point
             GameObject casing = Instantiate(weaponData.casingType, casingSpawnPoint.position, Quaternion.identity);
 
@@ -153,7 +154,7 @@ public class TurretGun : MonoBehaviour
             rb.isKinematic = false;
             rb.velocity = ejectDirection * 1.5f; // Reduced velocity to avoid sliding too far
             rb.angularVelocity = spinSpeed / 2f; // Reduce spin for realism
-
+            SFXManager.Instance.PlayRandomSFXClip(weaponData.shellSFX, gameObject.transform, 1f);
             // Gradually slow down the casing's movement
             StartCoroutine(SlowDownCasing(rb));
         }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7686688579754314797}
   m_Layer: 0
   m_Name: 9mm Ammo Pickup
-  m_TagString: Untagged
+  m_TagString: Floater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupData: {fileID: 11400000, guid: b18f0a6e738c37640b4fa5186a17c301, type: 2}
+  sr: {fileID: 0}
+  weaponPickupSFX: {fileID: 0}
 --- !u!60 &7686688579754314797
 PolygonCollider2D:
   m_ObjectHideFlags: 0

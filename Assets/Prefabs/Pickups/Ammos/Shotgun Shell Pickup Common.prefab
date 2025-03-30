@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 684294712460758089}
   m_Layer: 0
   m_Name: Shotgun Shell Pickup Common
-  m_TagString: Untagged
+  m_TagString: Floater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupData: {fileID: 11400000, guid: ac314f86f1770994e86e2beb9c8a294b, type: 2}
   sr: {fileID: 0}
+  weaponPickupSFX: {fileID: 0}
 --- !u!60 &684294712460758089
 PolygonCollider2D:
   m_ObjectHideFlags: 0

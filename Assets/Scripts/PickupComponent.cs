@@ -58,7 +58,6 @@ public class Pickup : MonoBehaviour
                     InventorySystem.Instance.AddAmmo(pickupData.ammoType, pickupData.amount);
 
 
-                    //                   Debug.Log($"Picked up {pickupData.amount} {pickupData.ammoType} ammo.");
                 }
                 break;
 

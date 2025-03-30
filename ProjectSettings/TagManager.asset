@@ -15,6 +15,7 @@ TagManager:
   - SpawnPoint
   - DeathMenu
   - DeleteOnSceneChange
+  - Floater
   layers:
   - Default
   - TransparentFX

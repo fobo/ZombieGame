@@ -62,7 +62,11 @@ public class TurretController : MonoBehaviour
         Transform closest = null;
         foreach (Transform enemy in enemiesInRange)
         {
-            
+            if(enemy == null){
+
+                Debug.LogWarning("Enemy is null!");
+                continue;
+                }
             Vector2 direction = (Vector2)(enemy.position - transform.position); // find direction of the enemy
             float distanceToEnemy = direction.magnitude; // get distance
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, distanceToEnemy, wall);
