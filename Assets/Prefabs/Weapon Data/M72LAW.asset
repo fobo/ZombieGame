@@ -22,8 +22,8 @@ MonoBehaviour:
     type: 3}
   magazineType: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
     type: 3}
-  maxAmmo: 30
-  reloadSpeed: 2
+  maxAmmo: 1
+  reloadSpeed: 3
   fireRate: 0.1
   spread: 0.1
   bulletsPerShot: 1
@@ -34,10 +34,12 @@ MonoBehaviour:
   criticalChance: 0.05
   shootSFX: {fileID: 8300000, guid: f12cbd65981bc904bb0859baeee03088, type: 3}
   reloadSFX: {fileID: 8300000, guid: 23cccc05d550d8e4d89db9ae02523373, type: 3}
+  magDropSFX: {fileID: 0}
+  shellSFX: []
   description: 'M72 LAW Test item
 
 '
-  baseReloadSpeed: 2
+  baseReloadSpeed: 3
   baseFireRate: 0.1
   baseSpread: 0.1
   baseDamage: 1000
