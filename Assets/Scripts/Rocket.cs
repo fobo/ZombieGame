@@ -15,6 +15,7 @@ public class Rocket : MonoBehaviour
     public GameObject smokeSpawnPos;
     public GameObject smokeAnim;
     public GameObject explosionPrefab;
+    public AudioClip explosionSFX;
 
 
     private void Update()
@@ -56,6 +57,7 @@ public class Rocket : MonoBehaviour
             return;
         }
         //blow up the rocket
+        SFXManager.Instance.PlaySFXClip(explosionSFX, gameObject.transform, .2f);
         GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
         RocketDamageArea bs = explosion.GetComponent<RocketDamageArea>();
         bs.SetDamage(damage);

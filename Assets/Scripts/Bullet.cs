@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     //AP Value for bullets. It should be assigned when it spawns and reset when it dies.
     private Gun gunScript;
     public bool isCritical = false;
+    public AudioClip[] ricList; // list of ricochet SFX
+    public AudioClip[] fleshHit;
 
 
     private void Update()
@@ -67,6 +69,15 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if(other.CompareTag("Environment") || other.CompareTag("Structure")){
+            //play ricochet SFX
+            SFXManager.Instance.PlayRandomSFXClip(ricList, gameObject.transform, .8f);
+        }
+
+        if(other.CompareTag("Enemy")){
+            //play a fleshy hit when hitting an enemy
+            SFXManager.Instance.PlayRandomSFXClip(fleshHit, gameObject.transform, 0.5f);
+        }
         HealthComponent health = other.GetComponent<HealthComponent>();
         MovementController movement = other.GetComponent<MovementController>();
         if(movement != null){

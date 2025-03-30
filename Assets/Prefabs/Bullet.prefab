@@ -100,8 +100,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  damage: 55
   lifetime: 0.5
+  isCritical: 0
+  ricList:
+  - {fileID: 8300000, guid: 49304eade3de4b94d9af93277900f8c1, type: 3}
+  - {fileID: 8300000, guid: c478f340efd86c741826448189bb345a, type: 3}
+  - {fileID: 8300000, guid: f6d392791613fa04c96e7192c3e0f4c2, type: 3}
+  - {fileID: 8300000, guid: 2e5fad39ef11cf64f80979f60801ce6c, type: 3}
+  - {fileID: 8300000, guid: 92cfe4cd4268af346b6ec44b6f38a2c0, type: 3}
+  - {fileID: 8300000, guid: b77e98f929a8d884e878ae9dbb47dfe1, type: 3}
+  - {fileID: 8300000, guid: 0532a3b0e204eb64e9bb05e46362588b, type: 3}
+  - {fileID: 8300000, guid: 10257191ebbb95348974ac297c7b1a16, type: 3}
+  - {fileID: 8300000, guid: 1cfece8f5d22c3843864c9dd898bc489, type: 3}
+  - {fileID: 8300000, guid: 1cfece8f5d22c3843864c9dd898bc489, type: 3}
+  - {fileID: 8300000, guid: c9979cf7b0535924aa31474e6c4fabec, type: 3}
+  - {fileID: 8300000, guid: 2cf442817fbb51c4b94ea036ecf7d4ff, type: 3}
+  fleshHit:
+  - {fileID: 8300000, guid: 48ddd173bf3b0774b91a8c8c2d7b9ff5, type: 3}
+  - {fileID: 8300000, guid: a53d82fd782291340b1ab160da8136f9, type: 3}
+  - {fileID: 8300000, guid: ed2594ee067c2af4480dd4c9499a8c0e, type: 3}
 --- !u!58 &2411274879438709556
 CircleCollider2D:
   m_ObjectHideFlags: 0

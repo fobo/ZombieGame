@@ -50,7 +50,8 @@ public class TurretGun : MonoBehaviour
 
 
     private void FireWeapon(int bulletsPerShot)
-    {
+    {  
+        SFXManager.Instance.PlaySFXClip(weaponData.shootSFX, gameObject.transform, .2f);
         for (int i = 0; i < bulletsPerShot; i++)
         {
             // Random spread angle in degrees

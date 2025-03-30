@@ -32,6 +32,8 @@ MonoBehaviour:
   apValue: 15
   stoppingPower: 0.05
   criticalChance: 0.1
+  shootSFX: {fileID: 8300000, guid: 4ed308a63bd16b64ba8f0b2a22e7c9e3, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 4a510ff475241574d93e2621c5926e98, type: 3}
   description: This is a default test weapon.
   baseReloadSpeed: 3
   baseFireRate: 0.1

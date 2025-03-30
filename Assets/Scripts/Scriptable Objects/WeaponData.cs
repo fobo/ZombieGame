@@ -27,6 +27,10 @@ public class WeaponData : ScriptableObject
     public float stoppingPower = 0.05f; //stopping power will provide a slowing effect to the enemy for 1 seconds. The higher the power, the more the effect is.
     public float criticalChance = 0.05f; //default is set to 5%
 
+
+    [Header("SFX")]
+    public AudioClip shootSFX; // the sound of the gun when it fires
+    public AudioClip reloadSFX; // the sounds of the gun when it reloads!!
     [TextArea]
     public string description; // Optional description for the weapon
 

@@ -32,6 +32,8 @@ MonoBehaviour:
   apValue: 10
   stoppingPower: 0.5
   criticalChance: 0.05
+  shootSFX: {fileID: 8300000, guid: c5425338064960041893306456061541, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 786f5227194b1d045b35bb2ab1d6555d, type: 3}
   description: Glock 19
   baseReloadSpeed: 2
   baseFireRate: 0.19

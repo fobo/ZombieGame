@@ -32,6 +32,8 @@ MonoBehaviour:
   apValue: 0
   stoppingPower: 0.05
   criticalChance: 0.05
+  shootSFX: {fileID: 8300000, guid: f12cbd65981bc904bb0859baeee03088, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 23cccc05d550d8e4d89db9ae02523373, type: 3}
   description: 'M72 LAW Test item
 
 '

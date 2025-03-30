@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Transform textSpawnPoint; // position where text spawns from the player.
     public HealthComponent hc; // reference to the health component
     public Vector2 moveDir = Vector2.zero;
+    public AudioClip[] switchWeaponSFXList;//assign in inspector, list of weapon change SFX
 
 
     // Reference to the equipped gun
@@ -195,6 +196,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (InventorySystem.Instance.HasWeapon(weaponSlots[i].weaponName)) //  Check if player owns weapon
                 {
+                    SFXManager.Instance.PlayRandomSFXClip(switchWeaponSFXList, gameObject.transform, .5f);
                     SwitchWeapon(weaponSlots[i]);
                 }
                 else
@@ -252,6 +254,7 @@ public class PlayerController : MonoBehaviour
     }
 
     [SerializeField] private float gunDistance = 0.75f; // Adjust this in the Inspector
+
 
     void RotateGunAroundPlayer()
     {

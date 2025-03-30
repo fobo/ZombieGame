@@ -104,6 +104,10 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1901140709855321016}
   bulletPrefab: {fileID: 1062132742866633006, guid: c5898951c853268409ee2c89e195e259,
     type: 3}
+  rocketPrefab: {fileID: 1062132742866633006, guid: 51557bf2b8c721645b8ec973158c1ad0,
+    type: 3}
+  meleeAttackPrefab: {fileID: 4294447125488945232, guid: d3cecea98cb8993429435112835d6e04,
+    type: 3}
   magazineSpawnPoint: {fileID: 6091381397243482958}
   casingSpawnPoint: {fileID: 4754785687931255107}
   gunAnimator: {fileID: 0}
@@ -132,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 4099397503066926903}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,6 +160,7 @@ GameObject:
   - component: {fileID: 7211993024419798391}
   - component: {fileID: 3058381405592940925}
   - component: {fileID: 7020662263205398238}
+  - component: {fileID: 899681339520082748}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -311,11 +316,20 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   popupTextField: {fileID: 3731792065983286187, guid: 911f913be41707845a690c9a19c1d74f,
     type: 3}
+  textSpawnPoint: {fileID: 2965708403584912409}
+  hc: {fileID: 8858611098332988203}
+  moveDir: {x: 0, y: 0}
+  switchWeaponSFXList:
+  - {fileID: 8300000, guid: f583c51d15cbbfb469b8d260ebcfa1f4, type: 3}
+  - {fileID: 8300000, guid: b238c5f2d5dfaa1488aa10bfd7b8b252, type: 3}
   equippedGun: {fileID: 4934716822460204932}
   weaponSlots:
   - {fileID: 11400000, guid: 8ff01cec669b3d048b16bc0213242331, type: 2}
   - {fileID: 11400000, guid: 216100033520a494bb586819fd5136e8, type: 2}
   - {fileID: 11400000, guid: 75430ad95d2681f40a813f0f849ea5a0, type: 2}
+  - {fileID: 11400000, guid: cc8f03f85a036ae4d81a3aa99c17dbb9, type: 2}
+  - {fileID: 11400000, guid: 85bc27903bf4c3d418cafe1b74f19d6b, type: 2}
+  turret: {fileID: 3303815367895027116, guid: 715cf80e06a8c5b4bb3a4116149c26a2, type: 3}
   gunDistance: 1.2
 --- !u!114 &2885242663427401153
 MonoBehaviour:
@@ -427,7 +441,7 @@ MonoBehaviour:
   maxHealth: 100
   damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
     type: 3}
-  damageNumberSpawnPoint: {fileID: 0}
+  damageNumberSpawnPoint: {fileID: 2965708403584912409}
   armor: 0
   onHealthDepleted:
     m_PersistentCalls:
@@ -495,6 +509,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431a32f417be1ab4f938a6d03154d41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &899681339520082748
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113706611091906695}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1001 &1410843041167007546
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,4 +30,14 @@ MonoBehaviour:
   ammoType: 2
   apValue: 35
   stoppingPower: 1
+  criticalChance: 0.05
+  shootSFX: {fileID: 8300000, guid: 846480854707b3740ad11f11923e5268, type: 3}
+  reloadSFX: {fileID: 8300000, guid: fedccc41a465fee45994906fd2da0162, type: 3}
   description: Test for the shotgun item
+  baseReloadSpeed: 3
+  baseFireRate: 1
+  baseSpread: 15
+  baseDamage: 15
+  baseAPValue: 35
+  baseStoppingPower: 1
+  baseCriticalChance: 0.05

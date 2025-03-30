@@ -162,14 +162,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f7ec0bb4476e04aba95f8bd21dbb64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  lifetime: 10
+  speed: 10
+  lifetime: 5
   isCritical: 0
   smokeSpawnPos: {fileID: 8269473210119909103}
   smokeAnim: {fileID: 6531529859130949083, guid: f45ca80b136727c48be0f4fb82d3d12a,
     type: 3}
   explosionPrefab: {fileID: 8645887473874698580, guid: a87439f10dcc21b45a95a8672b4fb6a5,
     type: 3}
+  explosionSFX: {fileID: 8300000, guid: 279fa30e2caaf4046bcfd1ecc6bdcb1b, type: 3}
 --- !u!1 &8269473210119909103
 GameObject:
   m_ObjectHideFlags: 0

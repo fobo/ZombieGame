@@ -150,6 +150,7 @@ public class Gun : MonoBehaviour
 
     private void FireWeapon(int bulletsPerShot)
     {
+        SFXManager.Instance.PlaySFXClip(weaponData.shootSFX, bulletSpawnPoint, .2f); //plays the firing SFX
         for (int i = 0; i < bulletsPerShot; i++)
         {
             // Random spread angle in degrees
@@ -239,6 +240,7 @@ public class Gun : MonoBehaviour
 
         isReloading = true;
         Debug.Log($"Reloading {weaponData.weaponName}...");
+        SFXManager.Instance.PlaySFXClip(weaponData.reloadSFX, bulletSpawnPoint, 1f);// plays the reload sfx
         OnReloadStart?.Invoke(weaponData.reloadSpeed);
         //  Get the correct ammo type for this weapon
 
