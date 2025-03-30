@@ -10,7 +10,7 @@ public class Chest : MonoBehaviour
     [SerializeField] private int treasureClass = 3; // Default tier for chests
     private bool isOpened = false;
     [SerializeField] private GameObject promptUI;
-
+    public AudioClip openChestSFX; // opening chest sound effect
 
     private void Start()
     {
@@ -66,7 +66,7 @@ public class Chest : MonoBehaviour
     {
         isOpened = true;
         promptUI.SetActive(false);
-
+        SFXManager.Instance.PlaySFXClip(openChestSFX, gameObject.transform, 1f);
         GetComponent<SpriteRenderer>().sprite = openedChestSprite;
 
         if (itemPrefab != null && dropPosition != null)

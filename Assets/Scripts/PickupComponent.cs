@@ -4,7 +4,7 @@ public class Pickup : MonoBehaviour
 {
     public PickupData pickupData; // scriptable object
     public SpriteRenderer sr; // reference to the sprite renderer component
-    public AudioClip weaponPickupSFX; //sound clip of the weapon pickup effect
+    public AudioClip pickupSFX; //sound clip of the weapon pickup effect
 
     void Awake()
     {
@@ -40,6 +40,7 @@ public class Pickup : MonoBehaviour
         PlayerController pc = player.GetComponent<PlayerController>();
         Text text = new Text(pickupData.pickupName, Color.green);
         pc.SpawnTextPopup(text);
+        SFXManager.Instance.PlaySFXClip(pickupSFX, gameObject.transform, 0.5f); // play weapon pickup SFX
         switch (pickupData.pickupType)
         {
 
@@ -55,6 +56,7 @@ public class Pickup : MonoBehaviour
             case PickupType.Ammo:
                 if (InventorySystem.Instance != null)
                 {
+
                     InventorySystem.Instance.AddAmmo(pickupData.ammoType, pickupData.amount);
 
 
@@ -64,7 +66,6 @@ public class Pickup : MonoBehaviour
             case PickupType.Weapon:
                 if (InventorySystem.Instance != null && pickupData.weaponData != null)
                 {
-                    SFXManager.Instance.PlaySFXClip(weaponPickupSFX, gameObject.transform, 0.5f); // play weapon pickup SFX
                     InventorySystem.Instance.AddWeapon(pickupData.weaponData);
 
                     PlayerController pcWeapon = player.GetComponent<PlayerController>();

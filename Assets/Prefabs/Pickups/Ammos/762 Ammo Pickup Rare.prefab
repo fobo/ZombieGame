@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupData: {fileID: 11400000, guid: b0657235a60decd4eb7256814c84fa2d, type: 2}
   sr: {fileID: 0}
-  weaponPickupSFX: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 07d0847dbd4ed7f4688772fbc569afe8, type: 3}
 --- !u!60 &2938839387277827576
 PolygonCollider2D:
   m_ObjectHideFlags: 0

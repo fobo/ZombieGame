@@ -107,6 +107,7 @@ MonoBehaviour:
   dropPosition: {fileID: 5605484632012431220}
   treasureClass: 3
   promptUI: {fileID: 1879048575699548919}
+  openChestSFX: {fileID: 8300000, guid: 9898f1cebede72e47aa383dc22f6ddfb, type: 3}
 --- !u!58 &548887700347814190
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupData: {fileID: 11400000, guid: dd08c021ef0b3ed4f9497d70bfc59054, type: 2}
   sr: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 24e120731b4450b4b91eda4cccbc8205, type: 3}
 --- !u!58 &4390127186687136858
 CircleCollider2D:
   m_ObjectHideFlags: 0
