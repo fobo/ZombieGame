@@ -56,29 +56,32 @@ public class TurretController : MonoBehaviour
         }
     }
 
+
+
     private void ScanForTarget()
     {
+        // Remove null references before scanning
+        enemiesInRange.RemoveAll(enemy => enemy == null);
+
         float closestDistance = Mathf.Infinity;
         Transform closest = null;
+
         foreach (Transform enemy in enemiesInRange)
         {
-            if(enemy == null){
-
-                Debug.LogWarning("Enemy is null!");
-                continue;
-                }
-            Vector2 direction = (Vector2)(enemy.position - transform.position); // find direction of the enemy
-            float distanceToEnemy = direction.magnitude; // get distance
+            Vector2 direction = (Vector2)(enemy.position - transform.position);
+            float distanceToEnemy = direction.magnitude;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, distanceToEnemy, wall);
+
             if (hit.collider != null && hit.transform == enemy)
-            { // if the ray hits something and is an enemy
+            {
                 if (distanceToEnemy < closestDistance)
-                { 
+                {
                     closestDistance = distanceToEnemy;
                     closest = enemy;
                 }
             }
         }
+
         currentTarget = closest;
     }
     private void RotateToFace(Vector2 targetPos)
