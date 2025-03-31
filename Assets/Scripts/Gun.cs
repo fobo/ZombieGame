@@ -23,6 +23,7 @@ public class Gun : MonoBehaviour
     [Header("Runtime Variables")]
     private bool isReloading;
     private bool canShoot = true;
+    private Coroutine reloadCoroutine;
 
 
 
@@ -44,7 +45,9 @@ public class Gun : MonoBehaviour
         // Check if the player presses "R" and the gun is not already reloading, and if the player has a weapon equipped.
         if (Input.GetKeyDown(KeyCode.R) && !isReloading && weaponData != null)
         {
-            StartCoroutine(Reload());
+            reloadCoroutine = StartCoroutine(Reload());
+
+
         }
     }
 
@@ -79,6 +82,12 @@ public class Gun : MonoBehaviour
 
     public void EquipWeapon(WeaponData newWeaponData)
     {
+        if (reloadCoroutine != null)
+        {
+            StopCoroutine(reloadCoroutine);
+            isReloading = false; // Prevents the reloading state from lingering
+        }
+
         // Save current weapon's magazine ammo before switching
         if (weaponData != null)
         {
