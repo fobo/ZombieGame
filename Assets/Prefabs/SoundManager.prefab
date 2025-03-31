@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672df89b6d54d0246bcb8613ef7f18ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SFXObject: {fileID: 5838598607828479217, guid: 6397c5813835caa4da29e99afa16f41d,
+    type: 3}

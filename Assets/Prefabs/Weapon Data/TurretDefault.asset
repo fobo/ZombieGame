@@ -23,8 +23,8 @@ MonoBehaviour:
   magazineType: {fileID: 0}
   maxAmmo: 75
   reloadSpeed: 2
-  fireRate: 0.1
-  spread: 0.4
+  fireRate: 0.3
+  spread: 9
   bulletsPerShot: 1
   damage: 8
   ammoType: 1
@@ -39,8 +39,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: 
   baseReloadSpeed: 2
-  baseFireRate: 0.1
-  baseSpread: 0.4
+  baseFireRate: 0.3
+  baseSpread: 9
   baseDamage: 8
   baseAPValue: 15
   baseStoppingPower: 0.25

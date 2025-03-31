@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ReturnButton : MonoBehaviour
@@ -23,6 +24,11 @@ public class ReturnButton : MonoBehaviour
     {
         if (panelToHide != null)
         {
+
+            if (SceneManager.GetActiveScene().name != "MainMenu")
+            {//if we are in the main menu, we dont need to set the game state.
+                GameStateManager.Instance.SetState(GameState.Playing);
+            }
             panelToHide.SetActive(false);
         }
         else

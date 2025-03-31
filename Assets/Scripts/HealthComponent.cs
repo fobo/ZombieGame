@@ -16,6 +16,7 @@ public class HealthComponent : MonoBehaviour
     private int currentHealth;
     public GameObject damageTextNumber; // reference to the damage text number prefab.
     public Transform damageNumberSpawnPoint;
+    public AudioClip playerHurtClip;
 
     [Header("Armor Settings")]
     [SerializeField] private float armor = 0; //armor value
@@ -33,11 +34,7 @@ public class HealthComponent : MonoBehaviour
         currentHealth = maxHealth;
         originalMaxHealth = maxHealth;
         isDead = false;
-        if (gameObject.CompareTag("Player"))
-        {
-//            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
 
-        }
     }
     private void Start()
     {
@@ -87,7 +84,7 @@ public class HealthComponent : MonoBehaviour
         }
         if (gameObject.CompareTag("Player"))
         {
-            Debug.Log("HP: " + GetCurrentHealth() + "/" + maxHealth);
+            SFXManager.Instance.PlaySFXClip2D(playerHurtClip, gameObject.transform, 1f);
             HUDController.Instance?.UpdateHealthUI(currentHealth, maxHealth);
         }
     }

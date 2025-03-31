@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 2053576735525336362}
   - component: {fileID: 2289254273250896319}
   - component: {fileID: 7854471099683994713}
+  - component: {fileID: 7970472449926352879}
   m_Layer: 5
   m_Name: CraftButton
   m_TagString: Untagged
@@ -539,6 +540,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 3bf3f5bee7652894d83c4ec41694082f, type: 2}
+--- !u!114 &7970472449926352879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463026146562359928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff1f67f3f648a543b4728877ef1d08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 6f9f041a98bbfb54f84b09532d0ed4ee, type: 3}
+  clickSound: {fileID: 8300000, guid: b4de88399ae04e543954d92e8683c0fc, type: 3}
+  volume: 1
 --- !u!1 &3929175092905222568
 GameObject:
   m_ObjectHideFlags: 0

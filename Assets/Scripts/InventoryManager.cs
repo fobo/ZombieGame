@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -19,21 +20,44 @@ public class InventoryManager : MonoBehaviour
 
             if (menuActivated)
             {
-                GameStateManager.Instance.SetState(GameState.Inventory);
+                // Close Options Menu if it's open
+                if (SceneManager.GetActiveScene().name != "MainMenu")
+                {
+                    OptionsMenu optionsMenu = FindObjectOfType<OptionsMenu>();
+                    if (optionsMenu != null && optionsMenu.IsOptionsOpen())
+                    {
+                        optionsMenu.CloseOptionsMenu();
+                    }
+
+                    GameStateManager.Instance.SetState(GameState.Inventory);
+                }
+
                 FindObjectOfType<WeaponUIManager>()?.UpdateWeaponUI();
                 FindObjectOfType<ConsumablesUIManager>()?.UpdateConsumablesUI();
                 Debug.Log("Inventory Opened");
             }
             else
             {
-                GameStateManager.Instance.SetState(GameState.Playing);
-
-                if (TooltipManager.Instance != null)
+                if (SceneManager.GetActiveScene().name != "MainMenu")
                 {
-                    TooltipManager.Instance.HideTooltip();
+                    GameStateManager.Instance.SetState(GameState.Playing);
                 }
+
+                TooltipManager.Instance?.HideTooltip();
                 Debug.Log("Inventory Closed");
             }
+        }
+    }
+
+    public void CloseInventory()
+    {
+        if (menuActivated)
+        {
+            menuActivated = false;
+            InventoryMenu.SetActive(false);
+            GameStateManager.Instance.SetState(GameState.Playing);
+            TooltipManager.Instance?.HideTooltip();
+            Debug.Log("Inventory Closed (Forced)");
         }
     }
 }

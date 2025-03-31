@@ -23,9 +23,9 @@ MonoBehaviour:
   magazineType: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
     type: 3}
   maxAmmo: 30
-  reloadSpeed: 3
-  fireRate: 0.1
-  spread: 0.1
+  reloadSpeed: 2.5
+  fireRate: 0.25
+  spread: 8
   bulletsPerShot: 1
   damage: 20
   ammoType: 1
@@ -39,9 +39,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bcfb775b535b54f49bcaeaa82c06b019, type: 3}
   - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: This is a default test weapon.
-  baseReloadSpeed: 3
-  baseFireRate: 0.1
-  baseSpread: 0.1
+  baseReloadSpeed: 2.5
+  baseFireRate: 0.25
+  baseSpread: 8
   baseDamage: 20
   baseAPValue: 15
   baseStoppingPower: 0.05

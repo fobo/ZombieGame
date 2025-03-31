@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (InventorySystem.Instance.HasWeapon(weaponSlots[i].weaponName)) //  Check if player owns weapon
                 {
-                    SFXManager.Instance.PlayRandomSFXClip(switchWeaponSFXList, gameObject.transform, .5f);
+                    SFXManager.Instance.PlayRandomSFXClip2D(switchWeaponSFXList, gameObject.transform, .5f);
                     SwitchWeapon(weaponSlots[i]);
                 }
                 else

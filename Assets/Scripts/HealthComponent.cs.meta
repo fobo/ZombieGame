@@ -4,8 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - damageTextNumber: {fileID: 8531542410019195628, guid: e16ef2389c49b5447b04a91e67d8f4b8,
-      type: 3}
+  - damageTextNumber: {instanceID: 0}
+  - damageNumberSpawnPoint: {instanceID: 0}
+  - playerHurtClip: {fileID: 8300000, guid: 6ef2b8a40c6b29d4c8359a8b6230d735, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

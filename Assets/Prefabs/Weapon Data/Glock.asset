@@ -29,7 +29,7 @@ MonoBehaviour:
   bulletsPerShot: 1
   damage: 25
   ammoType: 0
-  apValue: 10
+  apValue: 15
   stoppingPower: 0.5
   criticalChance: 0.05
   shootSFX: {fileID: 8300000, guid: c5425338064960041893306456061541, type: 3}
@@ -43,6 +43,6 @@ MonoBehaviour:
   baseFireRate: 0.19
   baseSpread: 5
   baseDamage: 25
-  baseAPValue: 10
+  baseAPValue: 15
   baseStoppingPower: 0.5
   baseCriticalChance: 0.05
