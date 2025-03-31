@@ -29,7 +29,7 @@ public class CraftingButton : MonoBehaviour
         {
             var iconHolder = transform.Find($"Material{i + 1}")?.GetComponent<Image>();
             var amountText = transform.Find($"Material{i + 1}/amountText")?.GetComponent<TMP_Text>(); // Use TMP if applicable
-            Debug.Log(amountText);
+
             if (iconHolder == null || amountText == null) continue;
 
             if (i < recipe.ingredients.Count)

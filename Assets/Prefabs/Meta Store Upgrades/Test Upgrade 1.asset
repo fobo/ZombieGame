@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394655d2532945445ae7abe89195be73, type: 3}
-  m_Name: solusdata 1
+  m_Script: {fileID: 11500000, guid: dbcbe77dc9059ec40b3c2cf99184bfcf, type: 3}
+  m_Name: Test Upgrade 1
   m_EditorClassIdentifier: 
-  pickupName: 9mm
-  pickupIcon: {fileID: 21300000, guid: 91f7a01a9b169014a9c67e343881a9fc, type: 3}
-  pickupType: 0
-  amount: 50
-  ammoType: 0
-  craftingType: 0
-  weaponData: {fileID: 0}
+  icon: {fileID: 474488096, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
+  upgradeName: test 1
+  maxLevel: 3
+  baseCost: 4
+  upgradeId: 2

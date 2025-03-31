@@ -101,7 +101,6 @@ public class EventBus : MonoBehaviour
         OnEquipWeapon?.Invoke();
     }
 
-
     public event Action OnMomentoPickedUp;
 
     /// <summary>

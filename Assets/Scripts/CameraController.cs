@@ -35,7 +35,6 @@ public class AssignCameraTarget : MonoBehaviour
             if (player != null)
             {
                 virtualCamera.Follow = player.transform;
-                Debug.Log("Cinemachine camera follow target assigned to Player.");
             }
             else
             {

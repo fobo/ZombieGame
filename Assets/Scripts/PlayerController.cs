@@ -98,6 +98,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (EventBus.Instance != null)
+        {
+            EventBus.Instance?.MomentoPickedUp();
+            Debug.Log("updating player stats from scene load");
+        }
+        if(EventBus.Instance == null){Debug.Log("EVENT BUS IS NULL");}
         MoveToSpawnPoint();
     }
 
@@ -118,11 +124,11 @@ public class PlayerController : MonoBehaviour
             }
         }
         deathMenu.SetActive(false); // make the death menu not appear yet
-        Debug.Log("Disabling death menu");
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         if (spawnPoint != null)
         {
             transform.position = spawnPoint.transform.position; // Move player
+
         }
         else
         {
@@ -147,8 +153,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //game is paused
-        if(!GameStateManager.Instance.IsGamePlaying()) return;
-        
+        if (!GameStateManager.Instance.IsGamePlaying()) return;
+
         //deploy turret
         if (Input.GetKeyDown(KeyCode.V) && InventorySystem.Instance.GetAmmoCount(AmmoType.defaultTurret) > 0)
         { // check if player is pressing deploy key and has a turret

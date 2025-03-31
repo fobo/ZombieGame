@@ -80,7 +80,6 @@ public class Spawner : MonoBehaviour
     /// </summary>
     public void EnableSpawning()
     {
-        if (!canSpawn) Debug.Log($"Spawner {name} enabled.");
         canSpawn = true;
     }
 
@@ -89,7 +88,6 @@ public class Spawner : MonoBehaviour
     /// </summary>
     public void DisableSpawning()
     {
-        if (canSpawn) Debug.Log($"Spawner {name} disabled.");
         canSpawn = false;
     }
 

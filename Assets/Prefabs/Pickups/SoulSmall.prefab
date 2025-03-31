@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6134589707312054290}
   - component: {fileID: 4390127186687136858}
   m_Layer: 0
-  m_Name: SoulLarge 1
+  m_Name: SoulSmall
   m_TagString: Floater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 394655d2532945445ae7abe89195be73, type: 3}
-  m_Name: solusdata
+  m_Name: large soul data
   m_EditorClassIdentifier: 
-  pickupName: 9mm
+  pickupName: Large Soul
   pickupIcon: {fileID: 21300000, guid: 93ec482795f404b43b9cbb15105c73bd, type: 3}
-  pickupType: 0
-  amount: 50
+  pickupType: 5
+  amount: 5
   ammoType: 0
   craftingType: 0
   weaponData: {fileID: 0}

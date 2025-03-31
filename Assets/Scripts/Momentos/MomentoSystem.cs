@@ -46,6 +46,7 @@ public class MomentoSystem : MonoBehaviour
             return;
         }
         Instance = this;
+        MetaStats.Initialize();
         OnMomentoReady?.Invoke();
     }
 
@@ -62,7 +63,7 @@ public class MomentoSystem : MonoBehaviour
             // Apply stat multipliers
             damageMultiplier += newMomento.GetDamageMultiplier();
             apMultiplier *= newMomento.GetAPMultiplier();
-            healthMultiplier += newMomento.GetHealthMultiplier();
+            healthMultiplier += newMomento.GetHealthMultiplier() + MetaStats.GetMetaHealthIncrease();
             fireRateMultiplier /= newMomento.GetFireRateMultiplier();
             reloadSpeedMultiplier /= newMomento.GetReloadSpeedMultiplier();
             spreadMultiplier *= newMomento.GetSpreadMultiplier();

@@ -38,8 +38,6 @@ public class StatsUIManager : MonoBehaviour
 
     private void TryUpdateStatsUI()
     {
-        Debug.Log("Trying to update stats");
-        Debug.Log("Momento System is " + MomentoSystem.Instance + " || HUD Instance is " + HUDController.Instance);
         if (MomentoSystem.Instance != null && HUDController.Instance != null)
             UpdateStatsUI();
     }
@@ -56,7 +54,6 @@ public class StatsUIManager : MonoBehaviour
 
     public void UpdateStatsUI()
     {
-        Debug.Log("RUNNING UPDATE STATS UI");
 
         foreach (Transform child in statsPanel)
         {
@@ -77,7 +74,6 @@ public class StatsUIManager : MonoBehaviour
         AddModifier("Critical Chance", MomentoSystem.Instance.GetCriticalChanceMultiplier());
         AddModifier("Critical Damage", MomentoSystem.Instance.GetCriticalDamageMultiplier());
         AddModifier("Stopping Power", MomentoSystem.Instance.GetStoppingPowerMultiplier());
-        Debug.Log("Luck" + MomentoSystem.Instance.GetLuckMultiplier());
     }
 
     private void AddModifier(string statName, float multiplier)

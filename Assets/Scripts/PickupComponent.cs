@@ -93,6 +93,9 @@ public class Pickup : MonoBehaviour
                 InventorySystem.Instance.AddCraftingMaterial(pickupData.craftingType, pickupData.amount);
                 //               Debug.Log($"Picked up {pickupData.amount} {pickupData.craftingType}.");
                 break;
+            case PickupType.Souls:
+                MetaProgression.AddCurrency(pickupData.amount);
+                break;
             case PickupType.Custom:
                 // Add custom pickup logic here
                 break;
@@ -108,5 +111,6 @@ public enum PickupType
     Weapon,
     Momento,
     Crafting,
+    Souls,
     Custom
 }

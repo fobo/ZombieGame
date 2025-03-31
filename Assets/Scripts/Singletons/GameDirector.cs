@@ -56,7 +56,6 @@ public class GameDirector : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[GameDirector] Scene loaded: {scene.name}");
         if(SceneManager.GetActiveScene().name == "MainMenu") return; // i dont care, its the main menu!!
         // Re-acquire player and spawners after new scene loads
         player = GameObject.FindGameObjectWithTag("Player");
@@ -150,7 +149,6 @@ public class GameDirector : MonoBehaviour
     {
         spawners.Clear();
         GameObject[] spawnerObjects = GameObject.FindGameObjectsWithTag("Spawner");
-        Debug.Log("Found " + spawnerObjects.Length + " spawners");
         foreach (GameObject obj in spawnerObjects)
         {
             Spawner spawner = obj.GetComponent<Spawner>();
