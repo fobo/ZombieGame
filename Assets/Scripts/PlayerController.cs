@@ -96,11 +96,15 @@ public class PlayerController : MonoBehaviour
         hc.UpdateUI();
         //        Debug.Log("Current max health: " + hc.GetMaxHealth());
     }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (EventBus.Instance != null)
         {
             EventBus.Instance?.MomentoPickedUp();
+            UpdatePlayerStats();
+            Debug.Log("Current max health: " + hc.GetMaxHealth());
+            
             Debug.Log("updating player stats from scene load");
         }
         if(EventBus.Instance == null){Debug.Log("EVENT BUS IS NULL");}

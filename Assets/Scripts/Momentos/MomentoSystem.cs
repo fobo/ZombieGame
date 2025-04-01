@@ -63,7 +63,7 @@ public class MomentoSystem : MonoBehaviour
             // Apply stat multipliers
             damageMultiplier += newMomento.GetDamageMultiplier();
             apMultiplier *= newMomento.GetAPMultiplier();
-            healthMultiplier += newMomento.GetHealthMultiplier() + MetaStats.GetMetaHealthIncrease();
+            healthMultiplier += newMomento.GetHealthMultiplier();
             fireRateMultiplier /= newMomento.GetFireRateMultiplier();
             reloadSpeedMultiplier /= newMomento.GetReloadSpeedMultiplier();
             spreadMultiplier *= newMomento.GetSpreadMultiplier();
@@ -85,18 +85,18 @@ public class MomentoSystem : MonoBehaviour
 
     // example getters
     // Getters for all stat adjustments
-    public int GetDamageMultiplier() => damageMultiplier;
-    public float GetAPMultiplier() => apMultiplier;
-    public int GetHealthMultiplier() => healthMultiplier;
-    public float GetFireRateMultiplier() => fireRateMultiplier;
-    public float GetReloadSpeedMultiplier() => reloadSpeedMultiplier;
-    public float GetSpreadMultiplier() => spreadMultiplier;
+    public int GetDamageMultiplier() => damageMultiplier + MetaStats.GetMetaDamageBonus();
+    public float GetAPMultiplier() => apMultiplier + MetaStats.GetMetaAPBonus();
+    public int GetHealthMultiplier() => healthMultiplier + MetaStats.GetMetaHealthIncrease();
+    public float GetFireRateMultiplier() => fireRateMultiplier * (1 - MetaStats.GetMetaFireRateBonus());
+    public float GetReloadSpeedMultiplier() => reloadSpeedMultiplier * (1 - MetaStats.GetMetaReloadSpeedBonus());
+    public float GetSpreadMultiplier() => spreadMultiplier * (1 - MetaStats.GetMetaSpreadBonus());
     public float GetMoveSpeedMultiplier() => moveSpeedMultiplier;
     public float GetTreasureClassMultiplier() => treasureClassMultiplier;
-    public int GetLuckMultiplier() => luckMultiplier;
-    public float GetCriticalChanceMultiplier() => criticalChanceMultiplier;
-    public float GetStoppingPowerMultiplier() => stoppingPowerMultiplier;
-    public float GetCriticalDamageMultiplier() => criticalDamageMultiplier;
+    public int GetLuckMultiplier() => luckMultiplier + MetaStats.GetMetaLuckBonus();
+    public float GetCriticalChanceMultiplier() => criticalChanceMultiplier + MetaStats.GetMetaCritChanceBonus();
+    public float GetStoppingPowerMultiplier() => stoppingPowerMultiplier + MetaStats.GetMetaStoppingPowerBonus();
+    public float GetCriticalDamageMultiplier() => criticalDamageMultiplier + MetaStats.GetMetaCritDamageBonus();
 
 
     

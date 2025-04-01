@@ -669,6 +669,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c2d044b993439b4fbbfaa0e2ac9fc88, type: 2}
   - {fileID: 11400000, guid: d027d099bcc1b1249ba534fb6fa880c0, type: 2}
   - {fileID: 11400000, guid: 1af9b043c78c977459df12d12166b677, type: 2}
+  - {fileID: 11400000, guid: a794c5c3afa1dfe48b8aa155e3999cbe, type: 2}
+  - {fileID: 11400000, guid: 769f98032abaf2441b2055d66dabbae8, type: 2}
+  - {fileID: 11400000, guid: 9507d50cdb29a634fb4acb016905dfc6, type: 2}
+  - {fileID: 11400000, guid: f4e69311a3442e1499fd5a2ea19bd533, type: 2}
+  - {fileID: 11400000, guid: 6912076ab3b5d02459e9b0b3cbe0f534, type: 2}
+  - {fileID: 11400000, guid: 95b082d46b85424468b136b268680d83, type: 2}
   upgradeCardPrefab: {fileID: 5947191141077828649, guid: ad19c5b20da429d40be7eb1667751c16,
     type: 3}
   cardParent: {fileID: 125721258}
@@ -1525,6 +1531,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c2d044b993439b4fbbfaa0e2ac9fc88, type: 2}
   - {fileID: 11400000, guid: d027d099bcc1b1249ba534fb6fa880c0, type: 2}
   - {fileID: 11400000, guid: 1af9b043c78c977459df12d12166b677, type: 2}
+  - {fileID: 11400000, guid: 769f98032abaf2441b2055d66dabbae8, type: 2}
+  - {fileID: 11400000, guid: a794c5c3afa1dfe48b8aa155e3999cbe, type: 2}
+  - {fileID: 11400000, guid: 9507d50cdb29a634fb4acb016905dfc6, type: 2}
+  - {fileID: 11400000, guid: f4e69311a3442e1499fd5a2ea19bd533, type: 2}
+  - {fileID: 11400000, guid: 6912076ab3b5d02459e9b0b3cbe0f534, type: 2}
+  - {fileID: 11400000, guid: 95b082d46b85424468b136b268680d83, type: 2}
   shopManager: {fileID: 160942082}
 --- !u!114 &423471653
 MonoBehaviour:
@@ -1642,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6226415, g: 0.17915626, b: 0.17915626, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

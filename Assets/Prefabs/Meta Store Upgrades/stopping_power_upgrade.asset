@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbcbe77dc9059ec40b3c2cf99184bfcf, type: 3}
-  m_Name: Test Upgrade 2
+  m_Name: stopping_power_upgrade
   m_EditorClassIdentifier: 
-  icon: {fileID: 933598142, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
-  upgradeName: test 2
-  maxLevel: 5
-  baseCost: 17
-  upgradeId: 3
+  icon: {fileID: 1233158922, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
+  upgradeName: +10% Stopping Power
+  maxLevel: 7
+  baseCost: 35
+  upgradeId: stopping_power

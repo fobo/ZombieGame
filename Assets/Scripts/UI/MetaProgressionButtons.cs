@@ -8,7 +8,7 @@ public class MetaProgressionButtons : MonoBehaviour
     public UpgradeShopManager shopManager;
     public void GiveMoney()
     {
-        MetaProgression.AddCurrency(50);
+        MetaProgression.AddCurrency(500);
     }
 
     public void RefundAll()

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbcbe77dc9059ec40b3c2cf99184bfcf, type: 3}
-  m_Name: Test Upgrade 3
+  m_Name: luck_upgrade
   m_EditorClassIdentifier: 
-  icon: {fileID: -1836892230, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
-  upgradeName: test 3
-  maxLevel: 6
-  baseCost: 99
-  upgradeId: 4
+  icon: {fileID: 2050891649, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
+  upgradeName: +1 Luck
+  maxLevel: 3
+  baseCost: 100
+  upgradeId: luck
