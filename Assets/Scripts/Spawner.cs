@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab; // The enemy prefab to spawn
     [SerializeField] private float intervalTime = 5f; // How often objects spawn
     [SerializeField] private int enemiesPerSpawn = 1; // Number of enemies per spawn
+    public int maxEnemies = 50; // number of max enemies on the map at once, defaults to 50
 
     private bool canSpawn = true;
     private float currTime;
@@ -55,7 +56,10 @@ public class Spawner : MonoBehaviour
             Debug.LogError($"Spawner {name}: Enemy prefab is not assigned!");
             return;
         }
-
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length > maxEnemies) {
+ 
+            
+            return;}//if the total number of enemies exceeds the limit, do not spawn.
         Instantiate(enemyPrefab, transform.position, transform.rotation);
     }
 
@@ -89,6 +93,11 @@ public class Spawner : MonoBehaviour
     public void DisableSpawning()
     {
         canSpawn = false;
+    }
+
+    //sets the maximum amount of enemies are allowed to exist on the map at once.
+    public void SetMaxEnemies(int setMax){
+        maxEnemies = setMax;
     }
 
 #if UNITY_EDITOR

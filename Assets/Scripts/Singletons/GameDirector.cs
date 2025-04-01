@@ -12,8 +12,10 @@ public class GameDirector : MonoBehaviour
 
 
 
+    //note, most of these settings do not do anything anymore.
     [Header("Spawner Settings")]
     public float globalSpawnInterval = 5f;
+    public int globalMaxEnemyLimit = 50;
     public float minDistanceToPlayer = 10f;
     public float maxDistanceToPlayer = 50f;
     public float spawnerCheckInterval = 1f;
@@ -56,7 +58,7 @@ public class GameDirector : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(SceneManager.GetActiveScene().name == "MainMenu") return; // i dont care, its the main menu!!
+        if (SceneManager.GetActiveScene().name == "MainMenu") return; // i dont care, its the main menu!!
         // Re-acquire player and spawners after new scene loads
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
@@ -158,12 +160,14 @@ public class GameDirector : MonoBehaviour
         //        Debug.Log($"GameDirector: Found {spawners.Count} spawners.");
     }
 
-    private void ApplyGlobalSpawnSettings()
+    public void ApplyGlobalSpawnSettings()
     {
+        Debug.Log("Applying global spawning settings for all spawners");
         foreach (Spawner spawner in spawners)
         {
             spawner.setIntervalTime(globalSpawnInterval);
             spawner.SetEnemiesPerSpawn(baseEnemiesPerSpawn);
+            spawner.SetMaxEnemies(globalMaxEnemyLimit);//gives the spawners a max enemy limit
         }
     }
 
@@ -176,6 +180,15 @@ public class GameDirector : MonoBehaviour
         }
 
         //Debug.Log($"GameDirector: Updated spawn interval to {globalSpawnInterval:F2} seconds.");
+    }
+
+    public void SetGlobalMaxEnemyLimit(int newMax)
+    {
+        globalMaxEnemyLimit = newMax; //sets a new value for the global max enemies amount. Access this in LevelManager.
+    }
+    public int GetGlobalMaxEnemyLimit()
+    {
+        return globalMaxEnemyLimit; //returns the value so the LevelManager can access it.
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()

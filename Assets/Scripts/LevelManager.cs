@@ -84,7 +84,14 @@ public class LevelManager : MonoBehaviour
 
     private void IncreaseDifficulty()
     {
-        Debug.Log("Increasing difficulty");
+        if(GameDirector.Instance != null){
+            //increases max enemies by 5
+            GameDirector.Instance.SetGlobalMaxEnemyLimit(GameDirector.Instance.GetGlobalMaxEnemyLimit() + 5);
+            GameDirector.Instance.ApplyGlobalSpawnSettings();
+        }
+        else{
+            Debug.Log("Game director not found in the level manager.");
+        }
     }
 
     private void ReloadCurrentScene()

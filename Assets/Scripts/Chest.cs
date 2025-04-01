@@ -12,6 +12,8 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject promptUI;
     public AudioClip openChestSFX; // opening chest sound effect
 
+    public GameObject chestEffect; // reference to the rotating chest aura thing
+
     private void Start()
     {
         TryUpgradeTreasureClass(); // Upgrade chest loot tier on load
@@ -79,7 +81,7 @@ public class Chest : MonoBehaviour
                 prefrabItemScript.SetTreasureClass(treasureClass);
             }
         }
-
+        chestEffect.SetActive(false);
         GetComponent<Collider2D>().enabled = false;
     }
 
