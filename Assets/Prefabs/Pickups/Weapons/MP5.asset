@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394655d2532945445ae7abe89195be73, type: 3}
+  m_Name: MP5
+  m_EditorClassIdentifier: 
+  pickupName: MP5
+  pickupIcon: {fileID: 21300000, guid: 61e9b3c59d72d8b47bca4dd43b5f60a7, type: 3}
+  pickupType: 2
+  amount: 0
+  ammoType: 0
+  craftingType: 0
+  weaponData: {fileID: 11400000, guid: 5d1fcae46c7fe3d4ab02174c0b982b36, type: 2}

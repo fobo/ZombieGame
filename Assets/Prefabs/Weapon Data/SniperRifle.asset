@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a23457bee5d9c548bb54360c0edbd3c, type: 3}
+  m_Name: SniperRifle
+  m_EditorClassIdentifier: 
+  weaponAnimation: {fileID: 0}
+  weaponIdleFrame: {fileID: 0}
+  weaponName: Sniper
+  weaponSprite: {fileID: 21300000, guid: 5ebc72ace722225488c8bf072f3f89e1, type: 3}
+  fireType: 1
+  reloadType: 0
+  casingType: {fileID: 8608023441638839669, guid: 0653086062258cc4c86c461b8b93b28b,
+    type: 3}
+  magazineType: {fileID: 6319106780526859790, guid: 5aa6aa61c33ec70468b09b58f8ca6075,
+    type: 3}
+  maxAmmo: 10
+  reloadSpeed: 3
+  fireRate: 2
+  spread: 0.1
+  bulletsPerShot: 1
+  damage: 100
+  ammoType: 1
+  apValue: 100
+  stoppingPower: 15
+  criticalChance: 0.35
+  shootSFX: {fileID: 8300000, guid: c32dce0c62f2950418ea692f2a4341fa, type: 3}
+  reloadSFX: {fileID: 8300000, guid: 3f67dd08849dcb941be65bd77cd58753, type: 3}
+  magDropSFX: {fileID: 8300000, guid: 0020a6b053ec4b842bc6ba2c1532b0af, type: 3}
+  shellSFX:
+  - {fileID: 8300000, guid: bcfb775b535b54f49bcaeaa82c06b019, type: 3}
+  - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
+  description: Sniper - High power, High damage.
+  baseReloadSpeed: 2
+  baseFireRate: 0.1
+  baseSpread: 10
+  baseDamage: 10
+  baseAPValue: 7
+  baseStoppingPower: 0.05
+  baseCriticalChance: 0.05
