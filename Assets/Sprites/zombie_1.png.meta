@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 316d3d759b80749468ccd8c3b009126c
+guid: 3d85eb7e64c90a04caf76409e67540e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,70 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bloodSplatter_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 906b8d8a8315bca4e9329d900cc81c28
-      internalID: -765986741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bloodSplatter_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6687f9d3625dfbf4299678bf25f3da85
-      internalID: 1093929696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bloodSplatter_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60ec433dfbf5e1e458c9d5ced5a91599
-      internalID: -274706043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bloodSplatter_3
+      name: zombie_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -174,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 321d916c42c41a144b3bc701b92dddab
-      internalID: 2046406796
+      spriteID: eadf804abaa02b24785f9a7afed29ddb
+      internalID: 436048937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bloodSplatter_4
+      name: zombie_1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -195,35 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 542485b52a67fcc46b6d15770f289d22
-      internalID: -1392758067
+      spriteID: ac9ea65945db6a44394db91e58f98575
+      internalID: -758449108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bloodSplatter_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b55399b50fc607f4487ca49fe27f880c
-      internalID: -1024250795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bloodSplatter_6
+      name: zombie_1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -237,29 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960dd0d2731d6584ebb9fe8bf99174b0
-      internalID: -112194453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bloodSplatter_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d4a5c3c27e208344b2a55d08f409af0
-      internalID: 257595091
+      spriteID: ec626b0f2c5c0614c9a5713cb48dfa30
+      internalID: 1337427475
       vertices: []
       indices: 
       edges: []
@@ -275,14 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bloodSplatter_0: -765986741
-      bloodSplatter_1: 1093929696
-      bloodSplatter_2: -274706043
-      bloodSplatter_3: 2046406796
-      bloodSplatter_4: -1392758067
-      bloodSplatter_5: -1024250795
-      bloodSplatter_6: -112194453
-      bloodSplatter_7: 257595091
+      zombie_1_0: 436048937
+      zombie_1_1: -758449108
+      zombie_1_2: 1337427475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

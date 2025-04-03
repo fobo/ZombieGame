@@ -93825,7 +93825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalSpawnInterval: 7
-  globalMaxEnemyLimit: 5
+  globalMaxEnemyLimit: 45
   minDistanceToPlayer: 20
   maxDistanceToPlayer: 50
   spawnerCheckInterval: 1
@@ -104716,7 +104716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19573462c414cc4587de5e612db103f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 60
+  totalTime: 180
   timerText: {fileID: 466731241}
   levelSelectMenu: {fileID: 1369397454}
 --- !u!1001 &1774967277
@@ -117424,6 +117424,11 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1663943964}
+    - target: {fileID: 4606362567003587733, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6113706611091906695, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
         type: 3}
       propertyPath: m_Name

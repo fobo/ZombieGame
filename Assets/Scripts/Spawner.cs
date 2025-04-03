@@ -9,7 +9,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [Header("Spawner Settings")]
-    [SerializeField] private GameObject enemyPrefab; // The enemy prefab to spawn
+    [SerializeField] private GameObject[] enemyPrefab; // The list of enemies to spawn
     [SerializeField] private float intervalTime = 5f; // How often objects spawn
     [SerializeField] private int enemiesPerSpawn = 1; // Number of enemies per spawn
     public int maxEnemies = 50; // number of max enemies on the map at once, defaults to 50
@@ -60,9 +60,25 @@ public class Spawner : MonoBehaviour
  
             
             return;}//if the total number of enemies exceeds the limit, do not spawn.
-        Instantiate(enemyPrefab, transform.position, transform.rotation);
+        Instantiate(returnRandomEnemy(), transform.position, transform.rotation);
     }
 
+
+    //pick a random enemy from our enemy prefab list based on rarity.
+    public GameObject returnRandomEnemy(){
+        GameObject pickedEnemy;
+        if(Util.RollChanceNoLuck(0.5f)){
+            pickedEnemy = enemyPrefab[0]; // pick enemy 1
+        }else if (Util.RollChanceNoLuck(0.5f)){
+            pickedEnemy = enemyPrefab[1]; // pick enemy 2
+        }else if (Util.RollChanceNoLuck(0.5f)){
+            pickedEnemy = enemyPrefab[2]; // pick enemy 3
+        }else {
+            pickedEnemy = enemyPrefab[3]; // pick enemy 4
+        }
+
+        return pickedEnemy;
+    }
     /// <summary>
     /// Public setter to change spawn interval dynamically.
     /// </summary>

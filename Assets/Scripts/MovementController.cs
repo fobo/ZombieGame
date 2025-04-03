@@ -54,7 +54,7 @@ public class MovementController : MonoBehaviour
         }
 
         // Start a coroutine to restore speed over 1 second
-        restoreSpeedRoutine = StartCoroutine(RestoreSpeedOverTime(1f));
+        restoreSpeedRoutine = StartCoroutine(RestoreSpeedOverTime(2f));
     }
 
     private IEnumerator RestoreSpeedOverTime(float duration)

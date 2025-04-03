@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -1198864973289153240}
   - component: {fileID: 2847067341141472500}
   m_Layer: 0
-  m_Name: Zombo
+  m_Name: Zombo_Crawl
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 819778067
   m_SortingLayer: -2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -440512309, guid: dcd0d434ca4b83049a64212b1972c771, type: 3}
+  m_Sprite: {fileID: 436048937, guid: 3d85eb7e64c90a04caf76409e67540e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,9 +185,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17}
+  m_Offset: {x: 0, y: -0.017065322}
   serializedVersion: 2
-  m_Radius: 0.15318365
+  m_Radius: 0.08848054
 --- !u!95 &-8426650336404375130
 Animator:
   serializedVersion: 5
@@ -198,7 +198,7 @@ Animator:
   m_GameObject: {fileID: 8128294471269308694}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 00f5e0a78ffe34d4fafef480c3706102, type: 2}
+  m_Controller: {fileID: 9100000, guid: f29e4c7af691a0a4a8656ef902aac3a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -231,8 +231,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 1.8
-  m_Acceleration: 3
+  m_Speed: 2.4
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 6
   healthComponent: {fileID: 0}
   itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
     type: 3}
@@ -273,12 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d681c50b5ffb74a96be6ac376a5be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 150
   damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
     type: 3}
   damageNumberSpawnPoint: {fileID: 0}
   playerHurtClip: {fileID: 0}
-  armor: 10
+  armor: 3
   onHealthDepleted:
     m_PersistentCalls:
       m_Calls:
@@ -329,9 +329,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.039775297, y: 0.025223909}
-  m_Size: {x: 0.57179326, y: 1.0191977}
-  m_Direction: 0
+  m_Offset: {x: -0.022128813, y: 0.08863938}
+  m_Size: {x: 0.96589774, y: 0.43945122}
+  m_Direction: 1
 --- !u!114 &-1198864973289153240
 MonoBehaviour:
   m_ObjectHideFlags: 0

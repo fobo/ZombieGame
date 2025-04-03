@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -1198864973289153240}
   - component: {fileID: 2847067341141472500}
   m_Layer: 0
-  m_Name: Zombo
+  m_Name: Zombo_Huge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5001128358443685023}
@@ -185,9 +185,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17}
+  m_Offset: {x: -0.103271216, y: -0.17000002}
   serializedVersion: 2
-  m_Radius: 0.15318365
+  m_Radius: 0.049912453
 --- !u!95 &-8426650336404375130
 Animator:
   serializedVersion: 5
@@ -231,7 +231,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 1.8
+  m_Speed: 1.6
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -255,11 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057ecf164bb416745a0897381568b9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 25
   healthComponent: {fileID: 0}
   itemPrefab: {fileID: 3933456033815563074, guid: 2cede24c4d02df949b59ca701a2977d3,
     type: 3}
-  TC: 0
+  TC: 3
   hitID: 0
 --- !u!114 &7691562356777959953
 MonoBehaviour:
@@ -273,12 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d681c50b5ffb74a96be6ac376a5be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 500
   damageTextNumber: {fileID: 379664700348168535, guid: 982aa329708946e4abb718e09893f2f5,
     type: 3}
   damageNumberSpawnPoint: {fileID: 0}
   playerHurtClip: {fileID: 0}
-  armor: 10
+  armor: 100
   onHealthDepleted:
     m_PersistentCalls:
       m_Calls:
