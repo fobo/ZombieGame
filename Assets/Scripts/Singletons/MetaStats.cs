@@ -10,6 +10,7 @@ public static class MetaStats
     private static float reloadSpeedBonus;
     private static float spreadBonus;
     private static float stoppingPowerBonus;
+    private static float moveSpeedBonus;
 
     private static bool isInitialized = false;
 
@@ -18,7 +19,7 @@ public static class MetaStats
         // This should be called once at game start (e.g., scene load or menu transition)
         isInitialized = true;
 
-        healthBonus = MetaProgression.GetUpgradeLevel("max_health") *5;
+        healthBonus = MetaProgression.GetUpgradeLevel("max_health") * 5;
         apUpgradeBonus = MetaProgression.GetUpgradeLevel("ap_upgrade") * 1;
         critChanceBonus = MetaProgression.GetUpgradeLevel("crit_chance") * 0.02f;
         critDamageBonus = MetaProgression.GetUpgradeLevel("crit_damage") * 0.10f;
@@ -28,6 +29,7 @@ public static class MetaStats
         reloadSpeedBonus = MetaProgression.GetUpgradeLevel("reload_speed") * 0.10f;
         spreadBonus = MetaProgression.GetUpgradeLevel("spread") * 0.05f;
         stoppingPowerBonus = MetaProgression.GetUpgradeLevel("stopping_power") * 0.10f;
+        moveSpeedBonus = MetaProgression.GetUpgradeLevel("movespeed") * 0.2f;
     }
 
     private static void EnsureInitialized()
@@ -48,4 +50,5 @@ public static class MetaStats
     public static float GetMetaReloadSpeedBonus() { EnsureInitialized(); return reloadSpeedBonus; }
     public static float GetMetaSpreadBonus() { EnsureInitialized(); return spreadBonus; }
     public static float GetMetaStoppingPowerBonus() { EnsureInitialized(); return stoppingPowerBonus; }
+    public static float GetMetaSpeedBonus() { EnsureInitialized(); return moveSpeedBonus; }
 }

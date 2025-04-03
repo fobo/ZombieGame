@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour
 
         //  Set Animator parameter
         playerAnimator.SetBool("isMoving", isMoving);
-        myRigidBody.velocity = moveDir * moveSpeed;
+        myRigidBody.velocity = moveDir * (moveSpeed + MomentoSystem.Instance.GetMoveSpeedMultiplier());
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -310,7 +310,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    public void SetMoveSpeed(float setSpeed){
+        moveSpeed = setSpeed;
+    }
 
     public void Die()
     {

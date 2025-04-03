@@ -13,7 +13,7 @@ public abstract class Momento : MonoBehaviour
     public virtual float GetFireRateMultiplier() => 1f;
     public virtual float GetReloadSpeedMultiplier() => 1f;
     public virtual float GetSpreadMultiplier() => 1f;
-    public virtual float GetMoveSpeedMultiplier() => 1f;
+    public virtual float GetMoveSpeedMultiplier() => 0f;
     public virtual float GetTreasureClassMultiplier() => 1f;
     public virtual int GetLuckMultiplier() => 0;
     public virtual float GetCriticalChanceMultiplier() => 1f;

@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4e69311a3442e1499fd5a2ea19bd533, type: 2}
   - {fileID: 11400000, guid: 6912076ab3b5d02459e9b0b3cbe0f534, type: 2}
   - {fileID: 11400000, guid: 95b082d46b85424468b136b268680d83, type: 2}
+  - {fileID: 11400000, guid: c121b2cb73490e649a1d172e152ecce8, type: 2}
   upgradeCardPrefab: {fileID: 5947191141077828649, guid: ad19c5b20da429d40be7eb1667751c16,
     type: 3}
   cardParent: {fileID: 125721258}

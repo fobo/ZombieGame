@@ -29,13 +29,14 @@ public class Bullet : MonoBehaviour
         bulletapValue = weaponData.apValue; // weaponData is assigned before use
         damage = weaponData.damage;
         stoppingPower = weaponData.stoppingPower;
-        if(Util.RollChance(weaponData.criticalChance)){
-//            Debug.Log("Critical!");
+        if (Util.RollChance(weaponData.criticalChance))
+        {
+            //            Debug.Log("Critical!");
             damage *= (int)(2 * MomentoSystem.Instance.GetCriticalDamageMultiplier()); // doubles the damage and adds crit damage mult
             isCritical = true;
         }
 
-    } 
+    }
 
     private void OnEnable()
     {
@@ -69,21 +70,30 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if(other.CompareTag("Environment") || other.CompareTag("Structure")){
+        if (other.CompareTag("Environment") || other.CompareTag("Structure"))
+        {
             //play ricochet SFX
             SFXManager.Instance.PlayRandomSFXClip(ricList, gameObject.transform, .8f);
         }
 
-        if(other.CompareTag("Enemy")){
+        if (other.CompareTag("Enemy"))
+        {
             //play a fleshy hit when hitting an enemy
             SFXManager.Instance.PlayRandomSFXClip(fleshHit, gameObject.transform, 0.5f);
+
+            BloodEffect bloodEffect = other.GetComponent<BloodEffect>();
+            if (bloodEffect != null)
+            {
+                bloodEffect.SpawnRandomAnimation2D();
+            }
         }
         HealthComponent health = other.GetComponent<HealthComponent>();
         MovementController movement = other.GetComponent<MovementController>();
-        if(movement != null){
+        if (movement != null)
+        {
             //reduce the move speed based on weapondata.stoppingPower
             movement.ApplyStoppingPower(weaponData.stoppingPower);
-            
+
         }
         if (health != null) //  Only apply damage if the object has health
         {
@@ -100,7 +110,8 @@ public class Bullet : MonoBehaviour
     }
 
 
-    public void setCritical(){
+    public void setCritical()
+    {
         isCritical = true;
     }
 

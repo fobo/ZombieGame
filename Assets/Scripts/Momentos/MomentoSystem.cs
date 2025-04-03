@@ -67,7 +67,7 @@ public class MomentoSystem : MonoBehaviour
             fireRateMultiplier /= newMomento.GetFireRateMultiplier();
             reloadSpeedMultiplier /= newMomento.GetReloadSpeedMultiplier();
             spreadMultiplier *= newMomento.GetSpreadMultiplier();
-            moveSpeedMultiplier *= newMomento.GetMoveSpeedMultiplier();
+            moveSpeedMultiplier += newMomento.GetMoveSpeedMultiplier();
             treasureClassMultiplier *= newMomento.GetTreasureClassMultiplier();
             luckMultiplier += newMomento.GetLuckMultiplier();
             criticalChanceMultiplier *= newMomento.GetCriticalChanceMultiplier();
@@ -91,7 +91,7 @@ public class MomentoSystem : MonoBehaviour
     public float GetFireRateMultiplier() => fireRateMultiplier * (1 - MetaStats.GetMetaFireRateBonus());
     public float GetReloadSpeedMultiplier() => reloadSpeedMultiplier * (1 - MetaStats.GetMetaReloadSpeedBonus());
     public float GetSpreadMultiplier() => spreadMultiplier * (1 - MetaStats.GetMetaSpreadBonus());
-    public float GetMoveSpeedMultiplier() => moveSpeedMultiplier;
+    public float GetMoveSpeedMultiplier() => moveSpeedMultiplier + MetaStats.GetMetaSpeedBonus();
     public float GetTreasureClassMultiplier() => treasureClassMultiplier;
     public int GetLuckMultiplier() => luckMultiplier + MetaStats.GetMetaLuckBonus();
     public float GetCriticalChanceMultiplier() => criticalChanceMultiplier + MetaStats.GetMetaCritChanceBonus();
