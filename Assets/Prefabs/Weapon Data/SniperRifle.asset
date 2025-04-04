@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SniperRifle
   m_EditorClassIdentifier: 
   weaponAnimation: {fileID: 0}
-  weaponIdleFrame: {fileID: 0}
+  weaponIdleFrame: {fileID: 21300000, guid: 5ebc72ace722225488c8bf072f3f89e1, type: 3}
   weaponName: Sniper
   weaponSprite: {fileID: 21300000, guid: 5ebc72ace722225488c8bf072f3f89e1, type: 3}
   fireType: 1
@@ -39,10 +39,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bcfb775b535b54f49bcaeaa82c06b019, type: 3}
   - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: Sniper - High power, High damage.
-  baseReloadSpeed: 2
-  baseFireRate: 0.1
-  baseSpread: 10
-  baseDamage: 10
-  baseAPValue: 7
-  baseStoppingPower: 0.05
-  baseCriticalChance: 0.05
+  baseReloadSpeed: 3
+  baseFireRate: 2
+  baseSpread: 0.1
+  baseDamage: 100
+  baseAPValue: 100
+  baseStoppingPower: 15
+  baseCriticalChance: 0.35

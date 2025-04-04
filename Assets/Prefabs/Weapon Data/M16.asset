@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: M16
   m_EditorClassIdentifier: 
   weaponAnimation: {fileID: 0}
-  weaponIdleFrame: {fileID: 0}
+  weaponIdleFrame: {fileID: 21300000, guid: 6a7ab7996e2a49d47bb1d91cc7de11a2, type: 3}
   weaponName: M16
   weaponSprite: {fileID: 21300000, guid: 6a7ab7996e2a49d47bb1d91cc7de11a2, type: 3}
   fireType: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
   baseReloadSpeed: 2
   baseFireRate: 0.1
   baseSpread: 10
-  baseDamage: 10
-  baseAPValue: 7
+  baseDamage: 17
+  baseAPValue: 17
   baseStoppingPower: 0.05
   baseCriticalChance: 0.05

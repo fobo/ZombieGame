@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupName: Sniper Rifle
   pickupIcon: {fileID: 21300000, guid: 5ebc72ace722225488c8bf072f3f89e1, type: 3}
-  pickupType: 0
+  pickupType: 2
   amount: 0
   ammoType: 0
   craftingType: 0

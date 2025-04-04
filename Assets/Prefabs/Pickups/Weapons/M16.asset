@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupName: M16
   pickupIcon: {fileID: 21300000, guid: 6a7ab7996e2a49d47bb1d91cc7de11a2, type: 3}
-  pickupType: 0
+  pickupType: 2
   amount: 0
-  ammoType: 0
+  ammoType: 1
   craftingType: 0
   weaponData: {fileID: 11400000, guid: a20f9c32bfe5ab6439a59049b5bfc52e, type: 2}
