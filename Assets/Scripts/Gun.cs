@@ -140,7 +140,9 @@ public class Gun : MonoBehaviour
         int bulletsPerShot = (weaponData.fireType == FireType.Shotgun) ? weaponData.bulletsPerShot : 1;
 
         FireWeapon(bulletsPerShot);
-
+        if(currentAmmo == 0){
+            StartCoroutine(Reload());
+        }
 
         StartCoroutine(FireRateCooldown());
 

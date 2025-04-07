@@ -26,7 +26,22 @@ public class StartMenu : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        // Reset difficulty if you are going to the next scene
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // If current scene is "MainMenu", skip ahead by 2
+        int nextSceneIndex = currentSceneName == "MainMenu"
+            ? currentIndex + 2
+            : currentIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+    }
+
+    public void LoadTutorialLevel()
+    {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {

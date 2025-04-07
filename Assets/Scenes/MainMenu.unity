@@ -6428,8 +6428,8 @@ GameObject:
   - component: {fileID: 1687426473}
   - component: {fileID: 1687426472}
   - component: {fileID: 1687426471}
-  - component: {fileID: 1687426474}
   - component: {fileID: 1687426475}
+  - component: {fileID: 1687426476}
   m_Layer: 5
   m_Name: TutorialButton
   m_TagString: Untagged
@@ -6500,7 +6500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1687426472}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1687426476}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: LoadTutorialLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1687426472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6539,19 +6551,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687426469}
   m_CullTransparentMesh: 1
---- !u!114 &1687426474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687426469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592b50b0036f28a47b380660f2b580dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelToShow: {fileID: 2048856643}
 --- !u!114 &1687426475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6567,6 +6566,18 @@ MonoBehaviour:
   hoverSound: {fileID: 8300000, guid: 6f9f041a98bbfb54f84b09532d0ed4ee, type: 3}
   clickSound: {fileID: 8300000, guid: b4de88399ae04e543954d92e8683c0fc, type: 3}
   volume: 1
+--- !u!114 &1687426476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687426469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e73d9c183534c54b93ba83891d1e493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1726415155
 GameObject:
   m_ObjectHideFlags: 0
@@ -7073,9 +7084,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start Demo
-
-'
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

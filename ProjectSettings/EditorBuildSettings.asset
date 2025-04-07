@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3dbf00e12c506d84cb5cfd4039f4690f
+  - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: 6b38c5aed2e0fbe49ade6d85fea5e3d6
+  - enabled: 1
+    path: Assets/Scenes/WoodsLevel.unity
+    guid: 1c74bd3c13a8d94428c3c6c596ce7c3c
+  - enabled: 1
+    path: Assets/Scenes/SuburbLevel.unity
+    guid: 5640e996c4f2b2c409c275e79a546377
   - enabled: 0
     path: Assets/Scenes/DemoLevel.unity
     guid: de0c5b13c4e46c945b4215afebcb2f06
@@ -32,12 +41,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/level3.unity
     guid: bd577c880b589df4caafe8810a9b2348
-  - enabled: 1
-    path: Assets/Scenes/WoodsLevel.unity
-    guid: 1c74bd3c13a8d94428c3c6c596ce7c3c
-  - enabled: 1
-    path: Assets/Scenes/SuburbLevel.unity
-    guid: 5640e996c4f2b2c409c275e79a546377
   - enabled: 0
     path: Assets/Scenes/CityLevel.unity
     guid: 5df55e2d9523b214c8f3dd2c72be54db
