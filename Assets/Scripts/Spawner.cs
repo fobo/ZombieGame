@@ -56,25 +56,43 @@ public class Spawner : MonoBehaviour
             Debug.LogError($"Spawner {name}: Enemy prefab is not assigned!");
             return;
         }
-        if(GameObject.FindGameObjectsWithTag("Enemy").Length > maxEnemies) {
- 
-            
-            return;}//if the total number of enemies exceeds the limit, do not spawn.
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length > maxEnemies)
+        {
+
+
+            return;
+        }//if the total number of enemies exceeds the limit, do not spawn.
         Instantiate(returnRandomEnemy(), transform.position, transform.rotation);
     }
 
 
     //pick a random enemy from our enemy prefab list based on rarity.
-    public GameObject returnRandomEnemy(){
+    public GameObject returnRandomEnemy()
+    {
         GameObject pickedEnemy;
-        if(Util.RollChanceNoLuck(0.5f)){
+        if (Util.RollChanceNoLuck(0.5f))
+        {
             pickedEnemy = enemyPrefab[0]; // pick enemy 1
-        }else if (Util.RollChanceNoLuck(0.5f)){
+        }
+        else if (Util.RollChanceNoLuck(0.5f))
+        {
             pickedEnemy = enemyPrefab[1]; // pick enemy 2
-        }else if (Util.RollChanceNoLuck(0.5f)){
+        }
+        else if (Util.RollChanceNoLuck(0.5f))
+        {
             pickedEnemy = enemyPrefab[2]; // pick enemy 3
-        }else {
+        }
+        else if (Util.RollChanceNoLuck(0.5f))
+        {
             pickedEnemy = enemyPrefab[3]; // pick enemy 4
+        }
+        else if (Util.RollChanceNoLuck(0.5f))
+        {
+            pickedEnemy = enemyPrefab[4]; // pick enemy 5
+        }
+        else
+        {
+            pickedEnemy = enemyPrefab[5]; // pick enemy 6
         }
 
         return pickedEnemy;
@@ -112,7 +130,8 @@ public class Spawner : MonoBehaviour
     }
 
     //sets the maximum amount of enemies are allowed to exist on the map at once.
-    public void SetMaxEnemies(int setMax){
+    public void SetMaxEnemies(int setMax)
+    {
         maxEnemies = setMax;
     }
 
