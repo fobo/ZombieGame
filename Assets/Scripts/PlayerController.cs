@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     // Reference to the equipped gun
     [SerializeField] public Gun equippedGun;
 
-    [SerializeField] private WeaponData[] weaponSlots; // Customize as needed
+    [SerializeField] public WeaponData[] weaponSlots; // reference for which weapons we can equip and in what slots.
 
-    [SerializeField] public GameObject turret; //placeholder under we figure out how we want to add more turrets
+    [SerializeField] public GameObject turret; //placeholder until we figure out how we want to add more turrets
 
 
 

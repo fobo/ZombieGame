@@ -95,7 +95,7 @@ public class Gun : MonoBehaviour
         }
 
         // Instantiate a fresh copy of the weapon data
-        weaponData = ScriptableObject.Instantiate(newWeaponData);
+        weaponData = Instantiate(newWeaponData);
 
         // Reset stats before applying multipliers (Prevents stacking!)
         ResetWeaponStats(weaponData);
@@ -113,6 +113,8 @@ public class Gun : MonoBehaviour
         // Update the HUD with the correct ammo
         EventBus.Instance?.UpdateGunAnimationUI();
         EventBus.Instance?.UpdateAmmoUI(currentAmmo, weaponData.maxAmmo);
+        FindObjectOfType<HotbarUIController>().UpdateEquippedHighlight();
+
     }
 
 

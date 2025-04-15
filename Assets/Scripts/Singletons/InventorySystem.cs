@@ -110,6 +110,8 @@ public class InventorySystem : MonoBehaviour
             weapons.Add(weapon.weaponName, weapon);
 //            Debug.Log($"Picked up {weapon.weaponName}!");
             FindObjectOfType<WeaponUIManager>()?.UpdateWeaponUI();
+            FindObjectOfType<HotbarUIController>().UpdateHotbar();
+
         }
         else
         {
