@@ -100091,7 +100091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2ca2bfa232f3248a553cfe7eb2a640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 9a599fa40a14c1e49ba6d0d4800936f3, type: 3}
+  cursorTexture: {fileID: 2800000, guid: ecc2f2e63dd4c62409614e9d5b2c8046, type: 3}
   reloadRing: {fileID: 311789522}
   targetTransform: {fileID: 2091596315}
   aimLine: {fileID: 1148302250}
