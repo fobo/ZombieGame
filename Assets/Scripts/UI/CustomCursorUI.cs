@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CustomCursorUI : MonoBehaviour
@@ -18,6 +19,16 @@ public class CustomCursorUI : MonoBehaviour
     private float reloadDuration;
     private bool isReloading = false; // Track reloading state
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void Start()
     {
         cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
@@ -35,8 +46,7 @@ public class CustomCursorUI : MonoBehaviour
             playerGun.OnReloadStart += StartReloadAnimation;
         }
 
-        if (mainCamera == null)
-            mainCamera = Camera.main;
+
 
     }
 
@@ -65,6 +75,29 @@ public class CustomCursorUI : MonoBehaviour
         UpdateAimLine();
 
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (targetTransform == null)
+        {
+            var foundScript = FindObjectOfType<reallybadpracticescript>();
+            if (foundScript != null)
+            {
+                targetTransform = foundScript.transform;
+                Debug.Log("Target Transform assigned on scene load.");
+            }
+            else
+            {
+                Debug.LogWarning("No object with 'reallybadpracticescript' found in scene.");
+            }
+        }
+
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+
+    }
+
 
     private void UpdateAimLine()
     {

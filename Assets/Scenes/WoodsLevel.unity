@@ -451,12 +451,27 @@ MonoBehaviour:
     - {fileID: 2954713141506429448, guid: 26faf24d9e058f04b8f8af017215e2f3, type: 3}
   - name: TC6
     possibleDrops:
+    - {fileID: 954849381679672832, guid: db8932f4011c1b5429d6b2f2c9f28f8d, type: 3}
+    - {fileID: 954849381679672832, guid: d2dbb65699c06784ab3b8ab6175b4543, type: 3}
+    - {fileID: 954849381679672832, guid: 2c267eaffeb55a7429a6471459317a43, type: 3}
+    - {fileID: 954849381679672832, guid: 5ab60cb27281dba429007733510768f8, type: 3}
+    - {fileID: 954849381679672832, guid: 92b519dbb4fb6e04c9eb74b3a36978a7, type: 3}
+    - {fileID: 954849381679672832, guid: 523124e7249a0bb49aff3f2287f9fe0e, type: 3}
+    - {fileID: 954849381679672832, guid: a8739dac2d6c55f40b637da66ccd6d02, type: 3}
+    - {fileID: 954849381679672832, guid: 624dedf696ecfff4680da6bba19272ab, type: 3}
+    - {fileID: 954849381679672832, guid: f963ce964e94c29488d89eb92223e873, type: 3}
+    - {fileID: 954849381679672832, guid: ebea464acee6d21419fdf41df0bffd62, type: 3}
+    - {fileID: 954849381679672832, guid: 410a08863d67bf94d8ec314219f7cfcc, type: 3}
     - {fileID: 954849381679672832, guid: 9a298e2588e71a448b5fa618ef526aa6, type: 3}
     - {fileID: 954849381679672832, guid: 82df34d1853faad4987a22a006559394, type: 3}
     - {fileID: 954849381679672832, guid: ece4291f2612f5d44aab931a3a823dda, type: 3}
     - {fileID: 954849381679672832, guid: 83a5dbfd4cd285749b86a61319203dbc, type: 3}
     - {fileID: 954849381679672832, guid: d9420d8956e0aab42a7dd121f3206f26, type: 3}
     - {fileID: 954849381679672832, guid: af05f6d29f2b3df42b0df0feb4fde147, type: 3}
+    - {fileID: 954849381679672832, guid: 6148bc46c1237634b9d8aeed5db50abf, type: 3}
+    - {fileID: 954849381679672832, guid: 1b38bf2e776c83c448cd0025c30f7ad0, type: 3}
+    - {fileID: 954849381679672832, guid: 6fea8b39ea2dd9747a9aaa827f990d4f, type: 3}
+    - {fileID: 954849381679672832, guid: 6de85415a6b889646b0975071bb56cba, type: 3}
   - name: TC7
     possibleDrops:
     - {fileID: 954849381679672832, guid: b11fbe49dc531bd4db792413abfb8eef, type: 3}
@@ -471,6 +486,23 @@ MonoBehaviour:
     - {fileID: 954849381679672832, guid: e5218c61fe6411c4fb947401479dfee6, type: 3}
   - name: TC9
     possibleDrops:
+    - {fileID: 954849381679672832, guid: db8932f4011c1b5429d6b2f2c9f28f8d, type: 3}
+    - {fileID: 954849381679672832, guid: d2dbb65699c06784ab3b8ab6175b4543, type: 3}
+    - {fileID: 954849381679672832, guid: 2c267eaffeb55a7429a6471459317a43, type: 3}
+    - {fileID: 954849381679672832, guid: 5ab60cb27281dba429007733510768f8, type: 3}
+    - {fileID: 954849381679672832, guid: 92b519dbb4fb6e04c9eb74b3a36978a7, type: 3}
+    - {fileID: 954849381679672832, guid: 523124e7249a0bb49aff3f2287f9fe0e, type: 3}
+    - {fileID: 954849381679672832, guid: a8739dac2d6c55f40b637da66ccd6d02, type: 3}
+    - {fileID: 954849381679672832, guid: 624dedf696ecfff4680da6bba19272ab, type: 3}
+    - {fileID: 954849381679672832, guid: f963ce964e94c29488d89eb92223e873, type: 3}
+    - {fileID: 954849381679672832, guid: ebea464acee6d21419fdf41df0bffd62, type: 3}
+    - {fileID: 954849381679672832, guid: 410a08863d67bf94d8ec314219f7cfcc, type: 3}
+    - {fileID: 954849381679672832, guid: 9a298e2588e71a448b5fa618ef526aa6, type: 3}
+    - {fileID: 954849381679672832, guid: 82df34d1853faad4987a22a006559394, type: 3}
+    - {fileID: 954849381679672832, guid: ece4291f2612f5d44aab931a3a823dda, type: 3}
+    - {fileID: 954849381679672832, guid: 83a5dbfd4cd285749b86a61319203dbc, type: 3}
+    - {fileID: 954849381679672832, guid: d9420d8956e0aab42a7dd121f3206f26, type: 3}
+    - {fileID: 954849381679672832, guid: af05f6d29f2b3df42b0df0feb4fde147, type: 3}
     - {fileID: 954849381679672832, guid: 6148bc46c1237634b9d8aeed5db50abf, type: 3}
     - {fileID: 954849381679672832, guid: 1b38bf2e776c83c448cd0025c30f7ad0, type: 3}
     - {fileID: 954849381679672832, guid: 6fea8b39ea2dd9747a9aaa827f990d4f, type: 3}
@@ -108403,7 +108435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19573462c414cc4587de5e612db103f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 160
+  totalTime: 15
   timerText: {fileID: 466731241}
   levelSelectMenu: {fileID: 1369397454}
 --- !u!1001 &1774967277
@@ -121652,7 +121684,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4578257049175346864, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2091596318}
   m_SourcePrefab: {fileID: 100100000, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8, type: 3}
 --- !u!4 &2091596315 stripped
 Transform:
@@ -121670,6 +121706,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 431b2529274acee4784226cc5e9aa0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2091596317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4578257049175346864, guid: 95ca2e8c88bee0e4b98b20ba4e5f24a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2091596314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091596318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091596317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5570c7e13c16e4b4abcf36c9b7ae0159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2102743160
