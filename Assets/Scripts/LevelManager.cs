@@ -74,6 +74,8 @@ public class LevelManager : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
+        }else{
+            RevisitLevel(); // replays the last level
         }
     }
 

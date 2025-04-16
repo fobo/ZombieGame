@@ -24,12 +24,12 @@ MonoBehaviour:
     type: 3}
   maxAmmo: 8
   reloadSpeed: 3
-  fireRate: 1.2
+  fireRate: 0.9
   spread: 21
   bulletsPerShot: 8
-  damage: 15
+  damage: 16
   ammoType: 2
-  apValue: 1
+  apValue: 3
   stoppingPower: 1
   criticalChance: 0.05
   shootSFX: {fileID: 8300000, guid: 846480854707b3740ad11f11923e5268, type: 3}
@@ -39,9 +39,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 235f6f395971ba94b8d22a982c3c715a, type: 3}
   description: Test for the shotgun item
   baseReloadSpeed: 3
-  baseFireRate: 1.2
+  baseFireRate: 0.9
   baseSpread: 21
-  baseDamage: 15
-  baseAPValue: 1
+  baseDamage: 16
+  baseAPValue: 3
   baseStoppingPower: 1
   baseCriticalChance: 0.05

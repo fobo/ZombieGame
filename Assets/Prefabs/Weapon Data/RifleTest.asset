@@ -24,7 +24,7 @@ MonoBehaviour:
     type: 3}
   maxAmmo: 30
   reloadSpeed: 2.5
-  fireRate: 0.2
+  fireRate: 0.17
   spread: 8
   bulletsPerShot: 1
   damage: 20
@@ -40,7 +40,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 692de5006c5640a47a7e3882d520c3f7, type: 3}
   description: This is a default test weapon.
   baseReloadSpeed: 2.5
-  baseFireRate: 0.25
+  baseFireRate: 0.17
   baseSpread: 8
   baseDamage: 20
   baseAPValue: 15

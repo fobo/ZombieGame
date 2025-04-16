@@ -63,18 +63,43 @@ public class StatsUIManager : MonoBehaviour
         AddHealthStat();
 
 
-        AddModifier("Damage", MomentoSystem.Instance.GetDamageMultiplier());
+        AddModifierInt("Damage", MomentoSystem.Instance.GetDamageMultiplier());
         AddModifier("Armor Penetration", MomentoSystem.Instance.GetAPMultiplier());
         AddReverseModifier("Fire Rate", MomentoSystem.Instance.GetFireRateMultiplier());
         AddReverseModifier("Reload Speed", MomentoSystem.Instance.GetReloadSpeedMultiplier());
         AddReverseModifier("Spread", MomentoSystem.Instance.GetSpreadMultiplier());
-        //AddModifier("Movement Speed", MomentoSystem.Instance.GetMoveSpeedMultiplier()); //not yet functional
+        //AddModifier("Movement Speed", MomentoSystem.Instance.GetMoveSpeedMultiplier()); //functional, but no space in UI
         //AddModifier("Treasure Quality", MomentoSystem.Instance.GetTreasureClassMultiplier()); //not yet functional
-        AddModifier("Luck", MomentoSystem.Instance.GetLuckMultiplier());
+        AddModifierInt("Luck", MomentoSystem.Instance.GetLuckMultiplier());
         AddModifier("Critical Chance", MomentoSystem.Instance.GetCriticalChanceMultiplier());
         AddModifier("Critical Damage", MomentoSystem.Instance.GetCriticalDamageMultiplier());
         AddModifier("Stopping Power", MomentoSystem.Instance.GetStoppingPowerMultiplier());
     }
+
+    private void AddModifierInt(string statName, int value)
+    {
+        string color;
+        string sign;
+
+        if (value > 0)
+        {
+            color = "green";
+            sign = "+";
+        }
+        else if (value < 0)
+        {
+            color = "red";
+            sign = ""; // value already has '-' sign
+        }
+        else
+        {
+            color = "white";
+            sign = "+";
+        }
+
+        AddStat(statName, $"<color={color}>{sign}{value}</color>");
+    }
+
 
     private void AddModifier(string statName, float multiplier)
     {
