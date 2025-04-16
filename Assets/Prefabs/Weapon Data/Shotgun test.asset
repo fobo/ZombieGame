@@ -20,7 +20,8 @@ MonoBehaviour:
   reloadType: 2
   casingType: {fileID: 8608023441638839669, guid: 87ee7319d92af0641b4b10c1dcfa158e,
     type: 3}
-  magazineType: {fileID: 0}
+  magazineType: {fileID: 6319106780526859790, guid: 8b7e7fc4b6b78294abeb0a77ee088aa7,
+    type: 3}
   maxAmmo: 8
   reloadSpeed: 3
   fireRate: 1.2

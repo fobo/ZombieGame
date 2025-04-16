@@ -321,6 +321,7 @@ public class Gun : MonoBehaviour
 
     private void DropMagazine()
     {
+
         if (magazineSpawnPoint != null)
         {
             // Instantiate the magazine at the spawn point

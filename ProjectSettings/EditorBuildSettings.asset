@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WoodsLevel.unity
     guid: 1c74bd3c13a8d94428c3c6c596ce7c3c
   - enabled: 1
+    path: Assets/Scenes/CampGround.unity
+    guid: e747186fa50c85e4c81e1b29f4517244
+  - enabled: 1
     path: Assets/Scenes/SuburbLevel.unity
     guid: 5640e996c4f2b2c409c275e79a546377
   - enabled: 0

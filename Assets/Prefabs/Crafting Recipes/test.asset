@@ -25,7 +25,7 @@ MonoBehaviour:
   - type: 0
     craftingType: 2
     ammoType: 0
-    amount: 10
+    amount: 5
   - type: 1
     craftingType: 2
     ammoType: 1
