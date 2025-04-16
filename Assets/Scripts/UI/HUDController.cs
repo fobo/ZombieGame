@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System; // Ensure you have TextMeshPro package installed
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     public static HUDController Instance { get; private set; } // Singleton for easy access
@@ -9,6 +10,7 @@ public class HUDController : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI healthText;
+    public Image healthFillImage;
     public GameObject currentGun; // this is a reference to the current gun the player is holding.
     private StatsUIManager statsScript; // reference to the stats script so we can update the health easily
 
@@ -57,7 +59,7 @@ public class HUDController : MonoBehaviour
     {
         if (ammoText != null)
         {
-            ammoText.text = $"{currentAmmo} / {maxAmmo}";
+            ammoText.text = $"Ammo: {currentAmmo} / {maxAmmo}";
         }
     }
 
@@ -70,6 +72,11 @@ public class HUDController : MonoBehaviour
         if (healthText != null)
         {
             healthText.text = $"{currentHealth} / {maxHealth}";
+        }
+
+        if (healthFillImage != null && maxHealth > 0)
+        {
+            healthFillImage.fillAmount = (float)currentHealth / maxHealth;
         }
         SetHealthMaxHealth(currentHealth, maxHealth);
         OnHealthChanged?.Invoke();
