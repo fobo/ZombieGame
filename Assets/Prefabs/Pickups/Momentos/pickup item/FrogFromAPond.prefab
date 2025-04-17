@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Frog From A Pond
-  description: 10% More Max Health 10% More Critical Damage
+  description: +10 Max Health 10% More Critical Damage
   momentoIcon: {fileID: -1345214180, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

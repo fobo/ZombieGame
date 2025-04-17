@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Grandpa Alberts Skull
-  description: 30% Faster Reload Speed 20% Armor Piercing Increase
+  description: 10% Faster Reload Speed 20% Armor Piercing Increase
   momentoIcon: {fileID: -185600806, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

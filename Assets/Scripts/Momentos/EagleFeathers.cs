@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EagleFeathers : Momento
 {
-    public override float GetFireRateMultiplier() => 1.3f;
+    public override float GetFireRateMultiplier() => 1.1f;
 }

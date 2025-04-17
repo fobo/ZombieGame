@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Silk Infused Cloth
-  description: 20% More Max Health
+  description: +20 Max Health
   momentoIcon: {fileID: -1322259489, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

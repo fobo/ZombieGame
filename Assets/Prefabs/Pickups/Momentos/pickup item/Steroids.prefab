@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Steroids
-  description: 25% More Damage
+  description: +5 Damage
   momentoIcon: {fileID: 1288846329, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Fresh Water
-  description: 20% More Damage 10% More Fire Rate
+  description: +2 Damage 10% More Fire Rate
   momentoIcon: {fileID: 73018165, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

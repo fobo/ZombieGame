@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Spoiled Mystery Drink
-  description: -10% Max Health +75% Damage
+  description: -10 Max Health +7 Damage
   momentoIcon: {fileID: 1514572156, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

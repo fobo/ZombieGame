@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class RavenFeahers : Momento
 {
-    public override float GetFireRateMultiplier() => 1.2f;
+    public override float GetFireRateMultiplier() => 1.05f;
 }

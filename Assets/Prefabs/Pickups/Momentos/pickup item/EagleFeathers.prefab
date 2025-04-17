@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Eagle Feathers
-  description: 30% More Firing Speed
+  description: 10% More Firing Speed
   momentoIcon: {fileID: 1418062785, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}

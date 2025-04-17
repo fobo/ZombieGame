@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   momentoName: Leaded Show
-  description: 20% More Damage 30% More Stopping Power
+  description: +2 Damage 30% More Stopping Power
   momentoIcon: {fileID: -1464022097, guid: 079e801a91b15fe42b8d4a678ec5ed36, type: 3}
